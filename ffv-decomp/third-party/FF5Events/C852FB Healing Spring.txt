@@ -1,0 +1,18 @@
+C5 80 B5 02 70 C5 80 C8 49 00 0C 06 01 0B 14 CD
+75 07 14 CD 7F 05 DB FF
+
+C5 80			; Screen flash (must use twice?)
+B5 02 			; Play Sound Effect 02
+70 
+C5 80 			; Screen flash
+C8 49 00		; Show Text 0049
+0C 
+06 
+01				; Player Move Up 
+0B 
+14 
+CD 75 07 		; Run Event 0775 (Fist Pump)
+14 
+CD 7F 05 		; Run Event 057F (actual healing)
+DB 
+FF

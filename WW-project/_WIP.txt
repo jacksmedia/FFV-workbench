@@ -1,0 +1,380 @@
+4/24/26
+Claude Opus 4.5 offers...
+
+  C2:D45F  PHB / PHP / SEP #$20      ; setup
+  C2:D464  JSR $D4C5                 ; call helper
+  C2:D467  LDX $80                   ; X = character offset
+  C2:D469  LDA $0500,X / AND #$07    ; get some field
+  C2:D46E  XBA
+  C2:D46F  LDA $0501,X               ; job ID byte
+  C2:D472  AND #$1F                  ; mask to job index 0-31
+  C2:D474  LDY $7E
+  C2:D476  BIT $051A,X               ; ** test status (N=dead, V=stone) **
+  C2:D479  BVS +10                   ; stone? branch away
+  C2:D47B  BPL +2                    ; alive (N clear)? skip next
+  C2:D47D  LDA #$15                  ; ** DEAD: force palette 21 **  <-- THE CULPRIT
+
+
+This is revealing! Looking at C2:D987:
+  C2:D987  PHP / SEP #$20
+  C2:D98A  STA $D8           ; store the #$15 to temp
+  C2:D98C  JSR $E47D
+  C2:D98F  LDX $80
+  C2:D991  LDA $DA / STA $053A,X
+  C2:D996  LDA $D8           ; reload #$15
+  C2:D998  STA $0501,X       ; ★ STORE TO JOB ID FIELD!
+
+  This is a second mechanism! C2:D97F→D987 is storing #$15 (Freelancer job index) directly to $0501,X — the character's job ID field itself. If
+  the job ID gets overwritten to Freelancer, then even NOPping the palette override won't help because the character's job IS now Freelancer.
+
+...there are TWO writes to $9A:
+
+  1. C1:7CCC — first STA $9A (NOT hooked!)
+  2. C1:7CD9 — second write (this IS hooked in v1.0)
+
+
+
+
+; 3/21/26
+;This IS the CGRAM shadow! The first 32 bytes match CGRAM exactly (00 00 08 0C CE 39 FF 7F...). And I can see character
+;   palette data at the end including the KO'd character's modified palette.
+;
+;  The DMA copies $7E:7E09 → CGRAM every frame via NMI. Setting a write BP on this buffer will catch what writes the KO
+;  palette. Character OBJ palettes 4-7 are at WRAM 32649–32776 ($7E:7F89–$7E:8008). 
+;
+;● There it is. The entire KO palette mechanism decoded:
+;
+;  1. $D45F is called once per party member during the battle palette update
+;  2. It reads the job ID from $0501,X (AND #$1F = job index 0-21)
+;  3. It checks $051A,X for death/stone status via BIT (N flag = death, V flag = stone)
+;  4. If dead: LDA #$15 at $C2:D47C forces palette index 21 (Freelancer)
+;  5. If stone: uses a hardcoded stone palette from ROM
+;  6. If alive: uses the job's palette index
+;
+;  The fix is a 2-byte patch: change A9 15 at file offset $02D47C to EA EA (NOP NOP). This makes dead characters keep
+;  their job palette index instead of being overwritten with Freelancer.
+
+
+; v1.0
+;  WRAM bytes chosen were already in used by ATB routines.
+;  New palette storage bytes @ 7F:00C0-:00C3.
+;  Established this after consulting noisecross disassembly, 
+;  and observer testing candidate WRAM values.
+
+29 1C 4A 85 9A AD 0A D1 29 60 4A 4A 4A 4A 4A AA A5 9A D0 0A BF C0 00 7F F0 08 85 9A 80 04 9F C0 00 7F 5C DE 7C C1 00 00 00 00
+
+; v0.9
+;  Root cause: backup table was in ROM ($C9FFC2). Fix: put it in WRAM.
+;  Chosen address: $7F:0010–$7F:0013 (4 bytes in upper WRAM bank $7F).
+;  FFV only uses $7F at $7F:7700, $7F:7D00, $7F:D000 — the $7F:00xx region
+;  is untouched and zero-initialised at power-on. Safe to use.
+;
+;  Only bytes 20–23 and 30–33 of the freespace change:
+;    BF C2 FF C9 → BF 10 00 7F  (LDA $7F0010,X  — load backup[slot])
+;    9F C2 FF C9 → 9F 10 00 7F  (STA $7F0010,X  — save backup[slot])
+;  Hook is unchanged.
+
+;  Hook at file $017CD9 (5 bytes — replaces AND #$1C / LSR / STA $9A):
+  5C 9C FF C9 EA
+
+;  Freespace at file $09FF9C (42 bytes):
+  29 1C       ; AND #$1C          — replicate hook-site instruction
+  4A          ; LSR
+  85 9A       ; STA $9A           — $9A = palette_group×2 (0 if KO/Freelancer)
+  AD 0A D1    ; LDA $D10A         — re-read for slot extraction
+  29 60       ; AND #$60          — isolate bits 6-5 (party slot)
+  4A 4A 4A 4A 4A  ; LSR ×5       — shift to bits 1-0 → slot 0–3
+  AA          ; TAX               — X = slot index
+  A5 9A       ; LDA $9A           — check palette group
+  D0 0A       ; BNE save          — nonzero → alive, go save
+  BF 10 00 7F ; LDA $7F0010,X    — KO path: load backup[slot] from WRAM
+  F0 08       ; BEQ done          — backup=0 → genuine Freelancer, keep $9A=0
+  85 9A       ; STA $9A           — restore saved job palette group
+  80 04       ; BRA done
+  9F 10 00 7F ; STA $7F0010,X    — save path: backup[slot] = current group
+  5C DE 7C C1 ; JML $C17CDE      — return to loop (lda $88 / jsr $0A32)
+  00 00 00 00 ; padding (harmless unused ROM bytes)
+
+29 1C 4A 85 9A AD 0A D1 29 60 4A 4A 4A 4A 4A AA A5 9A D0 0A BF 10 00 7F F0 08 85 9A 80 04 9F 10 00 7F 5C DE 7C C1 00 00 00 00
+
+
+
+
+; v0.8 — FAILED (root cause identified)
+;  Bug: BF C2 FF C9 / 9F C2 FF C9 use bank $C9 for the backup table.
+;  $C9FFC2 is ROM, not WRAM. STA to ROM is silently discarded; LDA returns
+;  the $00 bytes written to the ROM image → backup always reads 0 → BEQ always
+;  fires → $9A stays 0 → Freelancer palette every KO. Logic was otherwise correct.
+
+;  Hook at file $017CD9 (5 bytes — replaces AND #$1C / LSR / STA $9A):
+  5C 9C FF C9 EA
+
+;  Freespace at file $09FF9C (42 bytes) — BROKEN:
+  29 1C 4A 85 9A AD 0A D1 29 60 4A 4A 4A 4A 4A AA A5 9A D0 0A BF C2 FF C9 F0 08 85 9A 80 04 9F C2 FF C9 5C DE 7C C1 00 00 00 00
+
+
+
+
+
+
+
+
+; Version 0.7
+; does not work
+  ┌──────────────────────────┬────────────────────┬──────────────────────────────────────────────────────────┐
+  │           Step           │    File offset     │                          Bytes                           │
+  ├──────────────────────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+  │ New hook                 │ $016289 (7 bytes)  │ 5C 9C FF C9 EA EA EA                                     │
+  ├──────────────────────────┼────────────────────┼──────────────────────────────────────────────────────────┤
+  │ Freespace routine        │ $09FF9C (19 bytes) │ BF AB FF C9 09 01 45 F7 99 03 02 5C 90 62 C1 38 3A 3C 3E 
+
+
+
+
+; Verison 0.5
+
+The complete patch
+
+  Two hook sites. Both replace LDA #$E0 + 3×STA (11 bytes) with a JML to freespace (4 bytes) + 7 NOPs.
+
+  Hook 1 — Function A at $C1/7D8C (file offset $017D8C)
+
+  Bytes to write at $017D8C:
+  5C 9C FF C9   ; JML $C9FF9C
+  EA EA EA EA   ; NOP ×4
+  EA EA EA      ; NOP ×3
+
+  5C 9C FF C9 EA EA EA EA EA EA EA 
+
+  Hook 2 — Function B at $C1/7DCB (file offset $017DCB)
+
+  Bytes to write at $017DCB:
+  5C B3 FF C9   ; JML $C9FFB3
+  EA EA EA EA
+  EA EA EA
+
+  5C B3 FF C9 EA EA EA EA EA EA EA
+
+
+  Freespace routines at $C9FF9C (file offset $09FF9C)
+
+  ; --- Routine A (19 bytes) ---
+  ; $09FF9C:
+  A9 E8         ; LDA #$E8   slot 0, palette 4
+  8D 88 BC      ; STA $BC88
+  A9 EA         ; LDA #$EA   slot 1, palette 5
+  8D 89 BC      ; STA $BC89
+  A9 EC         ; LDA #$EC   slot 2, palette 6
+  8D 8A BC      ; STA $BC8A
+  5C 97 7D C1   ; JML $C17D97  → continue at STZ $D102
+
+  A9 E8 8D 88 BC A9 EA 8D 89 BC A9 EC 8D 8A BC 5C 97 7D C1
+
+  ; --- Routine B (19 bytes) ---
+  ; $09FFB3:
+  A9 E8         ; LDA #$E8
+  8D 88 BC      ; STA $BC88
+  A9 EA         ; LDA #$EA
+  8D 89 BC      ; STA $BC89
+  A9 EC         ; LDA #$EC
+  8D 8A BC      ; STA $BC8A
+  5C D6 7D C1   ; JML $C17DD6  → continue at JMP $7DA7
+
+  A9 E8 8D 88 BC A9 EA 8D 89 BC A9 EC 8D 8A BC 5C D6 7D C1
+
+  Total freespace used: 38 bytes of the 100 available. ✓
+
+
+
+
+; Version 0.4
+
+; we'll use a small 4-byte lookup table in freespace
+; mapping job ID → OAM palette, and the subroutine will:
+
+  KO_PalettePin:
+      ; Process each of the 3 active slots
+      LDX #$00                  ; slot index 0-2 → $BC88/$BC89/$BC8A
+
+  .loop:
+      LDA $0501,X               ; job ID for this party slot
+                                ; (stride TBD — might need LDA ($0501 + slot*$50))
+      TAY
+      LDA JOB_TO_PAL,Y          ; ROM lookup: job ID → OAM palette (0-7)
+      ASL                       ; shift into bits 3-1 position
+      AND #$0E                  ; mask to just palette bits
+      ORA #$E0                  ; merge in flip + priority from original
+      STA $BC88,X               ; write corrected attribute
+      INX
+      CPX #$03
+      BNE .loop
+
+      JML return_addr
+
+  JOB_TO_PAL:
+      .db $04, $05, $06, ...    ; one byte per job ID (to be filled in)
+
+
+
+
+Notes supporting the hunt for the OAM palette reference:
+
+Carefully read all six screenshots. Here's the full breakdown.
+
+  A9 14 not found in any of these regions. The DMA source for the KO tiles probably gets loaded as a full 16-bit or
+  24-bit immediate in a different path, or inside a generic VRAM-transfer utility rather than inline. Let's set that
+  search pattern aside for now — there's a better lead.
+
+  ---
+  Strongest candidate: Screenshot 2, starting at $017D8C
+
+  Reading the bytes carefully across the row boundary:
+
+  017D8C: A9 E0        LDA #$E0
+  017D8E: 8D 88 BC     STA $BC88
+  017D91: 8D 89 BC     STA $BC89
+  017D94: 8D 8A BC     STA $BC8A
+  017D97: 8D 8B BC     STA $BC8B
+  017D9A: A9 00        LDA #$00
+  017D9C: 8D 84 D1     STA $D184
+  017D9F: 9C F0 D0     STZ $D0F0
+  017DA2: 9C 85 BC     STZ $BC85
+  017DA5: 60           RTS
+
+  That's a standalone function. $E0 = 1110 0000 — in OAM attribute byte format that's: Y-flip set, X-flip set, priority
+  2, palette 0. It writes the same hardcoded attribute to all four party slots at $BC88-$BC8B and returns. This is
+  almost certainly the OAM attribute initializer that locks all character sprites to palette 0 — including the KO pose.
+
+  What immediately precedes this at $017D78 is the 6-entry jump table for the animation state machine ($D102 AND $07
+  dispatch), with handler addresses $7E1F, $7E48, $7E6B, $7E1B, $7E44, $7E8B (all bank C1). This function at $017D8C
+  sits right after that table — it's likely called to reset/initialize all four slot attributes before the individual
+  per-character handlers run.
+
+  ---
+  Also notable: Screenshot 2, $017D30
+
+  017D30: A8           TAY
+  017D31: AD C5 F8     LDA $F8C5
+  017D34: D0 14        BNE +$14        ; skip the copy if flag set
+  017D36: B9 CC F9     LDA $F9CC,Y     ; load from table at $F9CC, indexed Y
+  017D39: 9D B7 AC     STA $ACB7,X     ; store to buffer at $ACB7+X
+  017D3C: C8           INY
+  017D3D: 98           TYA
+  017D3E: 29 0F        AND #$0F        ; keep low nibble (0–15)
+  017D40: A8           TAY
+  017D41: E8 E8 E8 E8  INX × 4
+  017D45: E0 80 00     CPX #$0080
+  017D48: D0 EC        BNE loop
+
+  This copies 32 bytes (stride of 4, 32 iterations × 4 = 128?) from a table at $F9CC into a buffer at $ACB7. Gated on
+  $F8C5. If $F9CC is a job-palette-index table and $ACB7 is the OAM or CGRAM shadow buffer, this is the palette
+  assignment loop — and $F8C5 is the condition that gates it.
+
+  ---
+  Screenshot 4, $018733-$01876F — second dispatch
+
+  018733: AD EF 3E     LDA $3EEF
+  018736: 29 07        AND #$07        ; 3-bit state index
+  018738: 0A           ASL
+  018739: AA           TAX
+  01873A: BF 4C 87 C1  LDA $C1874C,X   ; jump table at $C1874C
+  01873E: 85 70        STA $70
+  ...
+  018742: 6C 70 00     JMP ($0070)     ; indirect dispatch
+
+  Then at $018755:
+  AD BE DB     LDA $DBBE   ; check WRAM byte
+  F0 38        BEQ +$38    ; skip if zero
+  AD BD DB     LDA $DBBD
+  F0 30        BEQ +$30
+  A8           TAY
+  AD BE DB     LDA $DBBE
+  AA           TAX
+  A9 0F        LDA #$0F    ; ← interesting literal
+  85 70        STA $70
+  85 72        STA $72
+
+  $DBBE / $DBBD are adjacent WRAM bytes being checked before any sprite action — likely character HP or status. A9 0F
+  loading a constant $0F into DP is probably a palette-count or DMA-length parameter.
+
+  ---
+  Recommended next action:
+
+  Put a write breakpoint on $7EBC88 in Mesen (WRAM with $7E bank prefix), then trigger a hero KO. If it hits $017D8E
+  (STA $BC88), you've confirmed that's the initialization point. From there the patch strategy is clear: instead of LDA
+  #$E0 (hardcoded palette 0 for all four slots), branch to freespace that computes $E0 | (party_palette_slot << 1) per
+  slot using the job bytes at $0501/$0551/$05A1/$05F1, then stores the correct attribute for each of the four
+  $BC88-$BC8B entries individually.
+
+
+ What the memory viewer confirms ($017D80–$017DE0):
+
+  Reading carefully across row boundaries, I can now decode two distinct functions:
+
+  Function A — at $017D8C (right after the 6-entry jump table):
+  017D8C: A9 E0       LDA #$E0       ; palette 0, priority 2, flip bits
+  017D8E: 8D 88 BC    STA $BC88      ; → all 3 char OAM attributes get $E0
+  017D91: 8D 89 BC    STA $BC89
+  017D94: 8D 8A BC    STA $BC8A
+  017D97: 9C 02 D1    STZ $D102      ; zero animation state counters
+  017D9A: 9C 03 D1    STZ $D103
+  017D9D: 9C 04 D1    STZ $D104
+  017DA0: 9C F0 D0    STZ $D0F0
+  017DA3: 9C 85 BC    STZ $BC85      ; ← clears the flag seen in debugger
+  017DA6: 60          RTS
+
+  Function B — at $017DC0 (a second gated write):
+  017DC0: A9 02       LDA #$02
+  017DC2: 85 88       STA $88
+  017DC4: AD 04 D1    LDA $D104
+  017DC7: 25 88       AND $88        ; test bit 1 of $D104
+  017DC9: F0 0E       BEQ → $017DD9  ; if clear → branch
+  017DCB: A9 E0       LDA #$E0       ; same palette 0 hardcode
+  017DCD: 8D 88 BC    STA $BC88
+  017DD0: 8D 89 BC    STA $BC89
+  017DD3: 8D 8A BC    STA $BC8A
+  017DD6: 4C A7 7D    JMP $7DA7      ; return path
+  017DD9: A9 1F       LDA #$1F       ; ← branch target when bit clear
+  017DDB: 8D 11 D1    STA $D111      ; store $1F into state registers
+  017DDE: 8D 12 D1    STA $D112
+
+  The $1F stored to $D111/$D112 is the exact value the debugger code checks!
+
+  ---
+  What the debugger shows:
+
+  C1125C: LDA $04F2 [$7E04F2] = $17   ; current sprite-state for this character
+  C1125F: CMP #$1F                     ; is it the KO-lying-down state?
+  C11261: D0 2F  BNE $C11292           ; $17 ≠ $1F → branch taken (no KO right now)
+  C11263: LDA $BC85 [$7EBC85] = $00    ; (only reached when state IS $1F)
+  C11266: D0 2A  BNE $C11292
+  C11268: LDA $BC9B [$7EBC9B] = $00
+  C1126B: ORA #$20
+  C1126D: STA COLDATA                  ; sets SNES color math for KO sprite tinting
+
+  $04F2 is the sprite-state field for the character currently being processed in a per-character render loop. $1F =
+  state 31 = KO lying-down pose. The game is running a normal battle right now ($04F2 = $17 = some alive-state), so the
+  BNE fires and the KO path is skipped entirely. That's why $017D8E never showed up in your PC trace — you need a KO'd
+  hero for this code to fall through.
+
+  The $BC85 check gates the COLDATA (color-tinting) effect, and $BC85 is zeroed by Function A above when the animation
+  resets.
+
+  ---
+  The core picture:
+
+  Both Function A and Function B write the hardcoded $E0 (palette 0) to $BC88–$BC8A. These are the OAM attribute bytes
+  for the 3 visible character slots. The path to them is: animation state becomes $1F → $D111/$D112 get set to $1F →
+  eventually Function B fires (gated on $D104 bit 1) and locks in palette 0.
+
+  ---
+  How to confirm cleanly without the full debugger:
+
+  1. Get into a battle and let Bartz get KO'd
+  2. Pause the emulator
+  3. In the Memory Viewer, switch to WRAM (not PRG ROM) and check address $04F2
+  4. If it reads $1F, the KO state is active and that's the value gating everything
+
+  Once you confirm $04F2 = $1F during KO, the patch site is $017DCB — replace A9 E0 (LDA #$E0, hardcoded palette 0) with
+   a JML to freespace that reads the character's party slot from the same context and substitutes the correct palette
+  value into the attribute byte before writing to $BC88–$BC8A.

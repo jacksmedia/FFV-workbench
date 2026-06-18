@@ -1,0 +1,187 @@
+
+6FF99 - sort list (be careful not to touch 6FF98)
+code reads from 6FF98 tho @ 2E021
+2E02B = icon count
+add 2 to the number in this list
+
+C6 <shuriken>  
+E7 <knife>
+E3 <sword>
+B6 knightsword
+B7 ninjasword
+E8 <spear>
+E9 <axe>
+BF <hammer>
+EA <katana>
+EB <rod>
+EC <staff>
+ED <bow>
+EE <harp>
+EF <whip>
+F0 <bell>
+BE <misc>
+F1 <shield>
+B5 heavyhelm
+F2 <helmet>
+B4 hat
+C1 <ribbon>
+F3 armor
+B3 medarmor
+C3 <suit>
+BD <shoe>
+CC <glove>
+CA <claw>
+F4 <ring>
+BC <key>
+CF :
+
+[0xB3] = [[<medarmor>]],
+[0xB4] = [[<hat>]],
+[0xB5] = [[<heavyhelm>]],
+[0xB6] = [[<knightsword>]],
+[0xB7] = [[<ninjasword>]],
+
+C2d7f2 - calls the 'display top row' code for job eq screen/eq menu
+ 2ca2c - calls it for elsewhere
+
+0x7E01D8 - contains the class ID we're looking into
+20 = paladin, 21 = freelancer
+
+new -- 2FA600 -- icon data for 'can i equip'
+code to convert equippables to icons
+02/D7F6: A9 0A 00   	LDA #$000A ;; bottom row of status screen
+02/D7F9: 85 85      	STA $85 > JML MORE SHIT
+02/D7FB: A2 50 00   	LDX #$0050 > ea
+02/D7FE: 20 0D D8   	JSR $D80D < JML BACK
+02/D801: 60         	RTS 
+
+02/D802: A9 10 00   	LDA #$0010 ;; top row of status screen, eq, job change screen
+02/D805: 85 85      	STA $85 > JML SOME SHIT
+02/D807: A6 8E      	LDX $8E
+02/D809: 20 0D D8   	JSR $D80D < JML BACK
+02/D80C: 60         	RTS 
+
+STA $85   / 85 85
+LDA $01D8 / AD D8 01
+AND #$00FF / 29 FF 00
+CMP #$0014 / C9 14 00 // paladin or freelancer
+BCS 06 / B0 06
+LDX $8E / a6 8e
+JML $C2D809 / 5C 09 D8 C2
+LDA #$000D / A9 0D 00
+STA $85  / 85 85
+LDX $8E / a6 8e
+JML $C2D809 / 5c 09 d8 c2
+
+
+STA $85 / 85 85
+LDA $01D8 / AD D8 01
+AND #$00FF / 29 FF 00
+CMP #$0014 / C9 14 00 // paladin or freelancer
+BCS 07 / B0 07
+LDX #$0050 / a2 50 00 // start at armor
+JML $C2D7FE / 5C FE D7 C2
+LDX #$0041 / A2 41 00 // start at knightsword
+LDA #$000D / A9 0d 00
+STA $85  / 85 85
+JML $C2D7FE / 5c FE d7 c2
+
+02/D80D: A5 F9      	LDA $F9
+02/D80F: 3F AD F7 C0	AND $C0F7AD,x
+02/D813: 85 FD      	STA $FD
+02/D815: A5 FB      	LDA $FB
+02/D817: 3F AF F7 C0	AND $C0F7AF,x
+02/D81B: 05 FD      	ORA $FD
+02/D81D: F0 0E      	BEQ $D82D
+02/D81F: BF B1 F7 C0	LDA $C0F7B1,x
+02/D823: 29 FF 00   	AND #$00FF
+02/D826: F0 05      	BEQ $D82D
+02/D828: 99 00 00   	STA $0000,y
+02/D82B: C8         	INY 
+02/D82C: C8         	INY 
+02/D82D: E8         	INX 
+02/D82E: E8         	INX 
+02/D82F: E8         	INX 
+02/D830: E8         	INX 
+02/D831: E8         	INX 
+02/D832: C6 85      	DEC $85
+02/D834: D0 D7      	BNE $D80D
+02/D836: 60         	RTS 
+F7AD start -> F7EE start of second one (0x41 diff)
+-- 2FA600 -- icon data for 'can i equip'
+01 00 00 00 E7  / knife = knife
+04 00 00 00 E3  / sword = sword
+10 00 00 00 E8  / spear = spear
+20 00 00 00 E9  / axe = axe
+80 00 00 00 EA  / katana = katana
+00 01 00 00 EB  / rod = rod
+00 06 00 00 EC  / flail + staff = staff
+00 08 00 00 ED  / bow = bow
+00 10 00 00 EE  / harp = harp
+00 20 00 00 EF  / whip = whip
+00 40 00 00 F0  / bell = bell
+00 80 00 00 00  / none = none
+00 00 01 00 F1  / shield = shield
+08 00 00 00 B6  > knightsword = knightsword < 
+02 00 00 00 B7  > ninjasword = ninjasword < 
+40 00 00 00 BF  > hammer = hammer
+00 00 02 00 B5  > heavy helmet <
+00 00 04 00 F2  / light helmet
+00 00 00 10 B4  > mage hat = hat < 
+00 00 08 00 C1  / dancer helm = ribbon
+00 00 10 00 F3  / heavy armor = armor
+00 00 20 00 B3  > medium armor = medarmor < 
+00 00 40 00 C3  / mage robe = robe
+00 00 80 00 00  / common = none
+00 00 00 03 F4  / ring/glove = ring
+00 00 00 04 00  / thief glove = none
+
+01 00 00 00 E7 04 00 00 00 E3 10 00 00 00 E8 20 00 00 00 E9 80 00 00 00 EA 00 01 00 00 EB 00 06 00 00 EC 00 08 00 00 ED 00 10 00 00 EE 00 20 00 00 EF 00 40 00 00 F0 00 80 00 00 00 00 00 01 00 F1 08 00 00 00 B6 02 00 00 00 B7 40 00 00 00 BF 00 00 02 00 B5 00 00 04 00 F2 00 00 00 10 B4 00 00 08 00 C1 00 00 10 00 F3 00 00 20 00 B3 00 00 40 00 C3 00 00 80 00 00 00 00 00 03 F4 00 00 00 04 00 
+0x7C bytes
+
+80 Katana              Common
+40 Hammer    Bell      Mage robe
+20 Axe       Whip      Light a.
+10 Spear     Harp      Heavy a.  Mage hat
+08 Knight s. Bow       Dancer g. Chemist g.
+04 Sword     Flail     Light h.  Thief g.
+02 Ninja s.  Staff     Heavy h.  Ring
+01 Knife     Rod       Shield    Glove
+
+F1 <shield>
+B5 heavyhelm
+F2 <helmet>
+B4 hat
+C1 <ribbon>
+F3 armor
+B3 medarmor
+C3 <suit>
+BD <shoe>
+CC <glove>
+CA <claw>
+F4 <ring>
+BC <key>
+
+old:
+03 00 00 00 E7  / knife + ninja sword = knife
+0C 00 00 00 E3  / sword + knightsword = sword
+10 00 00 00 E8  / spear = spear
+60 00 00 00 E9  / axe + hammer = axe
+80 00 00 00 EA  / katana = katana
+00 01 00 00 EB  / rod = rod
+00 06 00 00 EC  / flail + staff = staff
+00 08 00 00 ED  / bow = bow
+00 10 00 00 EE  / harp = harp
+00 20 00 00 EF  / whip = whip
+00 40 00 00 F0  / bell = bell
+00 80 00 00 00  / none = none
+00 00 01 00 F1  / shield = shield
+00 00 0E 00 F2  / heavy/light/dancer helm = helmet
+00 00 70 00 F3  / heavy/light/mage armor = armor
+00 00 80 00 00  / common = none
+00 00 00 03 F4  / ring/glove = ring
+00 00 00 04 00  / thief glove = none
+
+2/CD4F - where icons are written to in vram in job menu
+7E65EA - where the Eqp: code is written to
+  65F2 - where the icons are written to

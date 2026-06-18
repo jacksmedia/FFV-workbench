@@ -1,0 +1,48 @@
+# ROM files - NEVER commit these
+*.sfc
+*.smc
+*.nes
+*.gba
+*.gb
+*.gbc
+*.n64
+*.z64
+*.nds
+
+# ROM backups
+*.sfc.bak
+*.smc.bak
+
+# IPS patches (generated, can be large)
+*.ips
+
+# Third-party patches with extremely long filenames (Windows path limit)
+patches/backups*/
+
+# Build outputs
+out/
+
+# External tools and nested git repos
+Mesen2-Expanded/
+tools/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if any)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Large PDFs (optional - remove this line if you want to track them)
+*.pdf

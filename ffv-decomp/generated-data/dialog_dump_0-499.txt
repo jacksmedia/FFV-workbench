@@ -1,0 +1,505 @@
+# FFV Dialog Text Dump (Dialogs 0-499)
+# Source: dialog pointer table $E013F0, text at $E10000+
+# Encoding: $FF=space, $00=null terminator, $01=newline
+# Format: Dialog# | First ~60 chars of decoded text
+
+   0 | Nothing happened.
+   1 | Can't carry any more items!
+   2 | Obtained !
+   3 | Obtained Gil!
+   4 | Obtained !
+   5 | Monster-in-a-box!!
+   6 | It's empty...
+   7 | Please select a name.
+   8 | Opened lock.
+   9 | Welcome to the Traveler's Inn! Room and board is Gil f
+  10 | Welcome to the Traveler's Inn! Room and board is Gil f
+  11 | Welcome to the Traveler's Inn! Room and board is Gil f
+  12 | Welcome to the Traveler's Inn! Room and board is Gil f
+  13 | Welcome to the Traveler's Inn! Room and board is Gil f
+  14 | Please rest well...
+  15 | Please come again!
+  16 | A sacred power protects this spot... You can rest using
+  17 | Pretty Good! Received 100 Gil!
+  18 | Locked from the inside.
+  19 | It's locked.
+  20 | Obtained Cabin!
+  21 | Lenna: Father!
+  22 | Lenna: Do you really have to go? King: Lenna, you
+  23 | King: Something about the wind bothers me... I must go
+  24 | Lenna: Yes... I can feel it, too... But, by yourself...?
+  25 | Faris: The wind... stopped...
+  26 | The wind stopped!! I've got to hurry!!
+  27 | Lenna: The wind...!! Has something happened... to
+  28 | King Tycoon: What!?
+  29 | I'll teach you about the Rings... The Fire Ring... abso
+  30 | Moogle: Kupo!
+  31 | Equip/Optimum selects equipment based on attack and defen
+  32 | Boco, let's go!
+  33 | Boco, wait here.
+  34 | Are you okay? Lenna: Y..., yes...
+  35 | Lenna: Thank you very much for helping me. I'm Lenna.
+  36 | <Bartz>: I'm <Bartz>. Journeying with a chocobo to n
+  37 | Lenna: This thing suddenly came falling from the sky...
+  38 | Lenna: Thank you so much. I wish I could repay you, but
+  39 | <Bartz>: Hey, wait a sec...
+  40 | Lenna: Did you hear something? <Bartz>: Huh? Ugh......
+  41 | Unnh... Help...
+  42 | <Bartz>: It's coming from over there!
+  43 | Lenna: Are you all right? Old Man: Where am I...? Ooh
+  44 | Old Man: What... what's with me...? I can't remember...
+  45 | Old Man: ...ah! That's right, my name's Galuf! Lenna:
+  46 | Lenna: I'm really very sorry, but I have to hurry. <Bartz>
+  47 | Galuf: The Wind Shrine!! I have a feeling that's where
+  48 | Galuf: I MUST go. Please take me with you!!
+  49 | Lenna: <Bartz>... What about you? <Bartz>: I'll contin
+  50 | Lenna: <Bartz>... Thank you so much! Goodbye... Galuf:
+  51 | <Bartz>: Ouch... Boco! Don't stop so suddenly!
+  52 | <Bartz>: Why are you giving me that look!? Wark! Wark,
+  53 | <Bartz>: ... I know... It's an old man and a girl... An
+  54 | Lenna: Eeeek! Galuf: Aaggh!
+  55 | <Bartz>: Boco, let's hurry!! Wark!!
+  56 | Lenna: Unhh... ...
+  57 | <Bartz>: Hey! Lenna: <Bartz>!!
+  58 | Lenna: Thank you so very much... <Bartz>: Aw, stop that.
+  59 | <Bartz>: The meteor's shock's collapsed cliffs and made
+  60 | Lenna: But I have to get to the Wind Shrine... Galuf: U
+  61 | Galuf: To the Wind Shrine... got to hurry... to the Wind
+  62 | <Bartz>: You know what? I'm going to go with you. Lenna
+  63 | <Bartz>: Hey, you were awake!! Galuf: Of course I was!
+  64 | Galuf: But the road has been blocked... What will we do
+  65 | Lenna: But we must go! Galuf: Yeah. <Bartz>: Well, the
+  66 | Lenna: A cave in such a place... <Bartz>: It must have bee
+  67 | <Bartz>: Boco, it's dangerous ahead. You've got stay ba
+  68 | Wark!
+  69 | <Bartz>: Let's go, Boco!
+  70 | Wark!
+  71 | <Bartz>: That spring...!
+  72 | This is a Spring of Recovery. HP/MP restored! Status rest
+  73 | HP/MP restored! Status restored! Recovered from 'Wounded' st
+  74 | <Bartz>: That button...?
+  75 | <Bartz>: That ship...? How does it sail without wind...?
+  76 | <Bartz>: This must be the pirates' hideout... so that s
+  77 | Lenna: I wonder if we couldn't get a ride?
+  78 | <Bartz>: Uhh... these are PIRATES we're talking about
+  79 | Galuf: Well, then we haven't but to sneak the ship ourse
+  80 | <Bartz>: Hey old man, you're more daring than I thought!
+  81 | <Bartz>: He's sleeping...
+  82 | Pirate: Mumble... mumble...
+  83 | <Bartz>: We're off!!
+  84 | Zzz... zzz... I fixed the ship's wheel, Captain... Zzz..
+  85 | Galuf: <Bartz>... What's wrong? <Bartz>: It's no use.
+  86 | And just what do you think you're doing!?
+  87 | Faris: How bold you are! Just going to sneak in here an
+  88 | Lenna: I am Tycoon's princess Lenna. I apologize for tr
+  89 | <Bartz>: Tycoon's... Galuf: ... princess!?
+  90 | <Bartz>: But that sure was a shock... that Lenna was the
+  91 | Lenna: Please! Please lend us your ship! I must get t
+  92 | Faris: Eh! You're Tycoon's princess! This one's gonna
+  93 | Lenna: I beg you!!
+  94 | Faris: That pendant...
+  95 | Faris: Keep them locked up! Pirates: Yes Cap'n!!
+  96 | Galuf: This is great... Who the heck said we should ste
+  97 | <Bartz>: Hey there old man, I think it was YOU!
+  98 | Galuf: Ooo... my head hurts! I... can't remember... <Bartz>
+  99 | Faris: Why would the princess of Tycoon have the same pe
+ 100 | Faris: She said her father is at the Wind Shrine...
+ 101 | Faris: We're heading for the Wind Shrine!
+ 102 | Pirates: Captain, what should we do with these people?
+ 103 | Faris: Hurry up!!
+ 104 | Lenna: Why...? Faris: I'm saying that I'm going to l
+ 105 | Faris: Answer me! Pirates: A... ay-ay, sir!
+ 106 | Faris: We're off!
+ 107 | Lenna: But, with the wind stopped... how will the ship
+ 108 | Faris: Syldra! Why don't you introduce youself?
+ 109 | Faris: How about that! Syldra and I grew up together.
+ 110 | Would you like me to navigate until we get to the Wind Shr
+ 111 | I'm seasick...
+ 112 | Captain! Please take these with you! Received 8 Potions!
+ 113 | Received 8 Potions!
+ 114 | Be careful!
+ 115 | Captain... I... I love you....
+ 116 | The earthquake connected our hideout to a weird cave.
+ 117 | We'll be alright while the Captain's away.
+ 118 | We're pirates, we do what we like!
+ 119 | We found a funny bird collapsed in the cave.
+ 120 | We'll protect the hideout!!
+ 121 | Some bird that goes wark' is having its wounds treated in
+ 122 | <Bartz>: Boco's footprints... Could he have chased after
+ 123 | It's alright! You can leave this bird to me! He'll be fi
+ 124 | <Bartz>: Boco!
+ 125 | Boco: W... Wark... Lenna: He's hurt!
+ 126 | He had fallen in the cave, so we brought him here. He'll
+ 127 | <Bartz>: Please take good care of him!
+ 128 | Just leave it to me!
+ 129 | Wark... <Bartz>: Boco, get well soon!
+ 130 | Princess Lenna!
+ 131 | Over here, please!
+ 132 | Princess Lenna!
+ 133 | Lenna: What in the world is going on...?
+ 134 | The wind suddenly stopped, and monsters came rushing into
+ 135 | Lenna: What about Father!?
+ 136 | King Tycoon has gone up to the top floor... but he hasn't
+ 137 | Something must have happened!
+ 138 | Faris: The Crystal Room is on the top floor! Let's go!!
+ 139 | Lenna: Faris... Thanks!
+ 140 | Monsters raided the shrine... and we ended up fleeing to
+ 141 | King Tycoon went to the top floor to see what was going o
+ 142 | The Wind Crystal was being controlled by a machine...
+ 143 | The machine suddenly stopped responding to our commands..
+ 144 | Princess Lenna, please take these with you. Received 5
+ 145 | This water will revitalize you when you drink it.
+ 146 | Please, be careful.
+ 147 | Princess Lenna... The power of the wind continues to wea
+ 148 | We will pray here for the revival of the Crystal.
+ 149 | The wind's power will fade steadily... When the wind st
+ 150 | Could the machine that was amplifying the Crystal's power
+ 151 | I've heard that the power of the Crystals in Worus and Ka
+ 152 | If all the Crystals should shatter...?
+ 153 | <Bartz>: Stand guard!!
+ 154 | Lenna: The Crystal! <Bartz>: It's shattered!!
+ 155 | <Bartz>: Huh?
+ 156 | The Spirit of Fire Courage
+ 157 | The Spirit of Water Kindness
+ 158 | The Spirit of Earth Hope
+ 159 | The Spirit of Wind Pursuit
+ 160 | <Bartz>: What... Faris: ... in the world? Galuf: It feels
+ 161 | ... Le... Lenna....
+ 162 | Lenna: Father!! Faris: !?
+ 163 | Listen well. You are the chosen warriors... The four who
+ 164 | The Wind Crystal has shattered. And it seems as though t
+ 165 | Lenna: Father!!
+ 166 | Go! Chosen warriors... Protect the Crystals...
+ 167 | Lenna: Father...!!!
+ 168 | Lenna: What are these? <Bartz>: Pieces of the Crystal?
+ 169 | The Crystal Pieces These hold the power
+ 170 | <Bartz>: Pieces of Crystal... They're lending us their po
+ 171 | Galuf: Let's talk later. We need to get out of here.
+ 172 | Faris: Lenna...
+ 173 | Lenna: If I remember correctly, there should be a warp g
+ 174 | How to use the Pieces of Crystal Would you like an explana
+ 175 | Final Fantasy V Job/Ability Syst
+ 176 | By using a Job, each of the four warriors can gain specia
+ 177 | When you select a Job or any Abilities, your equipment wi
+ 178 | By combining Jobs and Abilities skillfully, you can creat
+ 179 | Then, as you gain Ability Points (ABP) in battle, you wil
+ 180 | Wark!
+ 181 | Wark!
+ 182 | Pirates: Beer, beer!!
+ 183 | Faris: I'm going too.
+ 184 | Pirates: We're off!
+ 185 | Faris: Hey! Were you trying to leave me here!?
+ 186 | We're only helping you out because the Captain said so!
+ 187 | Captain... I... I love you...
+ 188 | The Captain's on the second floor!
+ 189 | And Lenna's cute too!
+ 190 | You guys've gotta have some too!
+ 191 | The pirates' leader? The leader went upstairs.
+ 192 | Special Service!!!
+ 193 | Whew!!
+ 194 | There's no more beer. The pirates drank ALL of it!
+ 195 | I... I'm not peeking or anything...!
+ 196 | Dancer: Have a seat there, and look this way!
+ 197 | <Bartz>: Hold on, I'll go take a look.
+ 198 | Galuf: <Bartz>! Is something wrong? <Bartz>: No... not
+ 199 | Galuf: Beautiful... Makes my heart throb!
+ 200 | Lenna: What are you two babbling about?
+ 201 | Faris: Ahhh... Hmmm... I slept well...
+ 202 | Faris: What are you guys doing? Snap out of it!
+ 203 | Faris: Sorry, but I'd like to be left alone for a while.
+ 204 | The pirates went into the Pub!
+ 205 | ... Hic! ... The pirates've taken over the Pub... Hic
+ 206 | I'm getting dizzy.
+ 207 | Did you say a meteor fell near Tycoon Castle? It looks l
+ 208 | Once, long, long ago... a dreadful monster was sealed at
+ 209 | If you continue east after going through the Canal, you'l
+ 210 | With a machine amplifying the Wind Crystal's energy, we'r
+ 211 | The wind seems to be getting weaker...
+ 212 | The monster of the Canal aims only at women.
+ 213 | The pirates really lost their spirits.
+ 214 | The pirates said they were returning to their hideout and
+ 215 | They said they were pirates, and we were all afraid. But
+ 216 | Shall I take you to the Beginner's House?
+ 217 | Wow, you're confident.
+ 218 | Close your eyes for a moment!
+ 219 | Alright, we're there!
+ 220 | Are you beginners?
+ 221 | Please, come on in!
+ 222 | NO LOITERING...
+ 223 | GET OUT!!
+ 224 | Thank you for visiting the Beginner's House!
+ 225 | Sometimes there are things hidden in objects like treasure
+ 226 | Put characters with weak defense power, like magic users,
+ 227 | If your hair becomes white, you are Aging.' Your status
+ 228 | The character who is normally displayed in walkabout mode
+ 229 | Undead monsters and ghosts can be defeated with restorati
+ 230 | Be on the lookout for secret passages! For example, you
+ 231 | Be sure to save frequently. That way, if you're ever to
+ 232 | Do you want an explanation about the Job/Ability System?
+ 233 | Numbers will pop up in battle. White numbers show damage.
+ 234 | In battle, if you hold down the L and R buttons simultane
+ 235 | When your HP (Hit Points) are low, use items like Potions
+ 236 | There's a present from me inside this box!
+ 237 | Sometimes monsters lurk in treasure chests! Be careful!
+ 238 | Wait Mode' You can change the battle mode to Wait' in t
+ 239 | Would you like to hear about a few of the more complicate
+ 240 | Double Grip' With this, you hold a weapon in one hand a
+ 241 | Faris: Don't forget me!
+ 242 | Faris: Well, see ya later!
+ 243 | Lenna: This is Zokk's house...
+ 244 | <Bartz>: Someone you know?
+ 245 | Lenna: Yes. He's the man who built the gate to the Tor
+ 246 | Lenna: It doesn't look like he's home right now... <Bartz>
+ 247 | Zokk: Princess Lenna! Lenna: Zokk!
+ 248 | Zokk: It's nice to see you again. Lenna: Zokk... I have
+ 249 | Zokk: And besides... I've lost the key to the Canal...
+ 250 | Zokk: Anyways, Princess Lenna, please stay at my house f
+ 251 | Zokk: Come right this way.
+ 252 | <Bartz>: The Crystals... Dad used to talk about those,
+ 253 | The Crystals must be protected...
+ 254 | If anything should happen to me, don't tell <Bartz> about
+ 255 | ...
+ 256 | Lenna: ... Father... I'll protect the Crystals...
+ 257 | Zokk: Is anything wrong?
+ 258 | <Bartz>: No... I was just thinking about my late mom an
+ 259 | Zokk: ... Please, take this! <Bartz>: What is it? Zokk:
+ 260 | Zokk: I've been hiding my worries about Princess Lenna..
+ 261 | Zokk: Please keep her safe!
+ 262 | Zokk: Princess Lenna! Please, be very careful!!
+ 263 | Pirates: Captain! Wait up!!
+ 264 | Faris: I'm going to leave you here!
+ 265 | Captain! Why!? We'll go with you!!
+ 266 | Faris: I'm sorry, you can't.
+ 267 | Pirate: But Captain!!
+ 268 | Faris: It looks like it's going to be a long journey...
+ 269 | Pirate: A... ay-ay, sir!
+ 270 | Pirate: Take good care of yourself, Captain!
+ 271 | <Bartz>: Lenna, what's wrong?
+ 272 | The Wind Crystal has shattered...
+ 273 | Now, the wind's power is only weakening... But before l
+ 274 | Father said to protect the other three Crystals.
+ 275 | <Bartz>: Three Crystals...? The Crystals of Water, Fire,
+ 276 | <Bartz>: But what if they shatter...? For a while, not
+ 277 | Galuf: We're going to protect the Crystals!
+ 278 | <Bartz>: Oh, your memory's returned?
+ 279 | Galuf: Nope. But I'm going to protect them anyways!
+ 280 | Faris: I'll go too!
+ 281 | Faris: We have to search for Lenna's father! <Bartz>:
+ 282 | Faris: I know he's alive! Lenna's father wouldn't just di
+ 283 | Lenna: <Bartz>... Will you come with us...?
+ 284 | <Bartz>: I was only a wanderer... But when I look at t
+ 285 | Lenna: The Pieces of Crystal... <Bartz>: They're lendin
+ 286 | Galuf: Alright, we're on our way!
+ 287 | Galuf: <Bartz>! Where'd you get the key to the Canal!?
+ 288 | The canal's gates are locked.
+ 289 | <Bartz>: What is THAT? Lenna: It couldn't be... The m
+ 290 | Faris: I'm losing control!! Galuf: We're being sucked i
+ 291 | Faris: Syldra, what is it!? <Bartz>: Stand guard!!
+ 292 | Faris: Syldra! <Bartz>: It's still alive!! It's try
+ 293 | Faris: Syldra!
+ 294 | Faris: Let go! Let go of me!!! Syldraaaa!!!
+ 295 | <Bartz>: How's Faris...? Galuf: I think we should just
+ 296 | <Bartz>: This ship... It's being cast away... isn't it?
+ 297 | Lenna: Faris... I'm sure Syldra's alive...
+ 298 | <Bartz>: Where are we? Faris: The Ship Graveyard... Lenn
+ 299 | Faris: Do you really want to go through here? We'll al
+ 300 | <Bartz>: Man, I'm soaked... Lenna: This place seems safe.
+ 301 | Lenna: I have to go dry my clothes... Don't peek!
+ 302 | <Bartz>: C'mon, let's dry our clothes!
+ 303 | Faris: I'm just fine... really... Galuf: How can you sa
+ 304 | Faris: Stop that! Hey, I said stop!!
+ 305 | Lenna: What's goin on?
+ 306 | <Bartz>: Lenna, Fa... Faris is... Galuf: A girl!!
+ 307 | Faris: What's wrong with that!? Lenna: But, why...?
+ 308 | Faris: I was found by the pirates when I was little, and
+ 309 | Galuf: Hmph. I knew you were too beautiful to be a man!
+ 310 | Faris: Hey, just remember that my being female doesn't m
+ 311 | Faris: Aaaah, slept well... Alright, let's get going!!
+ 312 | Galuf: I still think Faris seems like a man... <Bartz>
+ 313 | Lenna: Yeah!
+ 314 | Faris: What're you doing? Let's go!!
+ 315 | <Bartz>: I've got a bad feeling about this...
+ 316 | Stella: <Bartz>... Come here, honey... <Bartz>: Mom...
+ 317 | King Tycoon: Come here... Lenna: Father!
+ 318 | Faris: Lenna!?.... ....uhhn...
+ 319 | Girl: Grandpa... Come over here...
+ 320 | Galuf: Who are you...? I can't remember...
+ 321 | Let me take your souls... Join us!
+ 322 | Galuf: Who the heck are you!? Hrmph... Why won't my sp
+ 323 | Galuf: Sorry, but I can't do that! Siren: Why do you prote
+ 324 | Galuf: Don't be fooled by her! Open your eyes!
+ 325 | <Bartz> awakened! Lenna awakened! Faris awakened!
+ 326 | <Bartz>: Galuf! You saved our lives!! Galuf: Don't swe
+ 327 | <Bartz>: Don't be embarrassed! Galuf: I'm not!!
+ 328 | Obtained World Map!
+ 329 | Since the wind's weakened, we can't send out ships.
+ 330 | The sea is getting so still... Isn't it sad?...
+ 331 | This town's harbor is the best in the world! But now our
+ 332 | We can't catch fish anymore!
+ 333 | You came from the Ship Graveyard? You aren't ghosts,
+ 334 | A desert's appeared to the west. It's scary.
+ 335 | The Hiryuu were used in a war 50 years ago, and nearly di
+ 336 | The Crystals have shattered... I wonder what will happen
+ 337 | So it's true, huh? A meteor fell near Tycoon?
+ 338 | The Tower of Worus sank? Well, if you had a submarine, y
+ 339 | If we can't send boats out, we can't get to Worus. This
+ 340 | I wonder what that tall tower standing in the desert that
+ 341 | Boats aren't going to Worus anymore! It's all because of
+ 342 | The wind and water have both died. Now there's definite
+ 343 | The country of Worus lies to the south of this town, acro
+ 344 | Don't you think I'm beautiful?
+ 345 | Poof!
+ 346 | Didn't I look like a woman? What do you think of my dis
+ 347 | Merchant: See, just like I said.
+ 348 | Lately I haven't been fighting with my wife.
+ 349 | My wife keeps saying weird things. She rambles about som
+ 350 | It's amazing, but it looks like what my husband was sayin
+ 351 | Looks like I still need to listen to my husband.
+ 352 | It's true!! A big dragon was flying towards the North M
+ 353 | The purple flowers that bloom on the North Mountain are
+ 354 | My husband says he saw a dragon flying towards the North
+ 355 | Those lizard-like hibernating things can't stand the cold
+ 356 | Do you have a World Map? Then you can see the whole wor
+ 357 | Knights can hold things in both hands! Hic!
+ 358 | I heard that there is some Hiryuu Plant on the North Moun
+ 359 | There used to be a strange guy who mimicked people. He
+ 360 | Hiryuu and Hiryuu Plant are both really rare. I bet they
+ 361 | Lenna: We've got to stop them! But how can we get to Woru
+ 362 | Galuf: Faris... I'm sorry.
+ 363 | Lenna: <Bartz>, don'y you know of any good way to get
+ 364 | <Bartz>: And if we can't go by sea... we must go by...
+ 365 | I really saw it... I saw a dragon go flying towards the
+ 366 | Lenna: What kind of dragon!? It almost looked like it was
+ 367 | Lenna: My father's Hiryuu is on the North Mountain?...
+ 368 | Faris: What's wrong, Lenna? Lenna: There is a plant gro
+ 369 | Galuf: And if we can't go by sea... <Bartz>: ...
+ 370 | Lenna: Father's helmet!
+ 371 | Lenna was poisoned!
+ 372 | <Bartz>: Lenna!
+ 373 | Magisa: Hehehe... We came chasing after the Hiryuu, bu
+ 374 | Magisa: And look, it's the princess of Tycoon! She'll m
+ 375 | Faris: Stop!!
+ 376 | <Bartz>: Faris! Magisa: She fell! Heehee...
+ 377 | Magisa: Huh!?
+ 378 | <Bartz>: Lenna!
+ 379 | Magisa: Crap, I guess I'll just have to take out all four
+ 380 | Lenna: Thanks, Faris!
+ 381 | Lenna: Hiryuu! Faris: What an awful wound... Lenna: Hir
+ 382 | Faris: Lenna! What do you think you're doing!?
+ 383 | Lenna: I'm alright. Stay back! If I can treat it with t
+ 384 | Lenna: Hurry... Give this to the Hiryuu...
+ 385 | Lenna: Get better, Hir-...
+ 386 | Galuf: That was a truly rash thing to do...
+ 387 | Lenna's status was restored! Lenna: Hiryuu...thank y
+ 388 | <Bartz>: I.. I'm... kind of afraid of heights...
+ 389 | <Bartz>: Hey, what's so funny!? Galuf: Oh, just get on!
+ 390 | Who are you? Get out, get out!!
+ 391 | You can't enter the Tower without permission from the King
+ 392 | This water is so pretty, thanks to the Crystal! Monster
+ 393 | With the Crystal lost, the water has gradually tainted...
+ 394 | King Worus is great! He's using the power of the Water
+ 395 | Our kind King's wounds have put his life in danger...
+ 396 | The Crystal is in the Worus Tower.
+ 397 | The Crystal's gone now...
+ 398 | Is it true that Tycoon's Crystal shattered?
+ 399 | As with Tycoon, our Crystal has shattered. It's said th
+ 400 | To the north is Worus Tower. That's where all the town's
+ 401 | A soldier of Karnak was found near the meteor. But Karna
+ 402 | This is Galura. He lives around the Worus Tower. He's a
+ 403 | How could someone be so cruel as to use Galura like that!
+ 404 | The town is protected from monsters by the water.
+ 405 | The Crystal is gone... and so is the power of water...
+ 406 | Ribbit, ribbit!
+ 407 | The frogs have it easy!
+ 408 | Being protected by the power of water, the kingdom of Wor
+ 409 | If you run into a monster called Garkimasera, you're done
+ 410 | There's a rumor that a treasure sleeps in the basement of
+ 411 | The legends say that the ice Esper Shiva was sealed somew
+ 412 | I heard that a meteor fell near the Worus Tower north of h
+ 413 | Hey, will you please let me out of here?
+ 414 | Yaaay I'm so lucky!!
+ 415 | I'm the great thief, Lone Wolf!! Won't you let me out?
+ 416 | I'm the great thief, Lone Wolf!! I won't forget about you
+ 417 | Jerk!!
+ 418 | <Bartz>: Ugh!!
+ 419 | <Bartz>: Whew... it was only rusted... we'd better stay
+ 420 | <Bartz>: He's passed out... Let's leave.
+ 421 | The king is very nice, but he still doesn't forgive bad t
+ 422 | ...(sigh)... How can I continue research on Crystals wi
+ 423 | I'd be able to make some progress if only I could see the
+ 424 | According to this book... Esper Shiva... was sealed in water
+ 425 | The water purified by the Crystal flows from the tower to
+ 426 | This is the Castle of Worus!
+ 427 | The King has headed to the meteor.
+ 428 | The people down in the dungeon are trash. Don't listen t
+ 429 | I am the ice Esper Shiva... Are you fit to be my masters?
+ 430 | Obtained Esper Shiva!
+ 431 | King Worus: Why, if it isn't Princess Lenna! Lenna: K
+ 432 | Lenna: Please! Please stop amplifying the power of the
+ 433 | Lenna: But if you continue, the Crystal will shatter!
+ 434 | But... we can't be sure that same will happen to the Wate
+ 435 | <Bartz>: We're in no situation to be taking chances!
+ 436 | <Bartz>: What was that!?
+ 437 | Soldier: Your highness! A meteor has fallen near the To
+ 438 | King: Quickly! Gather the soldiers!! Head for the Tow
+ 439 | King: I'm sorry, but this is very urgent business. Prin
+ 440 | King: Let's go!!
+ 441 | Galura suddenly went wild and ran into the tower. The Kin
+ 442 | Galura's never attacked humans before...
+ 443 | King Worus: Galura went upstairs... Please... Protect
+ 444 | He's dead...
+ 445 | Warrior: Galura is being controlled! We can't let him
+ 446 | <Bartz>: Stand guard!!
+ 447 | Lenna: The Crystal!!
+ 448 | Lenna: We were too late... Warrior: Unnh...
+ 449 | Warrior: Unnh... ...Sir Galuf!!!
+ 450 | Galuf: You know who I am? Warrior: Sir Galuf... I wasn't
+ 451 | Galuf: Tell me! Who am I!? Warrior: Protect the... Fire
+ 452 | Faris: The shards of the Crystal... <Bartz>: Are they lend
+ 453 | Red Mage
+ 454 | Berserker
+ 455 | Mystic Knight
+ 456 | Time Mage
+ 457 | Summoner
+ 458 | <Bartz>: What's happening!? Faris: The tower's sinking?
+ 459 | Faris: Syldra!
+ 460 | Faris: Syldra! You're alive!!
+ 461 | Lenna: Syldra... You used the last of your power to re
+ 462 | Faris: Syldraaa! Don't die!!
+ 463 | Lenna: Syldra... Thank you......
+ 464 | Faris: Syl...dra....
+ 465 | Karnak Soldier: As I was investigating the inside of the
+ 466 | I can't believe the Water Crystal has shattered...
+ 467 | The King was attacked by Galura... He is resting in is ro
+ 468 | That soldier came out of a hole in the meteor up north.
+ 469 | We brought in a wounded soldier from Karnak. He's sleepi
+ 470 | King: So you were correct... -cough-... Lenna: King W
+ 471 | King: It appears a meteor has also fallen near Karnak...
+ 472 | ...-cough-, -cough-...
+ 473 | Princess Lenna... If you have the Hiryuu, why don't you
+ 474 | Please hear the King's request.
+ 475 | Lenna: <Bartz>! Galuf: Was he warped?
+ 476 | Lenna: Let's follow him!
+ 477 | Galuf: This place... I recognize it... And that soldier i
+ 478 | <Bartz>: The energy is getting weaker....
+ 479 | You're alright!!
+ 480 | The Chancellor awaits you.
+ 481 | The party is still going on. Listen, you can hear it!
+ 482 | Princess Lenna!!
+ 483 | We are so glad that you were safe!
+ 484 | Ah, Princess Lenna!
+ 485 | Hey everyone!! Princess Lenna's come back!!
+ 486 | Chancellor: Princess Lenna! Lenna: I'm sorry to have worri
+ 487 | Lenna: ... And... Father is still alive!
+ 488 | Chancellor: I understand. We will protect this kingdom
+ 489 | Lenna: I'll certainly return with Father. Until then,
+ 490 | Chancellor: Anyways, why don't you stay at the castle fo
+ 491 | Lenna: Faris?
+ 492 | Faris: Huh? Oh it's you, Lenna... What is it?
+ 493 | Lenna: Sister... Faris: !? Lenna: Sister, aren't you? F
+ 494 | Faris: Me, a pirate leader, really a princess...? That'
+ 495 | Lenna: But... Your pendant...
+ 496 | <Bartz>... <Bartz>! <Bartz>: ... ...HUHN!
+ 497 | Lenna: -giggle-... Galuf: What are you doing!? Faris: Hah
+ 498 | Faris: Lenna, are you awake?
+ 499 | Lenna: Yes. Faris: When I was little, the shock from fa

@@ -1,0 +1,1945 @@
+# FFV Event Script Names (Events 0-1939)
+# Naming priority: Dialog > Subroutine dialog > Shop/Inn > Map name > Content
+# Format: Event# | Address | Size | Name | EventSwitches | NPCSwitches | NPCScript
+# EventSwitches: ES<id>=ON/OFF  NPCSwitches: NS<id>=ON/OFF  NPCScript: npc:<id>
+
+   0 | $C849DC |     0B | [empty/unused] | | | npc:18 npc:26 npc:33 npc:39 npc:43 npc:44 npc:46 npc:50 npc:52 npc:53 npc:74 npc:75 npc:76 npc:77 npc:78 npc:79 npc:80 npc:87 npc:88 npc:111 npc:127 npc:128 npc:218 npc:255 npc:336 npc:340 npc:363 npc:364 npc:377 npc:384 npc:405 npc:476 npc:486 npc:545 npc:574 npc:575 npc:576 npc:579 npc:601 npc:602 npc:603 npc:604 npc:611 npc:636 npc:638 npc:880 npc:881 npc:900 npc:913 npc:914 npc:917 npc:918 npc:919
+   1 | $C849DC |     3B | NPC: "Can't carry any more items!" | | | npc:9 npc:11 npc:17 npc:19 npc:25 npc:28 npc:34 npc:40 npc:42 npc:51 npc:56 npc:57 npc:58 npc:59 npc:60 npc:61 npc:62 npc:63 npc:64 npc:65 npc:66 npc:67 npc:68 npc:69 npc:70 npc:71 npc:72 npc:73 npc:81 npc:82 npc:83 npc:85 npc:86 npc:91 npc:93 npc:96 npc:97 npc:98 npc:99 npc:100 npc:101 npc:102 npc:103 npc:104 npc:105 npc:106 npc:107 npc:108 npc:110 npc:112 npc:113 npc:114 npc:115 npc:116 npc:118 npc:119 npc:123 npc:124 npc:125 npc:126 npc:130 npc:131 npc:132 npc:133 npc:134 npc:135 npc:136 npc:137 npc:138 npc:139 npc:140 npc:141 npc:142 npc:143 npc:144 npc:145 npc:156 npc:157 npc:158 npc:159 npc:160 npc:161 npc:163 npc:165 npc:166 npc:168 npc:169 npc:170 npc:171 npc:172 npc:181 npc:192 npc:193 npc:194 npc:195 npc:196 npc:197 npc:198 npc:199 npc:200 npc:201 npc:203 npc:204 npc:207 npc:209 npc:210 npc:211 npc:212 npc:215 npc:221 npc:222 npc:233 npc:234 npc:246 npc:248 npc:250 npc:257 npc:258 npc:259 npc:260 npc:261 npc:262 npc:263 npc:264 npc:266 npc:269 npc:272 npc:273 npc:274 npc:275 npc:281 npc:282 npc:284 npc:285 npc:288 npc:289 npc:305 npc:312 npc:314 npc:320 npc:321 npc:322 npc:323 npc:324 npc:325 npc:326 npc:327 npc:328 npc:330 npc:331 npc:332 npc:333 npc:334 npc:335 npc:337 npc:338 npc:339 npc:344 npc:345 npc:346 npc:347 npc:348 npc:349 npc:350 npc:351 npc:352 npc:353 npc:354 npc:355 npc:356 npc:357 npc:358 npc:359 npc:360 npc:362 npc:365 npc:366 npc:367 npc:368 npc:369 npc:370 npc:371 npc:372 npc:373 npc:374 npc:378 npc:379 npc:380 npc:381 npc:382 npc:383 npc:385 npc:386 npc:387 npc:388 npc:389 npc:390 npc:393 npc:394 npc:395 npc:396 npc:397 npc:398 npc:399 npc:400 npc:401 npc:402 npc:403 npc:404 npc:408 npc:409 npc:410 npc:411 npc:428 npc:429 npc:430 npc:431 npc:432 npc:433 npc:434 npc:435 npc:436 npc:437 npc:438 npc:439 npc:451 npc:452 npc:453 npc:454 npc:455 npc:456 npc:457 npc:464 npc:465 npc:466 npc:467 npc:468 npc:469 npc:470 npc:471 npc:472 npc:473 npc:474 npc:475 npc:480 npc:481 npc:482 npc:483 npc:484 npc:485 npc:487 npc:489 npc:490 npc:492 npc:493 npc:494 npc:495 npc:502 npc:504 npc:506 npc:511 npc:514 npc:515 npc:516 npc:518 npc:519 npc:520 npc:521 npc:531 npc:544 npc:546 npc:547 npc:548 npc:549 npc:550 npc:551 npc:552 npc:553 npc:554 npc:555 npc:556 npc:557 npc:558 npc:559 npc:560 npc:561 npc:580 npc:581 npc:582 npc:583 npc:584 npc:585 npc:586 npc:587 npc:588 npc:589 npc:590 npc:591 npc:605 npc:606 npc:610 npc:617 npc:618 npc:619 npc:620 npc:621 npc:622 npc:623 npc:624 npc:625 npc:626 npc:627 npc:628 npc:629 npc:630 npc:631 npc:632 npc:633 npc:634 npc:635 npc:637 npc:652 npc:672 npc:673 npc:674 npc:686 npc:687 npc:688 npc:689 npc:690 npc:691 npc:692 npc:693 npc:694 npc:695 npc:696 npc:704 npc:705 npc:713 npc:714 npc:716 npc:717 npc:718 npc:719 npc:724 npc:725 npc:726 npc:727 npc:728 npc:729 npc:730 npc:731 npc:732 npc:733 npc:734 npc:735 npc:736 npc:737 npc:738 npc:739 npc:740 npc:741 npc:742 npc:752 npc:753 npc:754 npc:768 npc:769 npc:770 npc:771 npc:776 npc:779 npc:780 npc:781 npc:782 npc:783 npc:784 npc:785 npc:794 npc:795 npc:816 npc:817 npc:818 npc:819 npc:820 npc:821 npc:831 npc:832 npc:833 npc:834 npc:835 npc:839 npc:843 npc:844 npc:864 npc:866 npc:868 npc:869 npc:870 npc:872 npc:873 npc:874 npc:875 npc:876 npc:882 npc:883 npc:884 npc:885 npc:886 npc:887 npc:890 npc:891 npc:892 npc:894 npc:895 npc:896 npc:897 npc:898 npc:912
+   2 | $C849DF |     3B | NPC: "Obtained !" | | | npc:40 npc:56 npc:57 npc:58 npc:59 npc:60 npc:61 npc:67 npc:68 npc:69 npc:70 npc:71 npc:72 npc:73 npc:102 npc:103 npc:104 npc:112 npc:113 npc:114 npc:115 npc:116 npc:118 npc:119 npc:123 npc:124 npc:125 npc:130 npc:132 npc:133 npc:136 npc:137 npc:139 npc:141 npc:143 npc:144 npc:161 npc:163 npc:165 npc:166 npc:168 npc:169 npc:170 npc:192 npc:193 npc:197 npc:199 npc:201 npc:208 npc:221 npc:249 npc:257 npc:258 npc:259 npc:260 npc:261 npc:284 npc:288 npc:321 npc:322 npc:323 npc:324 npc:325 npc:326 npc:327 npc:328 npc:330 npc:331 npc:332 npc:333 npc:334 npc:335 npc:378 npc:379 npc:380 npc:381 npc:382 npc:383 npc:393 npc:394 npc:395 npc:396 npc:397 npc:398 npc:399 npc:400 npc:401 npc:402 npc:403 npc:404 npc:408 npc:409 npc:481 npc:482 npc:483 npc:484 npc:485 npc:489 npc:490 npc:493 npc:495 npc:502 npc:504 npc:518 npc:551 npc:555 npc:558 npc:618 npc:620 npc:621 npc:622 npc:623 npc:624 npc:625 npc:626 npc:628 npc:629 npc:630 npc:631 npc:632 npc:633 npc:634 npc:635 npc:674 npc:686 npc:687 npc:688 npc:689 npc:690 npc:705 npc:725 npc:726 npc:736 npc:737 npc:738 npc:752 npc:753 npc:769 npc:816 npc:817 npc:818 npc:819 npc:820 npc:821 npc:831 npc:832 npc:834 npc:835 npc:843 npc:882 npc:883 npc:885 npc:886 npc:887 npc:890 npc:891 npc:892 npc:912
+   3 | $C849E2 |     3B | NPC: "Obtained Gil!" | | | npc:103 npc:112 npc:113 npc:119 npc:136 npc:192 npc:199 npc:201 npc:208 npc:221 npc:249 npc:251 npc:256 npc:259 npc:260 npc:309 npc:311 npc:321 npc:322 npc:324 npc:325 npc:326 npc:327 npc:330 npc:332 npc:333 npc:399 npc:493 npc:502 npc:621 npc:622 npc:623 npc:624 npc:630 npc:632 npc:633 npc:635 npc:686 npc:689 npc:690 npc:724 npc:725 npc:726 npc:736 npc:737 npc:738 npc:751 npc:752 npc:753 npc:817 npc:832 npc:891 npc:892
+   4 | $C849E5 |     3B | NPC: "Obtained !" | | | npc:113 npc:119 npc:136 npc:251 npc:307 npc:308 npc:325 npc:326 npc:327 npc:330 npc:332 npc:502 npc:622 npc:623 npc:724 npc:736 npc:737 npc:738 npc:817 npc:891 npc:892
+   5 | $C849E8 |     3B | NPC: "Monster-in-a-box!!" | | | npc:131 npc:326 npc:327 npc:330 npc:332
+   6 | $C849EB |     3B | NPC: "It's empty..." | | | npc:306 npc:313 npc:504 npc:517
+   7 | $C849EE |     3B | NPC: "Please select a name." | | | npc:131
+   8 | $C849F1 |     3B | NPC: "Opened lock." | | | npc:131
+   9 | $C849F4 |     1B | [empty/unused]
+  10 | $C849F5 |     6B | [call(1407)]
+  11 | $C849FB |     6B | [party_action]
+  12 | $C84A01 |    19B | [call(204), event_switch] | ES356=OFF ES357=OFF ES359=OFF ES360=OFF ES361=OFF ES510=OFF | |
+  13 | $C84A14 |     6B | NPC: "Can't carry any more items!" | | | npc:276 npc:277 npc:278 npc:292 npc:293 npc:294 npc:295 npc:296 npc:297 npc:298 npc:299 npc:300 npc:301 npc:302 npc:303 npc:455
+  14 | $C84A1A |    13B | call(185): "Faris: ... Lenna... There's one"
+  15 | $C84A27 |    18B | "Huh?" (Y/N)
+  16 | $C84A39 |     6B | call(38): "Lenna: Father!"
+  17 | $C84A3F |    10B | [call(972)]
+  18 | $C84A49 |    10B | [call(706)]
+  19 | $C84A53 |     5B | [call(972)]
+  20 | $C84A58 |     5B | [call(706)]
+  21 | $C84A5D |    18B | [World Map (Bartz' World) #1]
+  22 | $C84A6F |    14B | [call(204), call(1761), event_switch] | ES510=ON ES369=OFF | |
+  23 | $C84A7D |    14B | call(690): "Space bends... And time flows ba" | ES510=ON ES369=OFF | |
+  24 | $C84A8B |    21B | [call(910), obj_action]
+  25 | $C84AA0 |    60B | [obj_action]
+  26 | $C84ADC |   100B | [obj_action, party_action]
+  27 | $C84B40 |     9B | [obj_action]
+  28 | $C84B49 |    19B | [obj_action]
+  29 | $C84B5C |    12B | [party_action, sound, event_switch] | ES271=ON | |
+  30 | $C84B68 |     9B | [Airship #1]
+  31 | $C84B71 |    15B | call(347): "rcrffnit"
+  32 | $C84B80 |    15B | "HP/MP restored! Status restored!" | | | npc:48 npc:608 npc:899
+  33 | $C84B8F |     0B | [empty/unused] | | | npc:49
+  34 | $C84B8F |    95B | "Galuf: Bartz! Where'd you get th" | ES453=OFF | |
+  35 | $C84BEE |     7B | [sound, event_switch] | ES269=ON | |
+  36 | $C84BF5 |   126B | "Galuf: I'm sure it was somewhere" | ES71=ON | |
+  37 | $C84C73 |    13B | [Tycoon Meteorite #1]
+  38 | $C84C80 |   597B | "Lenna: Father!" | ES510=ON ES476=ON | |
+  39 | $C84ED5 |   253B | [Chocobo Forest #1] | ES510=OFF ES510=ON ES480=ON ES511=ON ES446=ON | |
+  40 | $C84FD2 |    29B | "Boco, wait here." | ES511=OFF | |
+  41 | $C84FEF |     7B | [Tycoon Meteorite #2]
+  42 | $C84FF6 |     6B | call(44): "Are you okay? Lenna: Y..., yes.."
+  43 | $C84FFC |     6B | call(44): "Are you okay? Lenna: Y..., yes.."
+  44 | $C85002 |   294B | "Are you okay? Lenna: Y..., yes.." | ES510=ON ES306=ON ES455=ON | NS50=ON |
+  45 | $C85128 |   221B | "Bartz: Ouch... Boco! Don't stop" | ES511=OFF ES510=ON | |
+  46 | $C85205 |     7B | [World Map (Bartz' World) #2]
+  47 | $C8520C |   123B | "Lenna: A cave in such a place..." | ES282=ON ES283=ON ES511=OFF | NS52=ON |
+  48 | $C85287 |    63B | "Bartz: Boco, it's dangerous ahea" | ES283=ON ES511=OFF | NS52=ON |
+  49 | $C852C6 |    33B | "Bartz: Let's go, Boco!" | ES283=OFF ES511=ON | NS52=OFF |
+  50 | $C852E7 |    20B | "Bartz: That spring...!" | ES307=ON | |
+  51 | $C852FB |    24B | "HP/MP restored! Status restored!"
+  52 | $C85313 |   143B | "Bartz: That button...?" | ES19=ON | |
+  53 | $C853A2 |   100B | "Bartz: What's that...?" | ES510=ON ES510=OFF ES20=ON | |
+  54 | $C85406 |   167B | "Bartz: This must be the pirates'" | ES284=ON | |
+  55 | $C854AD |    10B | "Bartz: He's sleeping..." | | | npc:54
+  56 | $C854B7 |    62B | "Pirate: Mumble... mumble..." | | | npc:55
+  57 | $C854F5 |    10B | [call(1890), sound, event_switch] | ES256=ON | | npc:53
+  58 | $C854FF |    17B | call(440): "pgKrilepAll ttKPBartziOr!h YjZhQ" | ES291=ON ES315=OFF | |
+  59 | $C85510 |    27B | call(1318): "Bartz: Boco!"
+  60 | $C8552B |    16B | [Tycoon Meteorite #3]
+  61 | $C8553B |   101B | "Galuf: This is it!" | ES73=ON ES450=ON | NS90=OFF | npc:90
+  62 | $C855A0 |   155B | "Princess Lenna!" | ES287=ON | |
+  63 | $C8563B |  1365B | "Lenna: The Crystal! Bartz: It's" | ES510=ON ES23=ON ES510=OFF | NS75=OFF NS76=OFF NS77=OFF NS78=OFF NS79=OFF NS80=OFF NS126=ON |
+  64 | $C85B90 |    73B | "How to use the Pieces of Crystal" (Y/N)
+  65 | $C85BD9 |    29B | [World Map (Bartz' World) #3]
+  66 | $C85BF6 |    54B | "Bartz: Stand guard!!" | ES288=ON | NS74=OFF NS75=ON NS76=ON |
+  67 | $C85C2C |    26B | "This is a Spring of Recovery. HP" | ES18=ON | |
+  68 | $C85C46 |    61B | "Lenna: It doesn't look like he's" | ES305=ON | |
+  69 | $C85C83 |   251B | "Pirates: Beer, beer!!" | ES272=ON ES320=ON ES454=OFF | NS13=OFF |
+  70 | $C85D7E |    65B | "Faris: Hey! Were you trying to l" | ES272=OFF ES454=ON | NS13=ON |
+  71 | $C85DBF |   476B | "Pirates: Captain! Wait up!!" | ES29=ON ES454=ON | NS96=OFF NS97=OFF NS98=OFF NS99=OFF NS100=OFF NS59=ON NS60=ON NS61=ON NS62=ON NS63=ON NS107=OFF NS87=OFF NS88=OFF NS13=ON |
+  72 | $C85F9B |    47B | "Bartz: Something's wrong! Look o" | ES72=ON | |
+  73 | $C85FCA |   390B | "Bartz: Hold on, I'll go take a l" | ES26=ON | NS107=ON NS87=ON NS88=OFF |
+  74 | $C86150 |    66B | "Lenna: This is Zokk's house..." | ES27=ON | |
+  75 | $C86192 |   608B | "Zokk: Princess Lenna! Lenna: Zok" | ES510=ON ES510=OFF ES28=ON ES453=ON | NS126=OFF NS119=ON |
+  76 | $C863F2 |    15B | [Fire-Powered Ship Below Deck #1]
+  77 | $C86401 |    10B | "Cid: If only I hadn't created su"
+  78 | $C8640B |    18B | [World Map (Bartz' World) #4]
+  79 | $C8641D |    10B | [Torna Canal #1]
+  80 | $C86427 |    18B | [Torna Canal #2]
+  81 | $C86439 |    38B | call(34): "Galuf: Bartz! Where'd you get th" | ES510=ON ES30=ON ES510=OFF | |
+  82 | $C8645F |    38B | call(34): "Galuf: Bartz! Where'd you get th" | ES510=ON ES30=ON ES510=OFF | |
+  83 | $C86485 |     4B | "The canal's gates are locked."
+  84 | $C86489 |    58B | "Faris: Do you really want to go" | ES31=ON | |
+  85 | $C864C3 |   539B | "Bartz: Man, I'm soaked... Lenna:" | ES510=ON ES510=OFF ES32=ON | |
+  86 | $C866DE |   716B | "Bartz: I've got a bad feeling ab" | ES33=ON | |
+  87 | $C869AA |    37B | [call(508), call(902), obj_action, party_action]
+  88 | $C869CF |    68B | NPC: "It's empty..." | ES34=ON | | npc:131
+  89 | $C86A13 |    69B | "Lenna: We've got to stop them! B" | ES175=ON | NS136=ON NS131=ON | npc:135
+  90 | $C86A58 |   732B | "Lenna: Father's helmet!" | ES35=ON | NS975=ON NS203=ON NS152=OFF |
+  91 | $C86D34 |   479B | "Lenna: Hiryuu! Faris: What an aw" | ES36=ON | NS151=OFF NS153=OFF NS136=ON NS131=ON |
+  92 | $C86F13 |    12B | [Ghido's Cave B5 #1]
+  93 | $C86F1F |    55B | [give_take_item, party_action]
+  94 | $C86F56 |    23B | NPC: "Can't carry any more items!" | ES37=ON | NS213=OFF | npc:213
+  95 | $C86F6D |   348B | "King Worus: Why, if it isn't Pri" | ES510=ON ES510=OFF ES482=ON | NS157=OFF NS158=OFF NS159=ON NS160=ON |
+  96 | $C870C9 |   465B | "Warrior: Galura is being control" | ES39=ON ES477=ON | NS225=ON NS223=OFF NS224=OFF NS231=OFF NS232=OFF |
+  97 | $C8729A |    57B | "Bartz: What's happening!? Faris:" | ES510=ON | |
+  98 | $C872D3 |     7B | [Walse Meteorite #1]
+  99 | $C872DA |    65B | NPC: "Can't carry any more items!" | ES41=ON | | npc:208
+ 100 | $C8731B |   128B | "Lenna: Bartz! Galuf: Was he warp" | ES164=ON ES42=ON | |
+ 101 | $C8739B |   323B | "Lenna: ... And... Father is stil" | ES510=ON ES510=OFF ES43=ON | NS265=ON NS262=OFF NS263=OFF NS264=OFF NS257=OFF NS266=ON NS265=OFF |
+ 102 | $C874DE |    25B | "Chancellor: Princess Lenna, this" | ES44=ON | NS318=OFF NS320=ON | npc:318
+ 103 | $C874F7 |    29B | NPC: "Can't carry any more items!" | | | npc:41
+ 104 | $C87514 |    67B | "It's them! Bartz: ??? You must b" | | | npc:647
+ 105 | $C87557 |    80B | "It's them! Bartz: ??? You must b" | | | npc:648
+ 106 | $C875A7 |    35B | [call(1907), obj_action, party_action, sound]
+ 107 | $C875CA |   743B | "Galuf: Now what do we do...? Bar" | ES257=ON ES262=ON ES45=ON | NS361=OFF NS362=ON NS339=OFF NS370=OFF NS371=ON NS372=ON NS373=ON NS374=ON NS342=OFF | npc:342
+ 108 | $C878B1 |    15B | call(441): "pgKrilepAll ttKPBartziOr!h YjZhQ"
+ 109 | $C878C0 |    12B | [World Map (Bartz' World) #5]
+ 110 | $C878CC |    14B | call(441): "pgKrilepAll ttKPBartziOr!h YjZhQ"
+ 111 | $C878DA |  1550B | "Lenna: The Crystal!" | ES510=OFF ES510=ON ES48=ON ES475=ON | NS343=OFF NS363=OFF NS364=ON NS344=OFF NS345=OFF NS346=OFF NS347=OFF NS348=OFF NS349=OFF NS350=OFF NS351=OFF NS352=OFF NS353=OFF NS354=OFF NS355=OFF NS356=OFF NS357=OFF NS358=OFF NS359=OFF NS360=OFF NS361=OFF NS362=OFF NS365=ON NS366=ON NS367=ON NS368=ON NS369=ON NS338=OFF NS340=ON NS371=OFF NS372=OFF NS373=OFF NS374=OFF |
+ 112 | $C87EE8 |     7B | [Karnak Castle Crystal Chamber #1]
+ 113 | $C87EEF |   132B | Shop #26
+ 114 | $C87F73 |     6B | [battle(264), event_switch] | ES49=ON | |
+ 115 | $C87F79 |   317B | "Bartz: The pieces of the Crystal" | ES511=OFF ES510=OFF ES510=ON ES484=ON ES281=ON | NS385=OFF NS669=ON |
+ 116 | $C880B6 |    10B | "Cid: If only I hadn't created su"
+ 117 | $C880C0 |    78B | "Bartz: Cid! Cid: Go away! If onl" | ES51=ON | |
+ 118 | $C8810E |   355B | "Bartz: Cid! Cid: .... Lenna: Di" | ES54=ON | NS337=OFF NS371=OFF NS372=OFF NS373=OFF NS374=OFF |
+ 119 | $C88271 |   753B | "Bartz: What is THAT? Lenna: It c" | ES510=ON ES510=OFF ES290=ON | |
+ 120 | $C88562 |   107B | "Bartz: Who's that? Lenna: Mid? G" | ES298=ON | |
+ 121 | $C885CD |   637B | "Mid: Hey! Don't bother me while" | ES53=ON ES50=ON ES51=ON | NS416=OFF NS340=OFF NS337=ON | npc:416
+ 122 | $C8884A |   267B | "Cid: Aah... slept well!" | ES56=ON | NS378=ON NS379=ON NS393=OFF NS394=OFF NS395=OFF NS396=OFF NS380=ON NS381=ON NS382=ON NS383=ON | npc:375
+ 123 | $C88955 |     4B | "Mid: Zzz... zzz..." | | | npc:376
+ 124 | $C88959 |   111B | "Cid: Everything is my fault!! If" | ES50=ON | NS340=OFF NS337=ON |
+ 125 | $C889C8 |    10B | [call(98), party_action]
+ 126 | $C889D2 |     7B | [call(917), call(918)] | | | npc:513
+ 127 | $C889D9 |   181B | "He.. here it comes...! Another e"
+ 128 | $C88A8E |    11B | NPC: "Can't carry any more items!" | | | npc:130 npc:132 npc:141 npc:144
+ 129 | $C88A99 |    95B | "Bartz: The ship's sinking!!" | ES510=ON ES510=OFF ES57=ON | NS885=ON NS886=ON NS887=ON NS489=ON NS490=ON NS492=OFF NS494=OFF NS509=ON |
+ 130 | $C88AF8 |    46B | [obj_action, party_action]
+ 131 | $C88B26 |   462B | "Bartz: Grrrrrrrrrr!!" | ES510=OFF ES483=ON | NS196=ON NS208=ON NS209=ON NS181=ON NS198=ON NS233=OFF NS159=OFF NS160=OFF |
+ 132 | $C88CF4 |    12B | "Galuf: Giving up?" (Y/N) | | | npc:510
+ 133 | $C88D00 |    12B | "Galuf: What is that? Lenna: A ch" | ES168=ON | |
+ 134 | $C88D0C |   212B | "Cid: Hey, you're back! Bartz: Ci" | ES59=ON | |
+ 135 | $C88DE0 |   122B | "Special Service!!!" | ES271=ON ES508=ON | |
+ 136 | $C88E5A |   167B | "Galuf: ...(sigh)... This doesn't" | ES62=ON | NS378=OFF NS379=OFF NS203=ON NS204=ON |
+ 137 | $C88F01 |    11B | "Mid: Are you ready?" (Y/N) | | | npc:203 npc:204
+ 138 | $C88F0C |   123B | "Bartz: The quicksand's stopped!" | ES510=ON ES510=OFF ES189=ON | |
+ 139 | $C88F87 |    38B | [obj_action]
+ 140 | $C88FAD |    16B | [obj_action, sound]
+ 141 | $C88FBD |     9B | [Desert of Shifting Sands #1]
+ 142 | $C88FC6 |    13B | [Desert of Shifting Sands #2]
+ 143 | $C88FD3 |    13B | [Desert of Shifting Sands #3]
+ 144 | $C88FE0 |   398B | "Lenna: Father! Faris: ... F... F" | ES510=ON ES510=OFF | NS203=OFF NS204=OFF NS257=ON NS266=OFF |
+ 145 | $C8916E |  1094B | "Bartz: What's this!?" | ES510=ON ES510=OFF ES64=ON | |
+ 146 | $C895B4 |     8B | "There is a lever. Push it?" (Y/N)
+ 147 | $C895BC |    13B | [party_action, sound, event_switch] | ES256=ON | |
+ 148 | $C895C9 |    15B | call(347): "rcrffnit"
+ 149 | $C895D8 |    16B | "Bartz: Where are we...? ...it's" | ES176=ON ES177=OFF ES178=OFF | |
+ 150 | $C895E8 |     7B | [Catapult Living Quarters #1]
+ 151 | $C895EF |     7B | [Ronka Ruins Lv1 #1]
+ 152 | $C895F6 |    18B | [Catapult Storeroom #1] | ES178=ON ES176=OFF ES177=OFF | |
+ 153 | $C89608 |     9B | [call(348)]
+ 154 | $C89611 |   103B | NPC: "Can't carry any more items!" | ES485=ON ES510=ON ES510=OFF ES176=OFF ES177=ON ES178=OFF | NS242=OFF NS243=OFF | npc:242
+ 155 | $C89678 |   158B | "Bartz: Propellers on a ship...?" | ES67=ON | |
+ 156 | $C89716 |    19B | [obj_action]
+ 157 | $C89729 |    22B | [Catapult Storeroom #2] | ES178=ON ES177=OFF ES176=OFF | |
+ 158 | $C8973F |    50B | call(350): "Bartz: What the...!? Galuf: The" | ES510=ON ES510=OFF | |
+ 159 | $C89771 |    40B | call(347): "rcrffnit" | ES510=ON ES510=OFF ES176=ON ES177=OFF ES178=OFF | |
+ 160 | $C89799 |    10B | [call(21), event_switch] | ES176=OFF ES178=OFF ES177=ON | |
+ 161 | $C897A3 |   243B | "Bartz: Cid, Mid... Cid: (pant).." | ES70=ON | |
+ 162 | $C89896 |   354B | "Cid: You got the Adamantium! Mid" | ES510=OFF ES74=ON ES506=ON ES450=OFF | |
+ 163 | $C899F8 |    11B | [party_action, sound, event_switch] | ES256=ON | |
+ 164 | $C89A03 |   131B | NPC: "Can't carry any more items!" | | NS205=OFF NS206=OFF | npc:206
+ 165 | $C89A86 |    32B | [obj_action, party_action]
+ 166 | $C89AA6 |     8B | "Did you come to defeat me? ... w" (Y/N) | | | npc:47
+ 167 | $C89AAE |     6B | "Bartz: The energy is getting wea" | ES508=ON | |
+ 168 | $C89AB4 |    40B | "Bartz: Is that hole the entrance" | ES75=ON | NS253=OFF | npc:253
+ 169 | $C89ADC |    15B | [call(1436), call(1437)]
+ 170 | $C89AEB |    15B | [Ronka Ruins Flying Fortress #1]
+ 171 | $C89AFA |    21B | [Ronka Ruins Flying Fortress #2] | ES184=ON | |
+ 172 | $C89B0F |    30B | [call(342), sound]
+ 173 | $C89B2D |     9B | [battle(268), call(1436), event_switch] | ES179=ON | |
+ 174 | $C89B36 |     9B | [battle(269), call(1437), event_switch] | ES180=ON | |
+ 175 | $C89B3F |     9B | [battle(269), call(1438), event_switch] | ES181=ON | |
+ 176 | $C89B48 |     9B | [battle(268), call(1439), event_switch] | ES182=ON | |
+ 177 | $C89B51 |     3B | NPC: "Welcome to the Traveler's Inn! R" | | | npc:513
+ 178 | $C89B54 |    38B | call(350): "Bartz: What the...!? Galuf: The" | ES510=ON ES510=OFF | |
+ 179 | $C89B7A |    18B | NPC: "Can't carry any more items!" | ES507=ON ES457=ON | NS254=OFF | npc:254
+ 180 | $C89B8C |  2777B | "Lenna: Father! Faris: Father!" | ES510=ON ES478=ON | |
+ 181 | $C8A665 |    12B | "Catch a few Z's?" (Y/N)
+ 182 | $C8A671 |    98B | [call(1407), obj_action, party_action, sound]
+ 183 | $C8A6D3 |   634B | "Lenna: The light is weakening..." | ES510=ON ES510=OFF ES86=ON ES504=OFF | NS513=OFF NS509=ON NS306=OFF NS313=OFF NS314=OFF NS249=OFF NS251=OFF NS250=OFF NS311=OFF NS309=OFF NS312=OFF NS262=ON NS263=ON NS264=ON NS506=ON |
+ 184 | $C8A94D |    43B | "Lenna: I'm getting tired... Let'" | ES510=ON ES510=OFF | |
+ 185 | $C8A978 |   243B | "Faris: ... Lenna... There's one"
+ 186 | $C8AA6B |    10B | [obj_action, sound]
+ 187 | $C8AA75 |     8B | [World Map (Galuf's World) #1]
+ 188 | $C8AA7D |     8B | [World Map (Combined World) #1]
+ 189 | $C8AA85 |     4B | "If the gates were opened, monste"
+ 190 | $C8AA89 |     5B | call(191): "Cara: Hiryuu!!"
+ 191 | $C8AA8E |   771B | "Cara: Hiryuu!!" | ES510=ON ES502=ON ES510=OFF ES129=ON | NS921=ON NS605=ON NS606=ON NS12=ON |
+ 192 | $C8AD91 |   353B | "Bartz: Boco! Wark!!" | ES125=ON ES292=ON | NS91=OFF NS93=ON |
+ 193 | $C8AEF2 |    13B | [Death Valley #1]
+ 194 | $C8AEFF |    16B | [call(1923), obj_action, sound, event_switch] | ES510=ON ES324=ON | |
+ 195 | $C8AF0F |    24B | [obj_action, party_action, event_switch] | ES364=ON | |
+ 196 | $C8AF27 |    32B | [obj_action, party_action, event_switch] | ES365=ON | |
+ 197 | $C8AF47 |    92B | [obj_action, party_action, event_switch] | ES366=ON | |
+ 198 | $C8AFA3 |   626B | "Will you promise never to do suc" | ES510=OFF ES127=ON | NS280=OFF NS13=ON |
+ 199 | $C8B215 |    14B | [World Map (Combined World) #2]
+ 200 | $C8B223 |     9B | [Karnak Castle #1] | ES511=ON | |
+ 201 | $C8B22C |     7B | [call(204), call(1229)]
+ 202 | $C8B233 |     7B | [call(204), call(1231)]
+ 203 | $C8B23A |    30B | "What? Galuf? ...did you say some"
+ 204 | $C8B258 |    18B | [party_action, sound]
+ 205 | $C8B26A |    13B | call(185): "Faris: ... Lenna... There's one"
+ 206 | $C8B277 |    57B | call(208): "Bartz: Where are we...!?"
+ 207 | $C8B2B0 |    37B | NPC: "Can't carry any more items!" | | | npc:220
+ 208 | $C8B2D5 |   843B | "Bartz: Where are we...!?" | ES510=ON ES510=OFF ES85=ON ES383=ON | NS789=ON NS813=OFF NS814=OFF NS792=ON |
+ 209 | $C8B620 |    35B | [call(888), call(888), obj_action, party_action]
+ 210 | $C8B643 |    12B | [Ronka Ruins Lv4 #1]
+ 211 | $C8B64F |    61B | "Galuf: It's full of monsters ahe"
+ 212 | $C8B68C |    15B | [call(1014), event_switch] | ES508=ON | |
+ 213 | $C8B69B |    20B | [call(1014), event_switch] | ES508=ON | |
+ 214 | $C8B6AF |    12B | [call(1014), event_switch] | ES508=ON | |
+ 215 | $C8B6BB |    15B | [call(1014), event_switch] | ES508=ON | |
+ 216 | $C8B6CA |    12B | [call(1014), event_switch] | ES508=ON | |
+ 217 | $C8B6D6 |    20B | [call(1014), event_switch] | ES508=ON | |
+ 218 | $C8B6EA |    84B | [battle(280), call(1013), call(1014), obj_action] | ES508=ON | |
+ 219 | $C8B73E |     7B | [Ghido's Cave Entrance #1]
+ 220 | $C8B745 |   759B | "Galuf: Cara! Cara: Grandpa! The" | ES510=ON ES510=OFF | |
+ 221 | $C8BA3C |   342B | NPC: "Can't carry any more items!" | ES510=ON ES510=OFF ES68=ON ES176=OFF ES178=OFF ES177=ON | NS245=OFF NS246=OFF NS221=ON NS222=ON | npc:245
+ 222 | $C8BB92 |   435B | "Oh my goodness, we have some gue" | ES510=ON ES510=OFF ES91=ON | | npc:657
+ 223 | $C8BD45 |   312B | "Bartz: Owee... Cara: Well, you'v" | | NS105=ON |
+ 224 | $C8BE7D |     4B | [party_action, event_switch] | ES325=ON | |
+ 225 | $C8BE81 |   538B | "Bartz: A dead end..." | ES510=ON ES510=OFF ES118=ON | NS704=OFF |
+ 226 | $C8C09B |    15B | [Castle Exdeath #1] | ES410=ON | |
+ 227 | $C8C0AA |    15B | [Castle Exdeath #1] | ES410=ON | |
+ 228 | $C8C0B9 |    27B | [obj_action, party_action, event_switch] | ES178=ON | |
+ 229 | $C8C0D4 |    11B | [Castle Exdeath 3F #1]
+ 230 | $C8C0DF |    11B | [Castle Exdeath 3F #2]
+ 231 | $C8C0EA |     6B | [call(1054), party_action]
+ 232 | $C8C0F0 |     6B | [call(1054), party_action]
+ 233 | $C8C0F6 |   102B | [obj_action, party_action, sound, event_switch] | ES272=ON ES454=OFF | NS13=OFF |
+ 234 | $C8C15C |     7B | call(1141): "Moogle: Kupo!"
+ 235 | $C8C163 |     7B | call(1141): "Moogle: Kupo!"
+ 236 | $C8C16A |   623B | "Cara: Grandpa's calling...!!" | ES510=OFF ES293=ON ES447=ON | NS14=OFF NS15=ON NS794=OFF NS580=OFF NS581=OFF NS582=OFF NS583=OFF NS584=OFF NS635=OFF NS585=ON NS586=ON NS587=ON NS588=ON NS589=ON |
+ 237 | $C8C3D9 |    16B | [party_action, sound]
+ 238 | $C8C3E9 |     5B | "It's locked."
+ 239 | $C8C3EE |   815B | "Cara: I'm going to go let the Hi" | ES493=OFF ES95=ON | NS617=ON NS618=ON NS619=ON NS620=ON NS621=ON NS622=ON NS623=ON NS624=ON NS625=ON NS626=ON NS627=ON NS636=ON NS628=ON NS629=ON NS630=ON NS631=ON NS632=ON NS633=ON NS634=ON |
+ 240 | $C8C71D |   194B | "Cara: ... Lenna: Cara?" | ES96=ON | | npc:617
+ 241 | $C8C7DF |    53B | "Galuf: Open the gates! Soldier:" (Y/N)
+ 242 | $C8C814 |    57B | "Galuf: We should be able to go t" | ES98=ON | |
+ 243 | $C8C84D |    27B | [obj_action, party_action, sound] | | | npc:672
+ 244 | $C8C868 |  1177B | "Don't move!" | ES510=ON ES475=OFF ES476=OFF ES477=OFF ES478=OFF ES510=OFF ES100=ON | NS686=ON NS687=ON NS688=ON NS689=ON NS690=ON NS693=ON NS694=ON NS695=ON NS705=ON NS706=OFF NS673=OFF NS41=ON NS42=ON |
+ 245 | $C8CD01 |     5B | NPC: "Obtained Gil!" | ES228=ON | | npc:704
+ 246 | $C8CD06 |     5B | NPC: "Obtained !" | ES124=ON | | npc:704
+ 247 | $C8CD0B |   373B | "Lenna: Look! Faris: Hiryuu Plant" | ES452=ON ES102=ON | NS723=OFF |
+ 248 | $C8CE80 |     9B | [Submarine #1] | ES192=ON | |
+ 249 | $C8CE89 |     7B | [Sea Floor #1]
+ 250 | $C8CE90 |    59B | [party_action]
+ 251 | $C8CECB |   287B | "Bartz: This...? Galuf: Sage Guid" | ES510=ON ES488=ON ES489=ON ES510=OFF | |
+ 252 | $C8CFEA |    34B | "This is King Galuf! What are you"
+ 253 | $C8D00C |    42B | "This is King Galuf! What are you"
+ 254 | $C8D036 |    18B | NPC: "Obtained !" | | | npc:724
+ 255 | $C8D048 |   260B | "Zeza: What's that Hiryuu doing h" | ES107=ON | |
+ 256 | $C8D14C |    11B | "Catch a few Z's?" (Y/N)
+ 257 | $C8D157 |   335B | NPC: "Obtained !" | ES170=ON | NS754=OFF NS757=ON NS758=ON NS759=ON NS760=ON NS761=ON NS773=ON NS774=ON NS775=ON | npc:768
+ 258 | $C8D2A6 |    10B | [Xezat's Fleet #1]
+ 259 | $C8D2B0 |    14B | [call(765), fade]
+ 260 | $C8D2BE |    25B | [call(765), call(1152), obj_action, fade]
+ 261 | $C8D2D7 |   119B | NPC: "Can't carry any more items!" | ES510=ON ES510=OFF ES110=ON | NS216=OFF | npc:216
+ 262 | $C8D34E |   126B | "Galuf: Is this the Barrier Tower" | ES448=ON ES111=ON | NS217=OFF |
+ 263 | $C8D3CC |   253B | "Can you... hear me...?" | ES162=ON | NS784=OFF NS785=ON |
+ 264 | $C8D4C9 |  1250B | "Galuf: Zeza! We've reached the t" | ES510=ON ES490=ON ES124=ON ES491=ON | NS304=OFF NS731=ON NS732=ON NS733=ON NS734=ON NS735=ON NS739=OFF NS740=OFF NS741=OFF NS785=OFF NS14=OFF |
+ 265 | $C8D9AB |   128B | [unknown]
+ 266 | $C8DA2B |   338B | "Bartz: What's this turtle!?" | ES113=ON ES463=ON | |
+ 267 | $C8DB7D |    18B | "Lenna: ...? The branch!" | ES114=ON | |
+ 268 | $C8DB8F |    10B | [call(889), call(890)]
+ 269 | $C8DB99 |   314B | "Bartz: Huh?" | ES510=ON ES510=OFF ES511=ON | NS845=ON |
+ 270 | $C8DCD3 |     9B | [obj_action, npc_switch] | | NS843=OFF NS839=ON |
+ 271 | $C8DCDC |    30B | [obj_action, party_action, fade]
+ 272 | $C8DCFA |    79B | "Moogle: Kupo!" | ES492=ON | |
+ 273 | $C8DD49 |    28B | "Bartz: Let's wait a while until" | ES510=ON ES510=OFF ES511=OFF ES78=ON | |
+ 274 | $C8DD65 |    32B | "Mid: Please hurry here, the plac" | ES495=ON | |
+ 275 | $C8DD85 |    61B | [Moogle Cave #1]
+ 276 | $C8DDC2 |    10B | NPC: "Obtained !" | ES115=ON | | npc:815
+ 277 | $C8DDCC |    10B | NPC: "Obtained Gil!" | ES115=ON | | npc:815
+ 278 | $C8DDD6 |    15B | [Submarine #2] | ES190=OFF | |
+ 279 | $C8DDE5 |    26B | [party_action, fade]
+ 280 | $C8DDFF |     7B | [Great Forest of Moore #1]
+ 281 | $C8DE06 |    28B | "Bartz: Blurp, blurrp! I can prob" | ES191=ON | |
+ 282 | $C8DE22 |   774B | "Chancellor: Princess Lenna! Prin" | ES44=ON ES152=ON ES510=ON | NS320=ON NS272=ON NS273=ON NS274=ON NS275=ON NS276=ON NS281=ON NS282=ON NS283=ON NS279=ON NS280=ON NS270=OFF NS270=ON NS12=OFF NS13=OFF NS719=OFF NS718=OFF NS717=OFF NS716=OFF NS734=OFF NS715=OFF NS731=OFF NS732=OFF NS733=OFF NS31=ON NS713=OFF NS262=OFF NS263=OFF NS264=OFF NS130=OFF NS318=OFF NS714=OFF NS19=OFF |
+ 283 | $C8E128 |    48B | "Cara: Grandpa... Bartz: What is" | ES122=ON | NS270=OFF | npc:270
+ 284 | $C8E158 |    68B | "Cara: What about Lenna and Faris" | ES123=ON | NS269=ON |
+ 285 | $C8E19C |   168B | "I bring news that the bridge acr" | ES496=ON | |
+ 286 | $C8E244 |    12B | [Kuza Sealed Castle #1]
+ 287 | $C8E250 |    12B | [Kuza Sealed Castle #1]
+ 288 | $C8E25C |    75B | [unknown]
+ 289 | $C8E2A7 |    75B | [unknown]
+ 290 | $C8E2F2 |    75B | [unknown]
+ 291 | $C8E33D |  1744B | "Bartz: Guido!?" | ES510=ON ES501=ON ES510=OFF ES456=OFF ES128=ON | NS257=OFF NS258=OFF NS266=OFF NS259=OFF NS260=OFF NS263=OFF NS264=OFF NS262=OFF NS816=OFF NS279=OFF |
+ 292 | $C8EA0D |    28B | "Palace guard: You are... Lenna:"
+ 293 | $C8EA29 |    11B | [obj_action]
+ 294 | $C8EA34 |    20B | [obj_action, party_action]
+ 295 | $C8EA48 |   107B | "Galuf: These are... The 12 Legen" | ES92=ON | |
+ 296 | $C8EAB3 |    14B | [call(1496), party_action, event_switch] | ES256=ON | |
+ 297 | $C8EAC1 |    14B | [call(1497), party_action, event_switch] | ES256=OFF | |
+ 298 | $C8EACF |    14B | [call(1496), party_action, event_switch] | ES257=ON | |
+ 299 | $C8EADD |    14B | [call(1497), party_action, event_switch] | ES257=OFF | |
+ 300 | $C8EAEB |    14B | [call(1496), party_action, event_switch] | ES258=ON | |
+ 301 | $C8EAF9 |    14B | [call(1497), party_action, event_switch] | ES258=OFF | |
+ 302 | $C8EB07 |    43B | [party_action, sound, event_switch] | ES508=ON | |
+ 303 | $C8EB32 |   133B | "Lenna: Bartz... Huh? Faris: The" | ES510=ON ES510=OFF ES77=ON | |
+ 304 | $C8EBB7 |    15B | [party_action, sound, event_switch] | ES256=ON | | npc:600
+ 305 | $C8EBC6 |    39B | [party_action, sound, event_switch] | ES508=ON | |
+ 306 | $C8EBED |    22B | [obj_action, party_action, sound]
+ 307 | $C8EC03 |    19B | [give_take_item, obj_action, party_action, sound]
+ 308 | $C8EC16 |    19B | [obj_action, party_action, sound]
+ 309 | $C8EC29 |    36B | [call(1496), call(1484), party_action, event_switch] | ES257=ON | |
+ 310 | $C8EC4D |     9B | [battle(298), obj_action, npc_switch] | | NS535=OFF | npc:535
+ 311 | $C8EC56 |     9B | [battle(298), obj_action, npc_switch] | | NS536=OFF | npc:536
+ 312 | $C8EC5F |     9B | [battle(298), obj_action, npc_switch] | | NS537=OFF | npc:537
+ 313 | $C8EC68 |     9B | [battle(298), obj_action, npc_switch] | | NS538=OFF | npc:538
+ 314 | $C8EC71 |     9B | [battle(298), obj_action, npc_switch] | | NS539=OFF | npc:539
+ 315 | $C8EC7A |     9B | [battle(298), obj_action, npc_switch] | | NS540=OFF | npc:540
+ 316 | $C8EC83 |     8B | [party_action, event_switch] | ES497=ON | |
+ 317 | $C8EC8B |    40B | [obj_action, party_action, sound, event_switch] | ES497=ON | |
+ 318 | $C8ECB3 |     7B | [call(1469), event_switch] | ES259=ON | |
+ 319 | $C8ECBA |     6B | [call(1469), event_switch] | ES260=ON | |
+ 320 | $C8ECC0 |     9B | [battle(294), obj_action, npc_switch] | | NS541=OFF | npc:541
+ 321 | $C8ECC9 |     9B | [battle(294), obj_action, npc_switch] | | NS542=OFF | npc:542
+ 322 | $C8ECD2 |    25B | [obj_action, party_action, sound, event_switch] | ES259=ON ES497=ON | |
+ 323 | $C8ECEB |  3405B | "Bartz: The Void hasn't disappear" | ES510=ON ES502=OFF ES501=OFF ES474=OFF ES503=OFF | |
+ 324 | $C8FA38 |     9B | [Submarine #3] | ES197=ON | |
+ 325 | $C8FA41 |    12B | [Tower of Walse Crystal Chamber #1]
+ 326 | $C8FA4D |     9B | [Sea Floor (Combined World) #1] | ES197=OFF | | npc:46
+ 327 | $C8FA56 |   224B | "Here, hang on tight! Don't fall"
+ 328 | $C8FB36 |   226B | "Here, hang on tight! Don't fall"
+ 329 | $C8FC18 |   232B | "Here, hang on tight! Don't fall"
+ 330 | $C8FD00 |   230B | "Here, hang on tight! Don't fall"
+ 331 | $C8FDE6 |   234B | "Here, hang on tight! Don't fall"
+ 332 | $C8FED0 |   222B | "Here, hang on tight! Don't fall"
+ 333 | $C8FFAE |   227B | "Here, hang on tight! Don't fall"
+ 334 | $C90091 |   207B | "Here, hang on tight! Don't fall"
+ 335 | $C90160 |   213B | "Here, hang on tight! Don't fall"
+ 336 | $C90235 |   213B | "Here, hang on tight! Don't fall"
+ 337 | $C9030A |   218B | "Here, hang on tight! Don't fall"
+ 338 | $C903E4 |   213B | "Here, hang on tight! Don't fall"
+ 339 | $C904B9 |   218B | "Here, hang on tight! Don't fall"
+ 340 | $C90593 |   204B | "Here, hang on tight! Don't fall"
+ 341 | $C9065F |   223B | "Cid... Mid... how are you? It's"
+ 342 | $C9073E |     8B | [unknown]
+ 343 | $C90746 |     8B | [unknown]
+ 344 | $C9074E |     8B | [unknown]
+ 345 | $C90756 |     8B | [unknown]
+ 346 | $C9075E |    35B | [The Void Mirage Town #1]
+ 347 | $C90781 |    39B | "rcrffnit"
+ 348 | $C907A8 |     6B | [call(1885), sound]
+ 349 | $C907AE |    25B | [obj_action]
+ 350 | $C907C7 |    40B | "Bartz: What the...!? Galuf: The" | ES486=ON | |
+ 351 | $C907EF |    17B | [obj_action, party_action]
+ 352 | $C90800 |     4B | [party_action, event_switch] | ES304=ON | |
+ 353 | $C90804 |     6B | [call(442), event_switch] | ES308=ON | |
+ 354 | $C9080A |     6B | [call(443), event_switch] | ES308=OFF | |
+ 355 | $C90810 |     7B | [Fire-Powered Ship Bulkhead #1]
+ 356 | $C90817 |     7B | [Fire-Powered Ship Bulkhead #1]
+ 357 | $C9081E |     6B | [call(443), event_switch] | ES309=ON | |
+ 358 | $C90824 |     6B | [call(442), event_switch] | ES309=OFF | |
+ 359 | $C9082A |     7B | [Fire-Powered Ship Bulkhead #2]
+ 360 | $C90831 |     7B | [Fire-Powered Ship Bulkhead #1]
+ 361 | $C90838 |     6B | [call(443), event_switch] | ES310=ON | |
+ 362 | $C9083E |     6B | [call(442), event_switch] | ES310=OFF | |
+ 363 | $C90844 |     7B | [Fire-Powered Ship Bulkhead #2]
+ 364 | $C9084B |     7B | [Fire-Powered Ship Bulkhead #3]
+ 365 | $C90852 |     6B | [call(442), event_switch] | ES311=ON | |
+ 366 | $C90858 |     6B | [call(443), event_switch] | ES311=OFF | |
+ 367 | $C9085E |     7B | [Fire-Powered Ship Bulkhead #4]
+ 368 | $C90865 |     7B | [Fire-Powered Ship Bulkhead #5]
+ 369 | $C9086C |     6B | [call(443), event_switch] | ES312=ON | |
+ 370 | $C90872 |     6B | [call(442), event_switch] | ES312=OFF | |
+ 371 | $C90878 |     7B | [Fire-Powered Ship Bulkhead #6]
+ 372 | $C9087F |     7B | [Fire-Powered Ship Bulkhead #7]
+ 373 | $C90886 |    62B | [call(451), call(452), obj_action, party_action] | ES256=ON | |
+ 374 | $C908C4 |    44B | [call(451), call(452), obj_action, sound] | ES256=ON | |
+ 375 | $C908F0 |    62B | [call(455), call(454), obj_action, party_action] | ES256=OFF | |
+ 376 | $C9092E |    44B | [call(455), call(454), obj_action, sound] | ES256=OFF | |
+ 377 | $C9095A |    43B | [call(456), call(457), obj_action, sound] | ES257=ON | |
+ 378 | $C90985 |    43B | [call(460), call(459), obj_action, sound] | ES257=OFF | |
+ 379 | $C909B0 |    26B | [call(461), call(462), obj_action, sound] | ES258=ON | |
+ 380 | $C909CA |    25B | [call(462), call(461), obj_action, sound] | ES258=OFF | |
+ 381 | $C909E3 |    43B | [call(463), call(464), obj_action, sound] | ES259=ON | |
+ 382 | $C90A0E |    43B | [call(467), call(466), obj_action, sound] | ES259=OFF | |
+ 383 | $C90A39 |    86B | [call(468), call(469), obj_action, party_action] | ES260=ON | |
+ 384 | $C90A8F |    60B | [call(468), call(469), obj_action, party_action] | ES260=ON | |
+ 385 | $C90ACB |    60B | [call(474), call(473), obj_action, party_action] | ES260=OFF | |
+ 386 | $C90B07 |    25B | [call(475), call(476), obj_action, sound] | ES261=ON | |
+ 387 | $C90B20 |    25B | [call(476), call(475), obj_action, sound] | ES261=OFF | |
+ 388 | $C90B39 |    30B | [call(475), call(476), obj_action, party_action] | ES261=ON | |
+ 389 | $C90B57 |    60B | [call(468), call(469), obj_action, party_action] | ES260=ON | |
+ 390 | $C90B93 |    60B | [call(474), call(473), obj_action, party_action] | ES260=OFF | |
+ 391 | $C90BCF |    86B | [call(474), call(473), obj_action, party_action] | ES260=OFF | |
+ 392 | $C90C25 |    20B | [call(1908), party_action]
+ 393 | $C90C39 |    18B | [call(1908), party_action]
+ 394 | $C90C4B |    18B | [call(1908), party_action]
+ 395 | $C90C5D |    20B | [call(1908), party_action]
+ 396 | $C90C71 |     6B | [unknown]
+ 397 | $C90C77 |    28B | [obj_action, party_action, sound, event_switch] | ES262=ON | |
+ 398 | $C90C93 |    28B | [obj_action, party_action, sound, event_switch] | ES262=OFF | |
+ 399 | $C90CAF |    18B | [Fire-Powered Ship Elevator #1] | ES308=OFF | |
+ 400 | $C90CC1 |     9B | [Fire-Powered Ship Elevator #2] | ES308=ON | |
+ 401 | $C90CCA |     9B | [Fire-Powered Ship Elevator #1] | ES309=OFF | |
+ 402 | $C90CD3 |    18B | [Fire-Powered Ship Elevator #2] | ES309=ON | |
+ 403 | $C90CE5 |     9B | [Fire-Powered Ship Bulkhead #1] | ES310=OFF | |
+ 404 | $C90CEE |    18B | [Fire-Powered Ship Bulkhead #2] | ES310=ON | |
+ 405 | $C90D00 |    18B | [Fire-Powered Ship Bulkhead #1] | ES311=OFF | |
+ 406 | $C90D12 |     9B | [Fire-Powered Ship Bulkhead #2] | ES311=ON | |
+ 407 | $C90D1B |     9B | [Fire-Powered Ship Elevator #1] | ES312=OFF | |
+ 408 | $C90D24 |    18B | [Fire-Powered Ship Elevator #2] | ES312=ON | |
+ 409 | $C90D36 |    26B | [party_action, sound, event_switch] | ES269=ON | |
+ 410 | $C90D50 |     5B | [event_switch] | ES313=ON | |
+ 411 | $C90D55 |     5B | [event_switch] | ES313=OFF | |
+ 412 | $C90D5A |     7B | [Karnak Castle Crystal Chamber #2]
+ 413 | $C90D61 |    11B | [Fire-Powered Ship Boiler Room #1]
+ 414 | $C90D6C |    45B | [Fire-Powered Ship Boiler Room #2]
+ 415 | $C90D99 |     7B | [Fire-Powered Ship Boiler Room #3]
+ 416 | $C90DA0 |    14B | [sound, event_switch] | ES510=ON ES509=ON | |
+ 417 | $C90DAE |    13B | [sound, event_switch] | ES315=ON | |
+ 418 | $C90DBB |     9B | [Cave Lv3 #1] | ES315=OFF | |
+ 419 | $C90DC4 |    17B | [Pirates' Hideout #1]
+ 420 | $C90DD5 |     7B | [Pirates' Hideout #2]
+ 421 | $C90DDC |    23B | [battle(318), party_action]
+ 422 | $C90DF3 |    27B | [battle(317), party_action]
+ 423 | $C90E0E |    25B | [battle(318), party_action]
+ 424 | $C90E27 |    35B | [battle(317), party_action]
+ 425 | $C90E4A |    50B | [battle(318), party_action]
+ 426 | $C90E7C |    26B | "Lenna: Moogle!!" | ES94=ON | |
+ 427 | $C90E96 |   396B | "Lenna: You don't need to be afra" | ES510=ON ES510=OFF ES316=ON | NS574=OFF NS575=OFF |
+ 428 | $C91022 |     7B | [World Map (Galuf's World) #2]
+ 429 | $C91029 |    54B | "Would you like me to navigate un" (Y/N) | ES510=ON | |
+ 430 | $C9105F |    63B | [obj_action, sound, event_switch, npc_switch] | ES318=ON | NS544=OFF | npc:545
+ 431 | $C9109E |     7B | [obj_action] | | | npc:545
+ 432 | $C910A5 |   200B | [party_action]
+ 433 | $C9116D |   155B | [party_action]
+ 434 | $C91208 |   133B | [party_action]
+ 435 | $C9128D |     7B | [unknown]
+ 436 | $C91294 |    81B | [party_action]
+ 437 | $C912E5 |     6B | [party_action]
+ 438 | $C912EB |    23B | [obj_action, sound]
+ 439 | $C91302 |    12B | [obj_action]
+ 440 | $C9130E |    92B | "pgKrilepAll ttKPBartziOr!h YjZhQ"
+ 441 | $C9136A |    56B | "pgKrilepAll ttKPBartziOr!h YjZhQ"
+ 442 | $C913A2 |   107B | [call(448), call(449), obj_action, party_action]
+ 443 | $C9140D |   105B | [call(446), call(445), obj_action, party_action]
+ 444 | $C91476 |    23B | [party_action]
+ 445 | $C9148D |    23B | [party_action]
+ 446 | $C914A4 |    23B | [party_action]
+ 447 | $C914BB |    23B | [party_action]
+ 448 | $C914D2 |    23B | [party_action]
+ 449 | $C914E9 |    23B | [party_action]
+ 450 | $C91500 |    23B | [party_action]
+ 451 | $C91517 |    25B | [party_action]
+ 452 | $C91530 |    25B | [party_action]
+ 453 | $C91549 |    25B | [party_action]
+ 454 | $C91562 |    25B | [party_action]
+ 455 | $C9157B |    25B | [party_action]
+ 456 | $C91594 |    29B | [party_action]
+ 457 | $C915B1 |    29B | [party_action]
+ 458 | $C915CE |    29B | [party_action]
+ 459 | $C915EB |    29B | [party_action]
+ 460 | $C91608 |    29B | [party_action]
+ 461 | $C91625 |     8B | [party_action]
+ 462 | $C9162D |     8B | [party_action]
+ 463 | $C91635 |    15B | [party_action]
+ 464 | $C91644 |    15B | [party_action]
+ 465 | $C91653 |    15B | [party_action]
+ 466 | $C91662 |    15B | [party_action]
+ 467 | $C91671 |    15B | [party_action]
+ 468 | $C91680 |    23B | [party_action]
+ 469 | $C91697 |    23B | [party_action]
+ 470 | $C916AE |    23B | [party_action]
+ 471 | $C916C5 |    23B | [party_action]
+ 472 | $C916DC |    23B | [party_action]
+ 473 | $C916F3 |    23B | [party_action]
+ 474 | $C9170A |    23B | [party_action]
+ 475 | $C91721 |     9B | [party_action]
+ 476 | $C9172A |     9B | [party_action]
+ 477 | $C91733 |    18B | call(479): "Lenna: Are you all right? Old Ma"
+ 478 | $C91745 |    15B | call(479): "Lenna: Are you all right? Old Ma"
+ 479 | $C91754 |   234B | "Lenna: Are you all right? Old Ma" | ES16=ON ES455=OFF ES510=OFF | NS50=OFF |
+ 480 | $C9183E |    62B | [obj_action, party_action]
+ 481 | $C9187C |   103B | [obj_action]
+ 482 | $C918E3 |    23B | [call(483), call(484), obj_action]
+ 483 | $C918FA |    27B | [obj_action]
+ 484 | $C91915 |   502B | [unknown]
+ 485 | $C91B0B |    26B | [obj_action]
+ 486 | $C91B25 |     8B | [unknown]
+ 487 | $C91B2D |    63B | "Cid: Were you really swallowed i"
+ 488 | $C91B6C |    21B | [obj_action]
+ 489 | $C91B81 |     4B | call(1159): NPC: "Obtained !" | | | npc:226
+ 490 | $C91B85 |     4B | call(1160): NPC: "Obtained !" | | | npc:227
+ 491 | $C91B89 |     4B | call(1161): NPC: "Obtained !" | | | npc:228
+ 492 | $C91B8D |     4B | call(1162): NPC: "Obtained !" | | | npc:229
+ 493 | $C91B91 |     4B | call(1163): NPC: "Obtained !" | | | npc:230
+ 494 | $C91B95 |    34B | "The power of this Piece of Cryst" (Y/N) | | | npc:225 npc:235
+ 495 | $C91BB7 |    15B | NPC: "Obtained !" | ES510=ON | | npc:256
+ 496 | $C91BC6 |     8B | NPC: "Can't carry any more items!" | | | npc:256
+ 497 | $C91BCE |    36B | [obj_action, party_action, event_switch] | ES261=ON | |
+ 498 | $C91BF2 |   120B | [obj_action, fade]
+ 499 | $C91C6A |    10B | [obj_action, party_action]
+ 500 | $C91C74 |    17B | [obj_action]
+ 501 | $C91C85 |    17B | [unknown]
+ 502 | $C91C96 |     9B | [obj_action]
+ 503 | $C91C9F |    10B | [obj_action, party_action]
+ 504 | $C91CA9 |    10B | [call(501), call(506)]
+ 505 | $C91CB3 |    20B | [call(506)]
+ 506 | $C91CC7 |    12B | [obj_action]
+ 507 | $C91CD3 |    12B | [obj_action]
+ 508 | $C91CDF |     8B | [party_action, event_switch] | ES270=ON | |
+ 509 | $C91CE7 |    12B | [obj_action]
+ 510 | $C91CF3 |    14B | [obj_action, party_action, fade]
+ 511 | $C91D01 |    27B | [call(1156), obj_action]
+ 512 | $C91D1C |     3B | Shop #0 | | | npc:643
+ 513 | $C91D1F |     3B | Shop #1 | | | npc:644
+ 514 | $C91D22 |     3B | Shop #2 | | | npc:641
+ 515 | $C91D25 |     3B | Shop #3 | | | npc:642
+ 516 | $C91D28 |    13B | Inn (10gp) | | | npc:640
+ 517 | $C91D35 |    42B | "Bartz: Boco, it's dangerous ahea"
+ 518 | $C91D5F |    15B | [Ghido's Cave Entrance #2]
+ 519 | $C91D6E |    12B | "Catch a few Z's?" (Y/N)
+ 520 | $C91D7A |   120B | [call(1407), obj_action, party_action, sound]
+ 521 | $C91DF2 |    42B | [obj_action]
+ 522 | $C91E1C |    28B | NPC: "Can't carry any more items!"
+ 523 | $C91E38 |     3B | Shop #4 | | | npc:148
+ 524 | $C91E3B |     3B | Shop #5 | | | npc:149
+ 525 | $C91E3E |     3B | Shop #6 | | | npc:147
+ 526 | $C91E41 |     3B | Shop #7 | | | npc:150
+ 527 | $C91E44 |   113B | "If... at that moment... If Galuf"
+ 528 | $C91EB5 |    12B | Inn (10gp) | | | npc:146
+ 529 | $C91EC1 |     4B | "Nothing happened."
+ 530 | $C91EC5 |    13B | [Tower of Walse 9F #1]
+ 531 | $C91ED2 |    13B | [Tower of Walse 9F #2]
+ 532 | $C91EDF |    13B | [Tower of Walse 9F #3]
+ 533 | $C91EEC |     3B | Shop #8 | | | npc:175
+ 534 | $C91EEF |     3B | Shop #9 | | | npc:176
+ 535 | $C91EF2 |     3B | Shop #6 | | | npc:177
+ 536 | $C91EF5 |     3B | Shop #10 | | | npc:178
+ 537 | $C91EF8 |     0B | [empty/unused]
+ 538 | $C91EF8 |    12B | Inn (20gp) | | | npc:174 npc:180
+ 539 | $C91F04 |     4B | "Nothing happened."
+ 540 | $C91F08 |     4B | "Nothing happened."
+ 541 | $C91F0C |    12B | "Catch a few Z's?" (Y/N)
+ 542 | $C91F18 |    14B | [call(988), call(989), party_action]
+ 543 | $C91F26 |    17B | [party_action]
+ 544 | $C91F37 |     3B | Shop #11 | | | npc:647
+ 545 | $C91F3A |     3B | Shop #12 | | | npc:669
+ 546 | $C91F3D |     3B | Shop #13 | | | npc:648
+ 547 | $C91F40 |     3B | Shop #14 | | | npc:646
+ 548 | $C91F43 |     3B | Shop #15 | | | npc:649
+ 549 | $C91F46 |     3B | Shop #16 | | | npc:650
+ 550 | $C91F49 |     3B | Shop #17 | | | npc:651
+ 551 | $C91F4C |    12B | Inn (20gp) | | | npc:645
+ 552 | $C91F58 |   133B | "If... at that moment... If Galuf"
+ 553 | $C91FDD |    14B | NPC: "Obtained Gil!" | ES206=ON | | npc:504
+ 554 | $C91FEB |    23B | NPC: "Obtained Gil!" | ES206=ON ES207=ON | | npc:504
+ 555 | $C92002 |    14B | NPC: "Obtained Gil!" | ES207=ON | | npc:504
+ 556 | $C92010 |    16B | "You look like you're tired from" | ES208=ON | | npc:504
+ 557 | $C92020 |     3B | Shop #18 | | | npc:497
+ 558 | $C92023 |     3B | Shop #19 | | | npc:498
+ 559 | $C92026 |     3B | Shop #14 | | | npc:499
+ 560 | $C92029 |     3B | Shop #15 | | | npc:500
+ 561 | $C9202C |   140B | "If... at that moment... If Galuf"
+ 562 | $C920B8 |    12B | Inn (30gp) | | | npc:496
+ 563 | $C920C4 |    74B | [obj_action, party_action, event_switch] | ES105=ON ES121=ON ES256=ON | | npc:501
+ 564 | $C9210E |     9B | "Obtained Brave Blade!"
+ 565 | $C92117 |     9B | "Obtained Chicken Knife!"
+ 566 | $C92120 |     9B | [Submarine #4] | ES196=ON | |
+ 567 | $C92129 |     3B | Shop #21
+ 568 | $C9212C |     3B | Shop #21 | | | npc:653
+ 569 | $C9212F |     3B | Shop #14 | | | npc:656
+ 570 | $C92132 |     3B | Shop #17 | | | npc:654
+ 571 | $C92135 |    13B | Inn (30gp) | | | npc:655
+ 572 | $C92142 |     7B | [World Map (Bartz' World) #6]
+ 573 | $C92149 |     7B | [World Map (Combined World) #3]
+ 574 | $C92150 |    15B | [party_action]
+ 575 | $C9215F |    10B | [World Map (Bartz' World) #7]
+ 576 | $C92169 |    17B | [Castle of Bal B2 #1]
+ 577 | $C9217A |     3B | Shop #24 | | | npc:445
+ 578 | $C9217D |     3B | Shop #25 | | | npc:446
+ 579 | $C92180 |     3B | Shop #14 | | | npc:447
+ 580 | $C92183 |     3B | Shop #16 | | | npc:448
+ 581 | $C92186 |     4B | "Nothing happened." | | | npc:449
+ 582 | $C9218A |     4B | "Nothing happened." | | | npc:450
+ 583 | $C9218E |   103B | "Heh heh heh..." | | NS405=OFF NS377=OFF |
+ 584 | $C921F5 |    12B | Inn (30gp) | | | npc:444
+ 585 | $C92201 |    16B | [obj_action]
+ 586 | $C92211 |   134B | "If... at that moment... If Galuf"
+ 587 | $C92297 |     8B | "That's a pleasant melody. It's i" | ES211=ON | | npc:531
+ 588 | $C9229F |   230B | "Dorgan: Is he asleep? Stella: .." | ES510=ON ES510=OFF ES169=ON | NS531=OFF NS533=ON NS531=ON NS533=OFF |
+ 589 | $C92385 |     3B | Shop #27 | | | npc:528
+ 590 | $C92388 |     3B | Shop #28 | | | npc:529
+ 591 | $C9238B |     5B | NPC: "Can't carry any more items!" | | | npc:527
+ 592 | $C92390 |     3B | Shop #29 | | | npc:530
+ 593 | $C92393 |   133B | "If... at that moment... If Grand"
+ 594 | $C92418 |    12B | NPC: "Obtained !" | | | npc:526
+ 595 | $C92424 |    27B | NPC: "Obtained !" | ES12=ON | NS41=OFF NS42=OFF |
+ 596 | $C9243F |   166B | NPC: "Obtained !" | ES510=ON ES510=OFF ES153=ON ES446=OFF | | npc:526
+ 597 | $C924E5 |     7B | [call(968), call(1493)]
+ 598 | $C924EC |     8B | "I'll trade you this jar for that" (Y/N) | | | npc:40
+ 599 | $C924F4 |     3B | Shop #30 | | | npc:659
+ 600 | $C924F7 |     3B | Shop #31 | | | npc:660
+ 601 | $C924FA |     3B | Shop #32 | | | npc:658
+ 602 | $C924FD |     3B | Shop #37 | | | npc:661
+ 603 | $C92500 |     3B | Shop #38 | | | npc:662
+ 604 | $C92503 |     3B | Shop #39 | | | npc:663
+ 605 | $C92506 |    13B | Inn (40gp) | | | npc:657
+ 606 | $C92513 |     3B | Shop #26 | | | npc:670 npc:675
+ 607 | $C92516 |     8B | call(595): NPC: "Obtained !"
+ 608 | $C9251E |     8B | call(595): NPC: "Obtained !"
+ 609 | $C92526 |     8B | call(595): NPC: "Obtained !"
+ 610 | $C9252E |     8B | call(595): NPC: "Obtained !"
+ 611 | $C92536 |     3B | Shop #33 | | | npc:666
+ 612 | $C92539 |     3B | Shop #34 | | | npc:667
+ 613 | $C9253C |     3B | Shop #32 | | | npc:665
+ 614 | $C9253F |     4B | "Nothing happened." | | | npc:668
+ 615 | $C92543 |    12B | Inn (50gp) | | | npc:664
+ 616 | $C9254F |     8B | "I'll trade you this jar for that" (Y/N) | | | npc:40
+ 617 | $C92557 |     8B | "I'll trade you this jar for that" (Y/N) | | | npc:40
+ 618 | $C9255F |     8B | "I'll trade you this jar for that" (Y/N) | | | npc:40
+ 619 | $C92567 |     8B | "I'll trade you this jar for that" (Y/N) | | | npc:40
+ 620 | $C9256F |    16B | "I'll be praying for your safety." | ES209=ON | | npc:695
+ 621 | $C9257F |     3B | Shop #35 | | | npc:676
+ 622 | $C92582 |     3B | Shop #36 | | | npc:677
+ 623 | $C92585 |     3B | Shop #32 | | | npc:678
+ 624 | $C92588 |     3B | Shop #37 | | | npc:679
+ 625 | $C9258B |     3B | Shop #38 | | | npc:680
+ 626 | $C9258E |     3B | Shop #39 | | | npc:681
+ 627 | $C92591 |   134B | "If... at that moment... If Galuf"
+ 628 | $C92617 |    12B | Inn (60gp) | | | npc:682
+ 629 | $C92623 |   113B | "If... at that moment... If Galuf" | | | npc:683
+ 630 | $C92694 |   114B | "If... at that moment... If Galuf"
+ 631 | $C92706 |    18B | "A memory of Zeza comes back. A s" | ES230=ON | NS20=OFF | npc:20
+ 632 | $C92718 |    13B | "Bartz: I somehow recall seeing a" | | | npc:715
+ 633 | $C92725 |     3B | Shop #40 | | | npc:745
+ 634 | $C92728 |     3B | Shop #41 | | | npc:746
+ 635 | $C9272B |     3B | Shop #32 | | | npc:747
+ 636 | $C9272E |     3B | Shop #37 | | | npc:748
+ 637 | $C92731 |     3B | Shop #38 | | | npc:749
+ 638 | $C92734 |     3B | Shop #39 | | | npc:750
+ 639 | $C92737 |    13B | "Bartz is in his hometown village"
+ 640 | $C92744 |    13B | Inn (60gp) | | | npc:751
+ 641 | $C92751 |    75B | [unknown]
+ 642 | $C9279C |    75B | [unknown]
+ 643 | $C927E7 |    11B | "Bartz: It's empty!" | ES133=ON | | npc:25
+ 644 | $C927F2 |    10B | "Obtained Cabin!" | ES133=ON | | npc:25
+ 645 | $C927FC |     3B | Shop #42 | | | npc:823
+ 646 | $C927FF |     3B | Shop #43 | | | npc:824
+ 647 | $C92802 |     3B | Shop #32 | | | npc:825
+ 648 | $C92805 |     3B | Shop #44 | | | npc:826
+ 649 | $C92808 |     3B | Shop #45 | | | npc:827
+ 650 | $C9280B |     3B | Shop #46 | | | npc:828
+ 651 | $C9280E |    21B | [Lix #1]
+ 652 | $C92823 |    12B | Inn (70gp) | | | npc:829
+ 653 | $C9282F |     4B | "Nothing happened." | | | npc:830
+ 654 | $C92833 |     3B | Shop #54 | | | npc:562
+ 655 | $C92836 |     3B | Shop #55 | | | npc:563
+ 656 | $C92839 |     3B | Shop #56 | | | npc:564
+ 657 | $C9283C |     3B | Shop #57 | | | npc:565
+ 658 | $C9283F |     3B | Shop #60 | | | npc:566
+ 659 | $C92842 |     3B | Shop #61 | | | npc:570
+ 660 | $C92845 |     3B | Shop #59 | | | npc:568
+ 661 | $C92848 |     3B | Shop #58 | | | npc:569
+ 662 | $C9284B |    12B | Inn (70gp) | | | npc:567
+ 663 | $C92857 |     9B | Shop #52
+ 664 | $C92860 |     9B | Shop #51
+ 665 | $C92869 |    22B | call(1179): "You're alive!"
+ 666 | $C9287F |   133B | "If... at that moment... If Galuf"
+ 667 | $C92904 |   142B | "If... at that moment... If Galuf"
+ 668 | $C92992 |   133B | "If... at that moment... If Galuf"
+ 669 | $C92A17 |   133B | "If... at that moment... If Galuf"
+ 670 | $C92A9C |   706B | "If... at that moment... If Grand"
+ 671 | $C92D5E |     8B | [call(271), sound]
+ 672 | $C92D66 |    26B | "The earth, wind, fire, and water"
+ 673 | $C92D80 |    41B | "But the one Boco wants to show h"
+ 674 | $C92DA9 |    47B | [unknown]
+ 675 | $C92DD8 |   128B | "Castle Bal is having problems th"
+ 676 | $C92E58 |   138B | "If... at that moment... If Galuf"
+ 677 | $C92EE2 |    42B | [sound]
+ 678 | $C92F0C |    44B | [sound]
+ 679 | $C92F38 |    10B | "Hmph... Don't come begging for m" | ES256=ON | |
+ 680 | $C92F42 |    16B | "Time's up. Come back some other"
+ 681 | $C92F52 |     6B | [battle(300), event_switch] | ES257=ON | |
+ 682 | $C92F58 |    22B | "Obtained Esper Odin!" | ES256=OFF ES257=OFF | NS47=OFF |
+ 683 | $C92F6E |    29B | [event_switch] | ES256=OFF ES257=OFF ES258=OFF ES259=OFF ES260=OFF ES261=OFF ES262=OFF ES263=OFF ES264=OFF ES265=OFF ES266=OFF ES267=OFF ES268=OFF ES508=ON | |
+ 684 | $C92F8B |    33B | [call(1713), call(307), obj_action, party_action] | ES271=OFF | |
+ 685 | $C92FAC |    21B | [Tower of Walse 5F #1]
+ 686 | $C92FC1 |     6B | [call(497), sound] | | | npc:256
+ 687 | $C92FC7 |    12B | [Castle Tycoon #1]
+ 688 | $C92FD3 |    20B | [World Map (Combined World) #4]
+ 689 | $C92FE7 |    81B | [obj_action, party_action, sound, event_switch] | ES256=ON | |
+ 690 | $C93038 |    26B | "Space bends... And time flows ba" | ES415=OFF | |
+ 691 | $C93052 |    12B | [Castle Tycoon 1F #1]
+ 692 | $C9305E |    16B | [Tower of Walse 9F #1]
+ 693 | $C9306E |    16B | [Tower of Walse 9F #2]
+ 694 | $C9307E |    16B | [Tower of Walse 9F #3]
+ 695 | $C9308E |     7B | [Castle Walse Throne Room #1]
+ 696 | $C93095 |    12B | [Castle Walse #1]
+ 697 | $C930A1 |    12B | [party_action, sound, event_switch] | ES256=ON | |
+ 698 | $C930AD |    12B | [Castle Walse 2F #1]
+ 699 | $C930B9 |     7B | [Watertower 1F #1]
+ 700 | $C930C0 |    12B | [party_action, sound, event_switch] | ES256=ON | |
+ 701 | $C930CC |    30B | "Hey, will you please let me out" (Y/N)
+ 702 | $C930EA |    69B | "Yaaay I'm so lucky!!"
+ 703 | $C9312F |    27B | "I'm the great thief, Lone Wolf!!" (Y/N)
+ 704 | $C9314A |    78B | "Yaaay I'm so lucky!!" | ES154=ON ES6=ON | NS214=OFF |
+ 705 | $C93198 |     9B | "Bartz: It's empty!" | ES4=ON | | npc:28
+ 706 | $C931A1 |    18B | [call(1407), party_action, sound]
+ 707 | $C931B3 |     6B | [event_switch] | ES256=OFF ES508=ON | |
+ 708 | $C931B9 |     7B | [event_switch] | ES256=ON | |
+ 709 | $C931C0 |    24B | "Bartz: Ugh!!"
+ 710 | $C931D8 |    15B | "Bartz: Whew... it was only ruste"
+ 711 | $C931E7 |    38B | [obj_action, party_action, sound, event_switch] | ES257=ON | |
+ 712 | $C9320D |    34B | [World Map (Bartz' World) #8] | ES510=OFF ES508=ON | |
+ 713 | $C9322F |     7B | call(1159): NPC: "Obtained !" | | | npc:226
+ 714 | $C93236 |     7B | call(1160): NPC: "Obtained !" | | | npc:227
+ 715 | $C9323D |     7B | call(1161): NPC: "Obtained !" | | | npc:228
+ 716 | $C93244 |     7B | call(1162): NPC: "Obtained !" | | | npc:229
+ 717 | $C9324B |     7B | call(1163): NPC: "Obtained !" | | | npc:230
+ 718 | $C93252 |    33B | [World Map (Bartz' World) #9] | ES510=OFF ES508=ON | |
+ 719 | $C93273 |    18B | [Tower of Walse 5F #2]
+ 720 | $C93285 |     9B | [Nort Mountain 8th Station #1]
+ 721 | $C9328E |    12B | [Nort Mountain 8th Station #2]
+ 722 | $C9329A |     8B | [party_action, event_switch] | ES257=ON | |
+ 723 | $C932A2 |    12B | [Nort Mountain 8th Station #3]
+ 724 | $C932AE |    11B | [Tower of Walse 9F #4]
+ 725 | $C932B9 |    76B | [call(1001), call(1002), obj_action, party_action] | ES256=ON | |
+ 726 | $C93305 |    53B | [party_action, event_switch] | ES258=OFF ES259=OFF ES260=OFF ES261=OFF ES262=OFF ES263=OFF ES264=OFF ES265=OFF ES266=OFF ES267=OFF ES268=OFF ES269=OFF ES270=OFF ES271=OFF | |
+ 727 | $C9333A |    54B | [call(991), party_action]
+ 728 | $C93370 |    11B | [party_action]
+ 729 | $C9337B |    69B | [call(1003), call(1002), obj_action, party_action] | ES338=ON ES256=OFF | |
+ 730 | $C933C0 |     8B | "There's a button in the chest. P" (Y/N)
+ 731 | $C933C8 |    18B | [party_action, sound, event_switch] | ES256=ON | |
+ 732 | $C933DA |    19B | [call(731), party_action, event_switch] | ES257=ON | |
+ 733 | $C933ED |    21B | [party_action, sound, event_switch] | ES256=ON | |
+ 734 | $C93402 |    38B | [Catapult Living Quarters #2]
+ 735 | $C93428 |   328B | NPC: "Can't carry any more items!" | ES510=OFF ES109=ON | NS775=OFF NS769=ON NS774=OFF NS768=OFF NS776=ON NS757=OFF NS758=OFF NS759=OFF NS760=OFF NS761=OFF | npc:775
+ 736 | $C93570 |     8B | [call(777), call(776)]
+ 737 | $C93578 |     5B | [call(787)]
+ 738 | $C9357D |     5B | NPC: "Can't carry any more items!" | ES256=ON | | npc:505
+ 739 | $C93582 |     5B | NPC: "Can't carry any more items!" | ES256=OFF | | npc:503
+ 740 | $C93587 |    42B | [World Map (Galuf's World) #3] | | | npc:756
+ 741 | $C935B1 |    22B | [Xezat's Fleet #2]
+ 742 | $C935C7 |     4B | "Bartz: ... M', N', O', P'... Pl'"
+ 743 | $C935CB |    15B | [party_action, sound, event_switch] | ES256=ON | |
+ 744 | $C935DA |     6B | [call(29), obj_action]
+ 745 | $C935E0 |     8B | "FORBIDDEN BOOK" | ES256=ON | | npc:728
+ 746 | $C935E8 |     8B | "MONSTER ENCYCLOPEDIA" | ES257=ON | | npc:729
+ 747 | $C935F0 |     8B | "SECRET OF LONKA" | ES258=ON | | npc:730
+ 748 | $C935F8 |    17B | [party_action, sound]
+ 749 | $C93609 |    34B | [obj_action, party_action, sound, fade]
+ 750 | $C9362B |    13B | [Great Sea Trench #1]
+ 751 | $C93638 |    13B | [Great Sea Trench #2]
+ 752 | $C93645 |    13B | [Great Sea Trench #3]
+ 753 | $C93652 |    13B | [Great Sea Trench #4]
+ 754 | $C9365F |   112B | "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N) | ES226=OFF ES256=OFF ES257=OFF ES258=OFF ES259=OFF ES261=OFF ES262=OFF ES263=OFF | |
+ 755 | $C936CF |     6B | [call(1020), sound]
+ 756 | $C936D5 |    20B | call(887): "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N)
+ 757 | $C936E9 |    12B | [Surgate Castle #1]
+ 758 | $C936F5 |    12B | NPC: "Can't carry any more items!" | | | npc:513
+ 759 | $C93701 |    12B | NPC: "Can't carry any more items!" | | | npc:513
+ 760 | $C9370D |    12B | NPC: "Can't carry any more items!" | | | npc:513
+ 761 | $C93719 |    12B | NPC: "Can't carry any more items!" | | | npc:513
+ 762 | $C93725 |    91B | "Monsters! They're attacking us!!" | ES510=ON ES108=ON | NS769=OFF NS770=OFF NS771=OFF |
+ 763 | $C93780 |     3B | [event_switch] | ES508=ON | |
+ 764 | $C93783 |     9B | [obj_action]
+ 765 | $C9378C |    10B | [Xezat's Fleet #3]
+ 766 | $C93796 |    17B | [obj_action]
+ 767 | $C937A7 |     5B | [obj_action]
+ 768 | $C937AC |    35B | [Drakenvale Cave #1] | ES165=ON | |
+ 769 | $C937CF |     7B | [Drakenvale Trail #1]
+ 770 | $C937D6 |     7B | [call(769), call(1008)]
+ 771 | $C937DD |     7B | [Drakenvale Trail #2]
+ 772 | $C937E4 |    12B | [Drakenvale Trail #3]
+ 773 | $C937F0 |     8B | [call(787), call(776)]
+ 774 | $C937F8 |    12B | [Drakenvale Trail #4]
+ 775 | $C93804 |    31B | [Drakenvale Cave #2]
+ 776 | $C93823 |     6B | [party_action]
+ 777 | $C93829 |    12B | [Tower of Walse 5F #3]
+ 778 | $C93835 |     7B | [Gohn Meteorite #1]
+ 779 | $C9383C |     7B | [Gohn Town of Ruin #1]
+ 780 | $C93843 |    70B | "Bartz: What is this? Lenna: The" | ES61=ON | |
+ 781 | $C93889 |    81B | "Lenna: Was that... Faris: King T" | ES171=ON | |
+ 782 | $C938DA |    21B | [obj_action, event_switch] | ES172=ON | |
+ 783 | $C938EF |    19B | [obj_action, event_switch] | ES173=ON | |
+ 784 | $C93902 |    16B | [obj_action, event_switch] | ES174=ON | |
+ 785 | $C93912 |    25B | [obj_action, event_switch] | ES256=ON | |
+ 786 | $C9392B |     9B | [battle(297), obj_action, npc_switch] | | NS757=OFF | npc:757
+ 787 | $C93934 |    12B | [Tower of Walse 5F #4]
+ 788 | $C93940 |     9B | [battle(297), obj_action, npc_switch] | | NS759=OFF | npc:759
+ 789 | $C93949 |     9B | [battle(297), obj_action, npc_switch] | | NS760=OFF | npc:760
+ 790 | $C93952 |   218B | [Xezat's Fleet #4] | ES105=ON | NS761=OFF NS758=OFF NS768=OFF | npc:761
+ 791 | $C93A2C |     5B | [call(777)]
+ 792 | $C93A31 |     7B | [Quelb #1]
+ 793 | $C93A38 |     7B | [Quelb #2]
+ 794 | $C93A3F |     7B | [World Map (Galuf's World) #4]
+ 795 | $C93A46 |     7B | [World Map (Combined World) #5]
+ 796 | $C93A4D |     7B | [World Map (Galuf's World) #5]
+ 797 | $C93A54 |     7B | [World Map (Combined World) #6]
+ 798 | $C93A5B |    95B | [Submarine #5] | ES193=ON ES15=ON | NS757=OFF NS758=OFF NS759=OFF NS760=OFF NS761=OFF NS580=ON NS581=ON NS582=ON NS583=ON NS584=ON |
+ 799 | $C93ABA |     8B | "Drop the big rock" (Y/N) | | | npc:779
+ 800 | $C93AC2 |     8B | "Bartz: It's an empty box... huh?" (Y/N) | | | npc:779
+ 801 | $C93ACA |     8B | "Drop the big rock" (Y/N) | | | npc:780
+ 802 | $C93AD2 |     8B | "Bartz: It's an empty box... huh?" (Y/N) | | | npc:780
+ 803 | $C93ADA |     8B | "Drop the big rock" (Y/N) | | | npc:781
+ 804 | $C93AE2 |     8B | "Bartz: It's an empty box... huh?" (Y/N) | | | npc:781
+ 805 | $C93AEA |     8B | "Drop the big rock" (Y/N) | | | npc:782
+ 806 | $C93AF2 |     8B | "Bartz: It's an empty box... huh?" (Y/N) | | | npc:782
+ 807 | $C93AFA |     8B | "Drop the big rock" (Y/N) | | | npc:783
+ 808 | $C93B02 |     8B | "Bartz: It's an empty box... huh?" (Y/N) | | | npc:783
+ 809 | $C93B0A |    17B | [Ghido's Cave B2 #1] | ES257=ON | |
+ 810 | $C93B1B |    17B | [Ghido's Cave B2 #2] | ES257=ON | |
+ 811 | $C93B2C |    17B | [Ghido's Cave B2 #3] | ES257=ON | |
+ 812 | $C93B3D |    17B | [Ghido's Cave B2 #4] | ES257=ON | |
+ 813 | $C93B4E |    33B | [obj_action, party_action, sound, event_switch] | ES256=ON | |
+ 814 | $C93B6F |    52B | [call(886), party_action, sound, event_switch] | ES166=ON | |
+ 815 | $C93BA3 |    12B | [Ghido's Cave B2 #5]
+ 816 | $C93BAF |    12B | [Ghido's Cave B2 #6]
+ 817 | $C93BBB |    12B | [Ghido's Cave B2 #7]
+ 818 | $C93BC7 |    12B | [Ghido's Cave B2 #8]
+ 819 | $C93BD3 |     7B | [Ghido's Cave B2 #9]
+ 820 | $C93BDA |     7B | [Ghido's Cave B2 #10]
+ 821 | $C93BE1 |     7B | [Ghido's Cave B2 #11]
+ 822 | $C93BE8 |     7B | [Ghido's Cave B2 #12]
+ 823 | $C93BEF |    15B | "Jump into the pond?" (Y/N)
+ 824 | $C93BFE |    12B | "Jump into the pond?" (Y/N)
+ 825 | $C93C0A |     8B | [call(1407), sound]
+ 826 | $C93C12 |    12B | [Istory Falls B1 #1]
+ 827 | $C93C1E |   244B | "Gilgamesh: Who's there!?" | ES88=ON ES89=ON | NS792=OFF NS789=OFF NS790=OFF NS791=OFF NS795=OFF NS14=ON |
+ 828 | $C93D12 |   141B | NPC: "Can't carry any more items!" | ES510=ON ES510=OFF ES226=ON | | npc:517
+ 829 | $C93D9F |    20B | [call(1014), event_switch] | ES508=ON | |
+ 830 | $C93DB3 |    20B | [call(1014), event_switch] | ES508=ON | |
+ 831 | $C93DC7 |    22B | [obj_action]
+ 832 | $C93DDD |    17B | call(1853): "My servants, monsters of the Cle" | ES13=ON | |
+ 833 | $C93DEE |     5B | [party_action]
+ 834 | $C93DF3 |     7B | [World Map (Galuf's World) #6]
+ 835 | $C93DFA |    11B | [party_action, sound, event_switch] | ES508=ON | |
+ 836 | $C93E05 |    10B | [Shipwreck #1]
+ 837 | $C93E0F |     7B | [World Map (Combined World) #7]
+ 838 | $C93E16 |     6B | [call(920), event_switch] | ES256=ON | |
+ 839 | $C93E1C |     7B | [call(165), call(920)]
+ 840 | $C93E23 |     3B | [party_action]
+ 841 | $C93E26 |     3B | [party_action]
+ 842 | $C93E29 |     3B | [party_action]
+ 843 | $C93E2C |     3B | [party_action]
+ 844 | $C93E2F |     7B | [event_switch] | ES256=ON | |
+ 845 | $C93E36 |    15B | [party_action, event_switch] | ES115=OFF ES164=OFF | |
+ 846 | $C93E45 |    41B | [Ship Graveyard #1]
+ 847 | $C93E6E |    10B | [Shipwreck #1]
+ 848 | $C93E78 |    15B | [party_action, sound, event_switch] | ES256=ON | |
+ 849 | $C93E87 |    13B | [party_action, event_switch] | ES256=ON | |
+ 850 | $C93E94 |    15B | [party_action, sound, event_switch] | ES257=ON | |
+ 851 | $C93EA3 |    13B | [party_action, event_switch] | ES257=ON | |
+ 852 | $C93EB0 |    15B | [party_action, sound, event_switch] | ES256=ON | |
+ 853 | $C93EBF |    13B | [party_action, event_switch] | ES256=ON | |
+ 854 | $C93ECC |    15B | [party_action, sound, event_switch] | ES257=ON | |
+ 855 | $C93EDB |    13B | [party_action, event_switch] | ES257=ON | |
+ 856 | $C93EE8 |    15B | [party_action, sound, event_switch] | ES256=ON | |
+ 857 | $C93EF7 |    15B | [party_action, sound, event_switch] | ES257=ON | |
+ 858 | $C93F06 |    15B | [party_action, sound, event_switch] | ES256=ON | |
+ 859 | $C93F15 |    15B | [party_action, sound, event_switch] | ES257=ON | |
+ 860 | $C93F24 |    38B | NPC: "Can't carry any more items!" | | | npc:219
+ 861 | $C93F4A |     7B | [Sea Floor #1]
+ 862 | $C93F51 |    20B | [Great Forest of Moore #1] | ES256=ON | |
+ 863 | $C93F65 |    15B | [Great Forest of Moore #1]
+ 864 | $C93F74 |    27B | [call(1175), obj_action, party_action, sound]
+ 865 | $C93F8F |     7B | [Great Forest of Moore #1]
+ 866 | $C93F96 |     7B | [Great Forest of Moore #1]
+ 867 | $C93F9D |    11B | [Sea Floor #2]
+ 868 | $C93FA8 |    13B | [party_action, event_switch] | ES256=ON | |
+ 869 | $C93FB5 |    15B | call(347): "rcrffnit"
+ 870 | $C93FC4 |    37B | [obj_action]
+ 871 | $C93FE9 |    24B | [obj_action, party_action, sound, event_switch] | ES256=OFF ES257=OFF | |
+ 872 | $C94001 |    24B | NPC: "Obtained !" | ES256=ON ES257=ON | |
+ 873 | $C94019 |    15B | [obj_action, party_action, event_switch] | ES258=ON | |
+ 874 | $C94028 |    14B | [call(873), sound, event_switch] | ES256=OFF | |
+ 875 | $C94036 |    15B | [obj_action, party_action, event_switch] | ES259=ON | |
+ 876 | $C94045 |    14B | [call(875), sound, event_switch] | ES256=OFF | |
+ 877 | $C94053 |    15B | [obj_action, party_action, event_switch] | ES260=ON | |
+ 878 | $C94062 |    14B | [call(877), sound, event_switch] | ES256=OFF | |
+ 879 | $C94070 |    15B | [obj_action, party_action, event_switch] | ES261=ON | |
+ 880 | $C9407F |    14B | [call(879), sound, event_switch] | ES256=OFF | |
+ 881 | $C9408D |    28B | NPC: "Obtained !" | ES256=ON ES258=OFF | |
+ 882 | $C940A9 |    28B | NPC: "Obtained !" | ES256=ON ES259=OFF | |
+ 883 | $C940C5 |    28B | NPC: "Obtained !" | ES256=ON ES260=OFF | |
+ 884 | $C940E1 |    28B | NPC: "Obtained !" | ES256=ON ES261=OFF | |
+ 885 | $C940FD |    13B | [obj_action, party_action]
+ 886 | $C9410A |    15B | [party_action]
+ 887 | $C94119 |    23B | "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N)
+ 888 | $C94130 |    33B | [obj_action, party_action]
+ 889 | $C94151 |    36B | [obj_action, party_action]
+ 890 | $C94175 |   219B | [call(1012), obj_action, party_action, sound]
+ 891 | $C94250 |    24B | [obj_action, party_action, event_switch] | ES256=ON | |
+ 892 | $C94268 |    20B | [party_action, event_switch] | ES112=OFF | |
+ 893 | $C9427C |    47B | [party_action]
+ 894 | $C942AB |    91B | [obj_action, party_action]
+ 895 | $C94306 |   105B | [obj_action, party_action]
+ 896 | $C9436F |    67B | [call(53104), party_action]
+ 897 | $C943B2 |    28B | Inn (1750gp)
+ 898 | $C943CE |    62B | [call(53104), obj_action, party_action]
+ 899 | $C9440C |    64B | [call(56014), obj_action, party_action, npc_switch] | | NS203=ON |
+ 900 | $C9444C |    39B | [party_action]
+ 901 | $C94473 |    25B | [unknown]
+ 902 | $C9448C |    49B | [call(892), call(893)]
+ 903 | $C944BD |     8B | [party_action]
+ 904 | $C944C5 |     8B | [party_action]
+ 905 | $C944CD |    63B | [obj_action, fade]
+ 906 | $C9450C |    29B | [unknown]
+ 907 | $C94529 |    10B | [World Map (Bartz' World) #10] | ES479=ON | |
+ 908 | $C94533 |    13B | [obj_action]
+ 909 | $C94540 |   102B | [obj_action]
+ 910 | $C945A6 |    21B | [obj_action]
+ 911 | $C945BB |    19B | [obj_action]
+ 912 | $C945CE |    35B | [obj_action, party_action]
+ 913 | $C945F1 |    21B | [obj_action]
+ 914 | $C94606 |   367B | NPC: "Obtained Gil!" | ES510=ON ES510=OFF ES58=ON | NS509=OFF NS509=ON |
+ 915 | $C94775 |     8B | [party_action]
+ 916 | $C9477D |    15B | [obj_action]
+ 917 | $C9478C |    72B | [obj_action, sound]
+ 918 | $C947D4 |    11B | [World Map (Bartz' World) #11]
+ 919 | $C947DF |    42B | NPC: "Can't carry any more items!"
+ 920 | $C94809 |    10B | [obj_action]
+ 921 | $C94813 |   139B | "Mid: I read that it would be unw" | ES60=ON | |
+ 922 | $C9489E |   140B | "If... at that moment... If Galuf"
+ 923 | $C9492A |    80B | Inn (1740gp)
+ 924 | $C9497A |    13B | [obj_action]
+ 925 | $C94987 |    17B | [obj_action, party_action]
+ 926 | $C94998 |    79B | [Airship #1] | ES510=ON | |
+ 927 | $C949E7 |   134B | [Black Chocobo Forest #1] | ES510=ON ES510=OFF ES65=ON | |
+ 928 | $C94A6D |     8B | "Put the book back on the shelf?" (Y/N)
+ 929 | $C94A75 |    12B | "Returned the book to the shelf." | ES508=OFF ES256=OFF ES257=OFF ES258=OFF | |
+ 930 | $C94A81 |     4B | "It's the periodicals shelf."
+ 931 | $C94A85 |     7B | "It's the periodicals shelf."
+ 932 | $C94A8C |    36B | NPC: "Obtained !" | | | npc:735
+ 933 | $C94AB0 |     4B | "It's the DEF bookshelf."
+ 934 | $C94AB4 |     7B | "It's the DEF bookshelf."
+ 935 | $C94ABB |     7B | call(929): "Returned the book to the shelf." | ES259=ON | |
+ 936 | $C94AC2 |     4B | "It's the ABC bookshelf."
+ 937 | $C94AC6 |     7B | "It's the ABC bookshelf."
+ 938 | $C94ACD |     4B | "It's the GHI bookshelf."
+ 939 | $C94AD1 |     7B | "It's the GHI bookshelf."
+ 940 | $C94AD8 |     4B | "It's the JKL bookshelf."
+ 941 | $C94ADC |     7B | "It's the JKL bookshelf."
+ 942 | $C94AE3 |     4B | "It's the VWX bookshelf."
+ 943 | $C94AE7 |     7B | "It's the VWX bookshelf."
+ 944 | $C94AEE |     4B | "It's the MNO bookshelf."
+ 945 | $C94AF2 |     7B | "It's the MNO bookshelf."
+ 946 | $C94AF9 |     7B | call(929): "Returned the book to the shelf." | ES260=ON | |
+ 947 | $C94B00 |     4B | "It's the YZ bookshelf."
+ 948 | $C94B04 |     7B | "It's the YZ bookshelf."
+ 949 | $C94B0B |     4B | "It's the STU bookshelf."
+ 950 | $C94B0F |     7B | "It's the STU bookshelf."
+ 951 | $C94B16 |     7B | call(929): "Returned the book to the shelf." | ES261=ON | |
+ 952 | $C94B1D |     4B | "It's the PQR bookshelf."
+ 953 | $C94B21 |    32B | "Bartz: Aaah! I can stand another" | ES190=ON | NS45=OFF |
+ 954 | $C94B41 |     7B | "It's the PQR bookshelf."
+ 955 | $C94B48 |     9B | call(969): "Bartz: It's empty!" | | | npc:39
+ 956 | $C94B51 |    11B | call(970): "Bartz: It's empty!" | ES11=ON | | npc:39
+ 957 | $C94B5C |    17B | "Obtained Thunder Whip!" | ES11=ON ES256=ON | | npc:39
+ 958 | $C94B6D |     7B | [call(968), call(964)]
+ 959 | $C94B74 |     7B | [call(968), call(965)]
+ 960 | $C94B7B |     7B | [call(968), call(966)]
+ 961 | $C94B82 |     6B | call(887): "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N)
+ 962 | $C94B88 |    10B | "Cid: Now the 4 meteors are all r" | ES504=ON | |
+ 963 | $C94B92 |     6B | [call(1899), sound]
+ 964 | $C94B98 |     6B | [call(963), event_switch] | ES256=ON | |
+ 965 | $C94B9E |     6B | [call(961), event_switch] | ES256=ON | |
+ 966 | $C94BA4 |     6B | [call(1730), event_switch] | ES256=ON | |
+ 967 | $C94BAA |    19B | [obj_action, sound, event_switch] | ES260=ON | |
+ 968 | $C94BBD |    16B | [obj_action, sound, event_switch] | ES260=OFF | |
+ 969 | $C94BCD |     6B | "Bartz: It's empty!" | ES267=ON | |
+ 970 | $C94BD3 |     9B | "Bartz: It's empty!" | ES267=ON | |
+ 971 | $C94BDC |     8B | "Obtained Cabin!" | ES4=ON | | npc:28
+ 972 | $C94BE4 |    18B | [call(906), party_action, sound]
+ 973 | $C94BF6 |     9B | call(969): "Bartz: It's empty!" | ES268=ON | |
+ 974 | $C94BFF |    11B | call(970): "Bartz: It's empty!" | ES2=ON ES268=ON | |
+ 975 | $C94C0A |     8B | [party_action, sound]
+ 976 | $C94C12 |    13B | "Obtained Cabin!" | ES2=ON ES268=ON | |
+ 977 | $C94C1F |     9B | call(969): "Bartz: It's empty!" | ES269=ON | |
+ 978 | $C94C28 |    11B | call(970): "Bartz: It's empty!" | ES3=ON ES269=ON | |
+ 979 | $C94C33 |    13B | "Obtained Cabin!" | ES3=ON ES269=ON | |
+ 980 | $C94C40 |    19B | "Maybe even... Queen Cara? Hahaha"
+ 981 | $C94C53 |    19B | "Both Hiryuu and the moogle are w"
+ 982 | $C94C66 |    18B | "Bartz: I... I'm so sleepy..."
+ 983 | $C94C78 |    20B | "Lenna: I'm falling asleep..."
+ 984 | $C94C8C |    34B | [obj_action, party_action]
+ 985 | $C94CAE |    77B | "Zeza: Let's go!" | | NS218=OFF NS219=OFF |
+ 986 | $C94CFB |    20B | call(887): "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N)
+ 987 | $C94D0F |    14B | [party_action]
+ 988 | $C94D1D |    83B | [obj_action, party_action, sound, fade]
+ 989 | $C94D70 |   136B | [call(990), obj_action, party_action, fade]
+ 990 | $C94DF8 |    66B | [call(1407), obj_action, party_action]
+ 991 | $C94E3A |    12B | [party_action, event_switch] | ES258=ON | |
+ 992 | $C94E46 |    12B | [party_action, event_switch] | ES259=ON | |
+ 993 | $C94E52 |    12B | [party_action, event_switch] | ES260=ON | |
+ 994 | $C94E5E |    12B | [party_action, event_switch] | ES261=ON | |
+ 995 | $C94E6A |    12B | [party_action, event_switch] | ES262=ON | |
+ 996 | $C94E76 |    12B | [party_action, event_switch] | ES263=ON | |
+ 997 | $C94E82 |    12B | [party_action, event_switch] | ES264=ON | |
+ 998 | $C94E8E |    12B | [party_action, event_switch] | ES265=ON | |
+ 999 | $C94E9A |    16B | [sound, event_switch, battle_switch] | ES257=ON | |
+1000 | $C94EAA |    16B | [party_action, sound]
+1001 | $C94EBA |    20B | [party_action, sound]
+1002 | $C94ECE |    20B | [party_action, sound]
+1003 | $C94EE2 |    26B | [party_action, sound]
+1004 | $C94EFC |    20B | [party_action, sound]
+1005 | $C94F10 |    36B | [call(1018), call(1018), obj_action, party_action]
+1006 | $C94F34 |    80B | [obj_action, party_action]
+1007 | $C94F84 |    83B | "But Faris seems worried about th"
+1008 | $C94FD7 |    13B | [party_action]
+1009 | $C94FE4 |    30B | [battle(277), call(1013), call(1014), obj_action]
+1010 | $C95002 |    52B | [battle(282), call(1013), call(1014), obj_action]
+1011 | $C95036 |    43B | [battle(281), call(1013), call(1014), obj_action]
+1012 | $C95061 |    21B | [party_action]
+1013 | $C95076 |     7B | [obj_action]
+1014 | $C9507D |    19B | [obj_action]
+1015 | $C95090 |    25B | [unknown]
+1016 | $C950A9 |    37B | [unknown]
+1017 | $C950CE |    49B | [unknown]
+1018 | $C950FF |    73B | [unknown]
+1019 | $C95148 |    36B | [World Map (Combined World) #8] | ES510=OFF ES0=OFF | |
+1020 | $C9516C |    14B | [obj_action, party_action, event_switch] | ES259=ON | |
+1021 | $C9517A |    34B | [call(1018), call(1017), party_action]
+1022 | $C9519C |    80B | [call(497), obj_action, fade]
+1023 | $C951EC |    12B | [obj_action, party_action, fade]
+1024 | $C951F8 |    32B | "Bartz: What attitude!" | | | npc:474
+1025 | $C95218 |    13B | [Karnak Castle 1F #1] | ES256=ON | |
+1026 | $C95225 |    13B | [Karnak Castle B2 #1] | ES256=ON | |
+1027 | $C95232 |    13B | [Karnak Castle B3 #1] | ES257=ON | |
+1028 | $C9523F |    15B | [Karnak Castle #2] | ES257=ON | |
+1029 | $C9524E |    83B | "Bartz: Welcome!" | ES279=ON | |
+1030 | $C952A1 |    18B | [party_action, sound, event_switch] | ES256=ON | |
+1031 | $C952B3 |     4B | "Hey, this is supposed to off lim"
+1032 | $C952B7 |   289B | "Galuf: It's fine! Just shut the" | ES256=ON ES256=OFF ES97=ON | NS619=OFF |
+1033 | $C953D8 |    29B | [call(1895), obj_action, party_action]
+1034 | $C953F5 |    14B | "Then please, take use of this so" | ES273=ON | |
+1035 | $C95403 |     4B | "I must have been thinking of som"
+1036 | $C95407 |   150B | "Pretty Good! Received 100 Gil!"
+1037 | $C9549D |    11B | [call(1895), party_action, sound]
+1038 | $C954A8 |    36B | "Close your eyes for a moment!"
+1039 | $C954CC |     4B | "Wow, you're confident."
+1040 | $C954D0 |    42B | [obj_action, party_action]
+1041 | $C954FA |    19B | "Please, come on in!"
+1042 | $C9550D |    44B | "NO LOITERING..."
+1043 | $C95539 |    10B | [obj_action, party_action, sound]
+1044 | $C95543 |     1B | [empty/unused]
+1045 | $C95544 |    95B | [World Map (Bartz' World) #12] | ES317=ON ES510=OFF | |
+1046 | $C955A3 |    22B | [World Map (Bartz' World) #13] | ES317=ON ES510=OFF | |
+1047 | $C955B9 |    78B | "Final Fantasy V"
+1048 | $C95607 |    44B | [World Map (Bartz' World) #14] | ES24=ON | |
+1049 | $C95633 |    40B | [battle(256), obj_action, event_switch] | ES510=ON ES321=ON | |
+1050 | $C9565B |    64B | [battle(227), party_action, sound]
+1051 | $C9569B |     6B | [call(1053), party_action]
+1052 | $C956A1 |     6B | [call(1053), party_action]
+1053 | $C956A7 |    34B | [battle(256), obj_action, party_action, event_switch] | ES510=ON ES322=ON | |
+1054 | $C956C9 |    20B | [obj_action, party_action, event_switch] | ES323=ON | |
+1055 | $C956DD |   435B | "Lenna: Unhh... ..." | ES510=ON ES481=ON ES455=ON ES17=ON ES510=OFF ES511=ON | |
+1056 | $C95890 |    27B | "Wow! You scared me! I was playin" | ES270=ON | | npc:473
+1057 | $C958AB |     3B | [event_switch] | ES274=ON | |
+1058 | $C958AE |     3B | [event_switch] | ES275=ON | |
+1059 | $C958B1 |     3B | [event_switch] | ES276=ON | |
+1060 | $C958B4 |     3B | [event_switch] | ES277=ON | |
+1061 | $C958B7 |   115B | "The frog left something behind!" | ES226=OFF ES278=ON | |
+1062 | $C9592A |    12B | "Are you the ones who are on a jo" (Y/N) | | | npc:472
+1063 | $C95936 |    18B | [party_action, sound, event_switch] | ES256=ON | |
+1064 | $C95948 |    18B | [party_action, sound, event_switch] | ES257=ON | |
+1065 | $C9595A |    18B | [party_action, sound, event_switch] | ES258=ON | |
+1066 | $C9596C |    18B | [party_action, sound, event_switch] | ES259=ON | |
+1067 | $C9597E |    18B | [party_action, sound, event_switch] | ES260=ON | |
+1068 | $C95990 |    18B | [party_action, sound, event_switch] | ES261=ON | |
+1069 | $C959A2 |    18B | [party_action, sound, event_switch] | ES262=ON | |
+1070 | $C959B4 |    18B | [party_action, sound, event_switch] | ES256=ON | |
+1071 | $C959C6 |    18B | [party_action, sound, event_switch] | ES257=ON | |
+1072 | $C959D8 |     7B | [party_action] | | | npc:343 npc:845 npc:847
+1073 | $C959DF |    10B | "No one may enter the castle! Go" | | | npc:361
+1074 | $C959E9 |    90B | "Soldier: It's a werewolf!!" | ES256=ON ES280=ON | |
+1075 | $C95A43 |     9B | [World Map (Bartz' World) #15] | ES511=OFF | |
+1076 | $C95A4C |    12B | "If you go on stage you've gotta" (Y/N)
+1077 | $C95A58 |     0B | [empty/unused]
+1078 | $C95A58 |   276B | "Galuf: We're back! Open the gate" | ES493=OFF ES285=ON | NS617=OFF NS635=ON |
+1079 | $C95B6C |    13B | [call(1871), party_action]
+1080 | $C95B79 |    82B | "Princess Cara... She says her he"
+1081 | $C95BCB |   149B | "Galuf: Cara! Cara: Gr...and...pa" | ES103=ON | |
+1082 | $C95C60 |   662B | "Lenna: Here you go, have some!" | ES104=ON ES452=OFF | NS627=OFF NS636=OFF NS618=OFF NS620=OFF |
+1083 | $C95EF6 |    10B | "Epee was in the water... Obtaine" | ES408=ON | |
+1084 | $C95F00 |    24B | [call(1871), call(1871), party_action]
+1085 | $C95F18 |    11B | "A sacred power protects this spo" | ES509=ON ES289=ON | |
+1086 | $C95F23 |    21B | [party_action, sound, event_switch] | ES256=ON | |
+1087 | $C95F38 |    14B | [Castle of Bal #1]
+1088 | $C95F46 |    53B | [party_action]
+1089 | $C95F7B |   129B | "Lenna: What's that...?" | ES116=ON ES456=OFF | |
+1090 | $C95FFC |  1706B | "Bartz: What are these? Galuf: Th" | ES510=ON | |
+1091 | $C966A6 |   444B | "Cara: ... ... Grandpa!" | ES117=ON | |
+1092 | $C96862 |     7B | "Cara: ..." | | | npc:392
+1093 | $C96869 |     0B | [empty/unused]
+1094 | $C96869 |  1512B | "Bartz: We're off!!" | ES510=OFF ES454=ON ES21=ON | NS51=OFF NS52=OFF NS54=OFF NS55=OFF NS56=ON NS57=ON NS58=ON |
+1095 | $C96E51 |     7B | [Pirates' Hideout #1]
+1096 | $C96E58 |    35B | call(1318): "Bartz: Boco!"
+1097 | $C96E7B |    30B | [Great Forest of Moore #2] | ES264=ON | |
+1098 | $C96E99 |    27B | "Boco, let's go!" | ES511=ON ES510=OFF | | npc:95
+1099 | $C96EB4 |    18B | "Princess Lenna, please take thes" | ES294=ON | | npc:72
+1100 | $C96EC6 |    16B | [Moogle Forest #1]
+1101 | $C96ED6 |     7B | [Moogle Forest #2]
+1102 | $C96EDD |    16B | [Moogle Forest #3]
+1103 | $C96EED |     7B | [Moogle Forest #4]
+1104 | $C96EF4 |   151B | "Kupo-!" | ES93=ON | NS592=OFF | npc:592
+1105 | $C96F8B |    48B | [Underground Waterway #1]
+1106 | $C96FBB |    11B | "Shall I take you to the Beginner" (Y/N) | | | npc:120
+1107 | $C96FC6 |    13B | "Thank you for visiting the Begin" | | | npc:117
+1108 | $C96FD3 |    11B | "Are you beginners?" (Y/N)
+1109 | $C96FDE |    13B | call(440): "pgKrilepAll ttKPBartziOr!h YjZhQ"
+1110 | $C96FEB |   143B | "Cid: I've been waiting for you!" | ES46=ON | NS338=ON |
+1111 | $C9707A |   333B | "Lenna: Queen Karnak!! Bartz: Wha" | ES47=ON | NS385=ON NS384=OFF |
+1112 | $C971C7 |     7B | "Bartz: ???" | | | npc:406
+1113 | $C971CE |    42B | [obj_action, party_action, sound, event_switch] | ES295=OFF | |
+1114 | $C971F8 |    43B | [obj_action, party_action, sound, event_switch] | ES295=ON | |
+1115 | $C97223 |    21B | [party_action, sound, event_switch] | ES265=ON | |
+1116 | $C97238 |    25B | [Library of the Ancients B1 #1]
+1117 | $C97251 |    16B | [party_action, sound, event_switch] | ES264=ON | |
+1118 | $C97261 |    10B | "Bookshelf: I'm not letting you t" | ES257=ON | |
+1119 | $C9726B |    10B | "Bookshelf: I'm not letting you t" | ES257=OFF | |
+1120 | $C97275 |    26B | "Bookshelf: I'm not letting you t" | ES297=ON | |
+1121 | $C9728F |    55B | "I am Ifrit... Ifrit: I have been" | ES296=ON | NS407=OFF | npc:407
+1122 | $C972C6 |     9B | [Library of the Ancients B1 #1]
+1123 | $C972CF |    34B | [obj_action, party_action, sound, event_switch] | ES256=ON | |
+1124 | $C972F1 |    34B | [obj_action, party_action, sound, event_switch] | ES256=OFF | |
+1125 | $C97313 |    27B | [battle(316), obj_action, party_action, sound] | ES269=ON | |
+1126 | $C9732E |     9B | [battle(316), obj_action, npc_switch] | | NS412=OFF | npc:412
+1127 | $C97337 |    13B | "Cid: I'm researching the whereab" | | | npc:378
+1128 | $C97344 |     7B | [Moogle Village #1]
+1129 | $C9734B |   161B | [obj_action, party_action, event_switch] | ES300=ON | |
+1130 | $C973EC |    23B | "Moogle: Kupo!"
+1131 | $C97403 |     0B | [empty/unused]
+1132 | $C97403 |     0B | [empty/unused]
+1133 | $C97403 |    60B | "Moogle: Kupo!"
+1134 | $C9743F |    46B | "Moogle: Kupo!"
+1135 | $C9746D |   224B | "Lenna: It's the moogle that we j" | ES301=ON | NS486=OFF NS487=OFF NS479=OFF NS480=ON NS481=ON NS482=ON NS483=ON NS484=ON NS485=ON | npc:479
+1136 | $C9754D |    44B | [obj_action, party_action]
+1137 | $C97579 |    35B | "Moogle: Kupo!! Lenna: It looks l" | ES302=ON | | npc:478
+1138 | $C9759C |    29B | "Moogle: Kupo!! Lenna: It looks l" | | | npc:478
+1139 | $C975B9 |     9B | [obj_action, event_switch, npc_switch] | ES319=ON | NS476=ON |
+1140 | $C975C2 |    19B | "Bartz: It's a moogle.... suit!?" | | | npc:477
+1141 | $C975D5 |  1114B | "Moogle: Kupo!" | ES510=ON ES493=ON ES510=OFF | NS476=OFF |
+1142 | $C97A2F |     0B | [empty/unused]
+1143 | $C97A2F |    23B | "Moogle: Kupo!"
+1144 | $C97A46 |    20B | call(1130): "Moogle: Kupo!"
+1145 | $C97A5A |   860B | "Mid: Hey, you guys stay out of t" | ES510=ON ES475=OFF ES476=OFF ES477=OFF ES478=OFF ES475=ON ES476=ON ES477=ON ES510=OFF ES55=ON | NS375=ON NS376=ON NS377=ON |
+1146 | $C97DB6 |     7B | [battle(326), call(1331)]
+1147 | $C97DBD |     7B | [World Map (Combined World) #9]
+1148 | $C97DC4 |     7B | [World Map (Bartz' World) #16]
+1149 | $C97DCB |     7B | [World Map (Combined World) #10]
+1150 | $C97DD2 |     5B | [sound, event_switch] | ES509=ON | |
+1151 | $C97DD7 |     0B | [empty/unused]
+1152 | $C97DD7 |    22B | [call(767), obj_action]
+1153 | $C97DED |    12B | [obj_action]
+1154 | $C97DF9 |    12B | [call(1153), party_action]
+1155 | $C97E05 |    47B | [unknown]
+1156 | $C97E34 |    15B | [obj_action]
+1157 | $C97E43 |    21B | [World Map (Combined World) #11]
+1158 | $C97E58 |     3B | [party_action]
+1159 | $C97E5B |    12B | NPC: "Obtained !" | ES155=ON | |
+1160 | $C97E67 |    12B | NPC: "Obtained !" | ES156=ON | |
+1161 | $C97E73 |    12B | NPC: "Obtained !" | ES157=ON | |
+1162 | $C97E7F |    12B | NPC: "Obtained !" | ES158=ON | |
+1163 | $C97E8B |    12B | NPC: "Obtained !" | ES159=ON | |
+1164 | $C97E97 |    32B | [Catapult Living Quarters #3]
+1165 | $C97EB7 |     6B | [obj_action]
+1166 | $C97EBD |   120B | [obj_action, party_action, sound, event_switch] | ES510=ON | |
+1167 | $C97F35 |    71B | [party_action, npc_switch] | | NS459=ON |
+1168 | $C97F7C |    12B | "Bartz: A, a turtle!"
+1169 | $C97F88 |     7B | [party_action]
+1170 | $C97F8F |    16B | [obj_action]
+1171 | $C97F9F |    18B | [Ghido's Cave B5 #2]
+1172 | $C97FB1 |    53B | [obj_action, party_action, fade]
+1173 | $C97FE6 |    13B | [Ghido's Cave B5 #3]
+1174 | $C97FF3 |    52B | [obj_action, party_action, fade]
+1175 | $C98027 |    16B | [party_action, event_switch] | ES257=ON | |
+1176 | $C98037 |     5B | [call(1937), party_action]
+1177 | $C9803C |    46B | [call(1754), call(1751), obj_action, party_action]
+1178 | $C9806A |    23B | [call(1176), call(1751), obj_action, party_action]
+1179 | $C98081 |   269B | "You're alive!"
+1180 | $C9818E |    61B | [unknown]
+1181 | $C981CB |    57B | [unknown]
+1182 | $C98204 |    39B | [obj_action, party_action]
+1183 | $C9822B |     7B | call(1187): "Bartz: That was the last one, ri"
+1184 | $C98232 |     7B | call(1187): "Bartz: That was the last one, ri"
+1185 | $C98239 |     7B | call(1187): "Bartz: That was the last one, ri"
+1186 | $C98240 |     7B | call(1187): "Bartz: That was the last one, ri"
+1187 | $C98247 |   125B | "Bartz: That was the last one, ri" | ES510=ON ES510=OFF ES183=ON | NS253=ON |
+1188 | $C982C4 |    25B | [Airship #2]
+1189 | $C982DD |     9B | [World Map (Bartz' World) #17] | ES508=ON | |
+1190 | $C982E6 |     7B | [event_switch] | ES184=OFF | |
+1191 | $C982ED |     8B | [obj_action, party_action]
+1192 | $C982F5 |    50B | NPC: "Can't carry any more items!" | | NS45=OFF | npc:45 npc:307 npc:308
+1193 | $C98327 |   262B | "Bartz: Cid! Mid! What in the wor" | ES79=ON | NS307=OFF NS308=OFF NS248=OFF NS513=OFF NS45=OFF |
+1194 | $C9842D |    24B | [obj_action, event_switch, npc_switch] | ES187=ON ES508=ON | NS249=ON NS250=ON NS251=ON |
+1195 | $C98445 |    24B | NPC: "Can't carry any more items!" | ES38=ON | NS252=ON | npc:249 npc:251
+1196 | $C9845D |    10B | call(1210): "Obtained Esper Titan!" | | NS250=OFF | npc:252
+1197 | $C98467 |    24B | [obj_action, event_switch, npc_switch] | ES186=ON ES508=ON | NS306=ON NS313=ON NS314=ON |
+1198 | $C9847F |    16B | call(1211): NPC: "Monster-in-a-box!!" | | NS306=OFF NS313=OFF NS314=OFF | npc:306 npc:313
+1199 | $C9848F |    24B | [obj_action, event_switch, npc_switch] | ES188=ON ES508=ON | NS309=ON NS311=ON NS312=ON |
+1200 | $C984A7 |    28B | NPC: "Can't carry any more items!" | ES40=ON | NS309=OFF NS311=OFF NS310=ON | npc:309 npc:311
+1201 | $C984C3 |    10B | call(1212): "Cid: Help! Mid: Help me!!" | | NS312=OFF |
+1202 | $C984CD |    15B | [party_action, sound, event_switch] | ES266=ON | | npc:307 npc:308
+1203 | $C984DC |    29B | call(1210): "Obtained Esper Titan!" | | NS249=ON NS251=ON | npc:252
+1204 | $C984F9 |    23B | call(1211): NPC: "Monster-in-a-box!!" | | | npc:306 npc:313
+1205 | $C98510 |    29B | call(1212): "Cid: Help! Mid: Help me!!" | | NS309=ON NS311=ON |
+1206 | $C9852D |    27B | [call(915), obj_action, party_action]
+1207 | $C98548 |    17B | [obj_action, party_action]
+1208 | $C98559 |    67B | "Cid: Now, onto the next meteor!"
+1209 | $C9859C |    15B | "Zeza: Alright! Let's go!!" | | NS219=ON |
+1210 | $C985AB |    98B | "Obtained Esper Titan!" | ES187=OFF ES80=ON | NS249=OFF NS251=OFF NS252=OFF |
+1211 | $C9860D |    93B | NPC: "Monster-in-a-box!!" | ES186=OFF ES83=ON | |
+1212 | $C9866A |   126B | "Cid: Help! Mid: Help me!!" | ES84=ON ES188=OFF | NS310=OFF |
+1213 | $C986E8 |     8B | [party_action]
+1214 | $C986F0 |     5B | [party_action, event_switch] | ES511=OFF | |
+1215 | $C986F5 |    28B | [obj_action, party_action, fade]
+1216 | $C98711 |     5B | [party_action, event_switch] | ES511=OFF | |
+1217 | $C98716 |    12B | "Galuf: Wow! Gotta watch myself.."
+1218 | $C98722 |    12B | "Galuf: Wow! Gotta watch myself.."
+1219 | $C9872E |    48B | "Gilgamesh: I've been waiting beh" | ES69=ON | |
+1220 | $C9875E |    12B | "There is a lever. Push it?" (Y/N)
+1221 | $C9876A |    10B | "Bartz: Unnnnnggh! It's no use..."
+1222 | $C98774 |     8B | "There is a lever. Pull it?" (Y/N)
+1223 | $C9877C |    27B | [party_action, sound, event_switch] | ES259=ON | |
+1224 | $C98797 |     6B | "There is a note. Look at the sta" | ES256=ON | |
+1225 | $C9879D |    80B | "Monkeys always look!" | ES257=ON | |
+1226 | $C987ED |    67B | [obj_action, sound, event_switch] | ES260=ON | |
+1227 | $C98830 |     7B | NPC: "Can't carry any more items!" | ES258=ON | | npc:271
+1228 | $C98837 |     7B | NPC: "Obtained !" | ES258=ON | | npc:271
+1229 | $C9883E |     9B | [Sea Floor (Galuf's World) #1] | ES192=OFF | | npc:46
+1230 | $C98847 |     9B | [Sea Floor (Combined World) #2] | ES194=OFF | | npc:46
+1231 | $C98850 |     9B | [Sea Floor (Combined World) #3] | ES195=OFF | | npc:46
+1232 | $C98859 |     9B | [Sea Floor (Galuf's World) #2] | ES196=OFF | | npc:46
+1233 | $C98862 |     9B | [Submarine #6] | ES195=ON | |
+1234 | $C9886B |     9B | [Submarine #7] | ES194=ON | |
+1235 | $C98874 |     7B | [Sea Floor #2]
+1236 | $C9887B |     7B | [Sea Floor #1]
+1237 | $C98882 |   115B | "Zeza: Let's return to the ships!" | | | npc:46
+1238 | $C988F5 |     7B | [Great Sea Trench #1]
+1239 | $C988FC |     5B | [unknown]
+1240 | $C98901 |     6B | [party_action]
+1241 | $C98907 |     5B | [unknown]
+1242 | $C9890C |     6B | [party_action]
+1243 | $C98912 |    65B | "Faris: Lenna, are you awake?" | ES510=ON | |
+1244 | $C98953 |    61B | [call(1245), call(1407), obj_action, party_action] | ES510=OFF | |
+1245 | $C98990 |    32B | [Castle Tycoon Room #1]
+1246 | $C989B0 |   322B | [unknown]
+1247 | $C98AF2 |    11B | [obj_action]
+1248 | $C98AFD |    48B | "Lenna: ... And... Father is stil" | ES81=ON | NS257=OFF NS266=ON |
+1249 | $C98B2D |    27B | "We'll protect this castle while"
+1250 | $C98B48 |    27B | "Faris: And we have to use our po" | ES81=ON | NS257=OFF NS266=ON |
+1251 | $C98B63 |    44B | "Please call if you need anything" | ES257=ON | |
+1252 | $C98B8F |    48B | "Lenna: Father is... gone... But" | ES82=ON | NS257=OFF NS266=ON |
+1253 | $C98BBF |    41B | "Princess, have you decided to co"
+1254 | $C98BE8 |    27B | "Faris: And we have to go help Ga" | ES82=ON | NS257=OFF NS266=ON |
+1255 | $C98C03 |    13B | [call(1244), obj_action, event_switch] | ES76=ON | |
+1256 | $C98C10 |    51B | "Chancellor: Princess Lenna! Lenn"
+1257 | $C98C43 |    18B | [obj_action]
+1258 | $C98C55 |    11B | [obj_action]
+1259 | $C98C60 |    34B | [obj_action]
+1260 | $C98C82 |    20B | "I guess it's useless to try to k"
+1261 | $C98C96 |    71B | "Lenna: Father is... really gone." | ES510=ON ES82=ON | NS257=OFF NS266=ON |
+1262 | $C98CDD |   466B | [call(1449), call(1476), obj_action, party_action]
+1263 | $C98EAF |    89B | "Who are you people!"
+1264 | $C98F08 |    70B | "Palace guard: This way, please!"
+1265 | $C98F4E |    36B | [obj_action, party_action, event_switch] | ES106=ON | |
+1266 | $C98F72 |    11B | "Catch a few Z's?" (Y/N)
+1267 | $C98F7D |    13B | [call(988), party_action]
+1268 | $C98F8A |     7B | [call(1267), call(989)]
+1269 | $C98F91 |    14B | [call(260), obj_action]
+1270 | $C98F9F |    12B | "Catch a few Z's?" (Y/N)
+1271 | $C98FAB |    12B | [call(988), call(989), party_action]
+1272 | $C98FB7 |     7B | [Great Forest of Moore #2]
+1273 | $C98FBE |   153B | "Bahamut: You who opened the seal" | ES510=ON ES510=OFF ES212=ON | |
+1274 | $C99057 |    88B | [sound]
+1275 | $C990AF |   277B | [sound]
+1276 | $C991C4 |    12B | [Kuza Sealed Castle #1]
+1277 | $C991D0 |    12B | [Kuza Sealed Castle #1]
+1278 | $C991DC |    75B | [obj_action, party_action]
+1279 | $C99227 |    69B | [unknown]
+1280 | $C9926C |    47B | [give_take_item, obj_action, party_action, event_switch] | ES508=ON ES327=OFF ES328=OFF ES329=OFF | |
+1281 | $C9929B |    24B | Inn (630gp) | ES326=ON ES327=OFF ES328=OFF ES329=OFF | |
+1282 | $C992B3 |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1283 | $C992CB |    24B | Inn (1720gp) | ES326=OFF ES327=ON ES328=OFF ES329=OFF | |
+1284 | $C992E3 |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1285 | $C992FB |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1286 | $C99313 |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1287 | $C9932B |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=ON ES329=OFF | |
+1288 | $C99343 |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1289 | $C9935B |    24B | Inn (1720gp) | ES326=OFF ES327=OFF ES328=OFF ES329=ON | |
+1290 | $C99373 |    15B | [obj_action, party_action, event_switch] | ES264=ON | |
+1291 | $C99382 |    24B | Inn (630gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1292 | $C9939A |    24B | Inn (630gp) | ES326=OFF ES327=OFF ES328=ON ES329=OFF | |
+1293 | $C993B2 |    24B | Inn (630gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1294 | $C993CA |    24B | Inn (630gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1295 | $C993E2 |    24B | Inn (630gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1296 | $C993FA |    24B | Inn (630gp) | ES326=OFF ES327=ON ES328=OFF ES329=OFF | |
+1297 | $C99412 |    24B | Inn (630gp) | ES326=OFF ES327=OFF ES328=OFF ES329=OFF | |
+1298 | $C9942A |    43B | [battle(320), obj_action, party_action, sound] | ES326=OFF | |
+1299 | $C99455 |    39B | [battle(321), obj_action, party_action, sound] | ES327=OFF | |
+1300 | $C9947C |    39B | [battle(322), obj_action, party_action, sound] | ES328=OFF | |
+1301 | $C994A3 |    43B | [battle(320), obj_action, party_action, sound] | ES329=OFF | |
+1302 | $C994CE |    71B | Inn (630gp)
+1303 | $C99515 |    34B | "Carbunkle: If you are stronger t" | | NS391=OFF | npc:391
+1304 | $C99537 |    92B | "Bartz: Gilgamesh! Gilgamesh: Hah" | ES331=ON | NS609=ON |
+1305 | $C99593 |    22B | [Castle Exdeath 9F #1]
+1306 | $C995A9 |    22B | [Castle Exdeath Keep #1]
+1307 | $C995BF |    38B | Inn (1740gp) | ES256=ON | |
+1308 | $C995E5 |    38B | Inn (1740gp) | ES256=OFF | |
+1309 | $C9960B |    14B | "It's empty..." | ES330=ON | |
+1310 | $C99619 |   596B | "Exdeath: Don't try to stop me!" | ES383=OFF ES121=ON ES511=ON ES410=OFF ES456=ON | NS406=OFF NS380=OFF NS381=OFF NS382=OFF NS383=OFF NS393=OFF NS394=OFF NS395=OFF NS396=OFF NS81=ON NS82=ON NS83=ON NS84=ON NS85=ON NS920=ON NS893=ON NS894=ON NS895=ON NS896=ON NS897=ON NS898=ON NS68=OFF NS69=OFF NS70=OFF NS71=OFF NS72=OFF NS73=OFF NS48=OFF NS627=ON |
+1311 | $C9986D |   252B | [obj_action, sound]
+1312 | $C99969 |    26B | [sound]
+1313 | $C99983 |    11B | [Fire-Powered Ship Boiler Room #4]
+1314 | $C9998E |    10B | "HP/MP restored! Status restored!"
+1315 | $C99998 |   310B | "Bartz: Lenna, what's wrong?" | ES332=ON | |
+1316 | $C99ACE |     6B | call(75): "Zokk: Princess Lenna! Lenna: Zok"
+1317 | $C99AD4 |     6B | call(75): "Zokk: Princess Lenna! Lenna: Zok"
+1318 | $C99ADA |    68B | "Bartz: Boco!" | ES292=ON | |
+1319 | $C99B1E |     9B | "Bartz: Boco's footprints... Coul" | ES333=ON | |
+1320 | $C99B27 |     5B | [event_switch] | ES269=ON | |
+1321 | $C99B2C |   369B | "Lenna: Hiryuu!" | ES510=ON ES150=ON ES510=OFF | NS576=OFF |
+1322 | $C99C9D |    13B | "Captain! Please take these with" | ES334=ON | | npc:60
+1323 | $C99CAA |   206B | "Faris: Syldra! You're alive!!" | ES335=ON | |
+1324 | $C99D78 |    19B | [obj_action]
+1325 | $C99D8B |    19B | [obj_action]
+1326 | $C99D9E |    14B | [call(1324), call(1325)]
+1327 | $C99DAC |    18B | [party_action, sound, event_switch] | ES256=ON | |
+1328 | $C99DBE |     7B | [battle(323), call(1331)]
+1329 | $C99DC5 |     7B | [battle(324), call(1331)]
+1330 | $C99DCC |     7B | [battle(325), call(1331)]
+1331 | $C99DD3 |    18B | [party_action, sound, event_switch] | ES257=ON | |
+1332 | $C99DE5 |     7B | [World Map (Combined World) #12]
+1333 | $C99DEC |     7B | [World Map (Bartz' World) #18]
+1334 | $C99DF3 |     7B | [World Map (Combined World) #13]
+1335 | $C99DFA |     7B | [World Map (Bartz' World) #19]
+1336 | $C99E01 |     1B | [empty/unused]
+1337 | $C99E02 |    14B | [World Map (Galuf's World) #7]
+1338 | $C99E10 |    38B | [obj_action, sound]
+1339 | $C99E36 |     4B | "I see... Well then, there's noth"
+1340 | $C99E3A |    19B | "When I was burning old book, I f" | ES337=ON | | npc:408
+1341 | $C99E4D |    19B | [World Map (Galuf's World) #8]
+1342 | $C99E60 |    26B | "I see..." | ES371=ON | NS903=OFF |
+1343 | $C99E7A |    19B | [call(1353)]
+1344 | $C99E8D |     1B | [empty/unused] | | | npc:480
+1345 | $C99E8E |     1B | [empty/unused]
+1346 | $C99E8F |     1B | [empty/unused]
+1347 | $C99E90 |    11B | [World Map (Combined World) #14]
+1348 | $C99E9B |    18B | [party_action, sound, event_switch] | ES256=ON | |
+1349 | $C99EAD |    21B | [World Map (Combined World) #15] | | NS571=OFF NS611=OFF | npc:571
+1350 | $C99EC2 |    92B | "That slab... I can't let you hav" | ES379=ON | NS604=OFF |
+1351 | $C99F1E |     7B | [Guardian Tree #1]
+1352 | $C99F25 |     1B | [empty/unused]
+1353 | $C99F26 |    17B | [Mirage Town #1] | ES508=ON | |
+1354 | $C99F37 |     3B | [event_switch] | ES508=ON | |
+1355 | $C99F3A |    55B | [call(1908), party_action]
+1356 | $C99F71 |    12B | "Give up on separating the" (Y/N)
+1357 | $C99F7D |    80B | "Cara: Unless we take the two spe" | ES350=ON ES352=ON | |
+1358 | $C99FCD |    46B | [World Map (Combined World) #16] | ES350=OFF ES352=OFF ES353=OFF ES354=OFF ES355=OFF ES342=OFF ES343=OFF ES344=OFF ES345=OFF ES346=OFF ES347=OFF ES348=OFF ES349=OFF | |
+1359 | $C99FFB |     6B | [call(1895), party_action]
+1360 | $C9A001 |    45B | "In which group will Lenna go?" | ES353=ON ES342=ON | |
+1361 | $C9A02E |    45B | "In which group will Lenna go?" | ES353=ON ES346=ON | |
+1362 | $C9A05B |    42B | "In which group will Faris go?" | ES354=ON ES343=ON | |
+1363 | $C9A085 |    42B | "In which group will Faris go?" | ES354=ON ES347=ON | |
+1364 | $C9A0AF |    41B | "In which group will Cara go?" | ES355=ON ES344=ON | |
+1365 | $C9A0D8 |    41B | "In which group will Cara go?" | ES355=ON ES348=ON | |
+1366 | $C9A101 |    15B | [Fork Tower Black Tower #1] | ES345=ON | |
+1367 | $C9A110 |    15B | [Fork Tower Black Tower #2] | ES349=ON | |
+1368 | $C9A11F |     7B | "Cara: We need two groups... That"
+1369 | $C9A126 |    34B | [party_action, fade]
+1370 | $C9A148 |     7B | [call(1371), party_action]
+1371 | $C9A14F |    29B | [Castle Exdeath #2]
+1372 | $C9A16C |    12B | [call(1663)]
+1373 | $C9A178 |    12B | [call(1663)]
+1374 | $C9A184 |    12B | [call(1663)]
+1375 | $C9A190 |    12B | [call(1663)]
+1376 | $C9A19C |    12B | [call(1663)]
+1377 | $C9A1A8 |    12B | [call(1663)]
+1378 | $C9A1B4 |    12B | [call(1663)]
+1379 | $C9A1C0 |    12B | [call(1663)]
+1380 | $C9A1CC |    12B | [call(1663)]
+1381 | $C9A1D8 |    12B | [call(1663)]
+1382 | $C9A1E4 |    12B | [call(1663)]
+1383 | $C9A1F0 |    12B | [call(1663)]
+1384 | $C9A1FC |    12B | [call(1663)]
+1385 | $C9A208 |    12B | [call(1663)]
+1386 | $C9A214 |    27B | [Fork Tower White Tower #1] | ES367=ON | |
+1387 | $C9A22F |    78B | "We need to take them at the same" | ES510=ON ES510=OFF | | npc:573
+1388 | $C9A27D |    79B | "Obtained Black Magic" | ES498=ON | | npc:572
+1389 | $C9A2CC |     7B | [Fork Tower Entrance #1]
+1390 | $C9A2D3 |    21B | [party_action, sound, event_switch] | ES256=ON | |
+1391 | $C9A2E8 |    23B | "One is in an island shrine, prot" | ES351=ON ES256=ON | |
+1392 | $C9A2FF |     7B | [call(1908), party_action]
+1393 | $C9A306 |    56B | [Island Shrine #1]
+1394 | $C9A33E |    45B | [Island Shrine #2]
+1395 | $C9A36B |    48B | [Island Shrine #3]
+1396 | $C9A39B |    48B | [Island Shrine #4]
+1397 | $C9A3CB |    48B | [Island Shrine #5]
+1398 | $C9A3FB |    60B | [Island Shrine #6]
+1399 | $C9A437 |    60B | [Island Shrine #7]
+1400 | $C9A473 |    58B | [Island Shrine #8]
+1401 | $C9A4AD |   261B | "I was wondering who it might be." | ES510=ON ES510=OFF ES142=ON ES339=ON ES460=ON | NS579=OFF NS602=OFF | npc:579
+1402 | $C9A5B2 |    21B | [party_action, sound, event_switch] | ES256=ON | |
+1403 | $C9A5C7 |    65B | [battle(301), obj_action, party_action, sound]
+1404 | $C9A608 |    12B | "Do you want an explanation about" (Y/N) | | | npc:871
+1405 | $C9A614 |    53B | call(1047): "Final Fantasy V"
+1406 | $C9A649 |   144B | [unknown]
+1407 | $C9A6D9 |    29B | [unknown]
+1408 | $C9A6F6 |    45B | [call(1409)]
+1409 | $C9A723 |    22B | [obj_action]
+1410 | $C9A739 |   215B | [unknown]
+1411 | $C9A810 |   164B | [unknown]
+1412 | $C9A8B4 |    53B | [unknown]
+1413 | $C9A8E9 |   270B | [unknown]
+1414 | $C9A9F7 |    43B | [unknown]
+1415 | $C9AA22 |   113B | "Galuf: Zeza... You showoff..." | ES510=OFF ES193=OFF | NS14=ON |
+1416 | $C9AA93 |     7B | [event_switch] | ES508=ON | |
+1417 | $C9AA9A |    14B | [party_action]
+1418 | $C9AAA8 |    17B | [party_action]
+1419 | $C9AAB9 |    17B | [party_action]
+1420 | $C9AACA |   242B | [unknown]
+1421 | $C9ABBC |     7B | [call(171), call(1439)]
+1422 | $C9ABC3 |     7B | [call(171), call(1438)]
+1423 | $C9ABCA |    10B | [call(171), call(1438)]
+1424 | $C9ABD4 |     7B | [call(171), call(1437)]
+1425 | $C9ABDB |    10B | [call(171), call(1437)]
+1426 | $C9ABE5 |    10B | [call(171), call(1437)]
+1427 | $C9ABEF |    13B | [call(171), call(1437)]
+1428 | $C9ABFC |     7B | [call(171), call(1436)]
+1429 | $C9AC03 |    10B | [call(171), call(1436)]
+1430 | $C9AC0D |    10B | [call(171), call(1436)]
+1431 | $C9AC17 |    13B | [call(171), call(1436)]
+1432 | $C9AC24 |    10B | [call(171), call(1436)]
+1433 | $C9AC2E |    13B | [call(171), call(1436)]
+1434 | $C9AC3B |    13B | [call(171), call(1436)]
+1435 | $C9AC48 |    14B | [call(171), call(169)]
+1436 | $C9AC56 |     6B | [party_action]
+1437 | $C9AC5C |     6B | [party_action]
+1438 | $C9AC62 |     6B | [party_action]
+1439 | $C9AC68 |     6B | [party_action]
+1440 | $C9AC6E |    15B | [party_action, sound, event_switch] | ES266=ON | |
+1441 | $C9AC7D |    27B | [obj_action]
+1442 | $C9AC98 |    13B | [Tower of Walse 5F #1]
+1443 | $C9ACA5 |    15B | [obj_action]
+1444 | $C9ACB4 |    15B | [obj_action]
+1445 | $C9ACC3 |    15B | [obj_action]
+1446 | $C9ACD2 |    15B | [obj_action]
+1447 | $C9ACE1 |    22B | "Ah! Excuse me."
+1448 | $C9ACF7 |    22B | "Ah! Excuse me."
+1449 | $C9AD0D |    10B | [unknown]
+1450 | $C9AD17 |    25B | [obj_action]
+1451 | $C9AD30 |    13B | [obj_action]
+1452 | $C9AD3D |     7B | [party_action, event_switch] | ES510=OFF | |
+1453 | $C9AD44 |     6B | [event_switch] | ES508=ON | |
+1454 | $C9AD4A |     6B | [event_switch] | ES508=ON | |
+1455 | $C9AD50 |    11B | [party_action, sound, event_switch] | ES257=ON | |
+1456 | $C9AD5B |    39B | "Cara: The Sealed Book!" | ES130=ON | NS44=OFF |
+1457 | $C9AD82 |    11B | [party_action, sound, event_switch] | ES256=ON | |
+1458 | $C9AD8D |    32B | [call(1496), call(296), obj_action, party_action]
+1459 | $C9ADAD |    21B | [call(1496), obj_action, party_action]
+1460 | $C9ADC2 |    21B | [call(1496), obj_action, party_action]
+1461 | $C9ADD7 |    21B | [call(1496), obj_action, party_action]
+1462 | $C9ADEC |     7B | [event_switch] | ES256=ON | |
+1463 | $C9ADF3 |    32B | [obj_action, party_action, event_switch] | ES257=ON | |
+1464 | $C9AE13 |    32B | [obj_action, party_action, event_switch] | ES257=OFF | |
+1465 | $C9AE33 |    47B | [Pyramid Inside #1]
+1466 | $C9AE62 |    23B | [call(1484), party_action, sound, event_switch] | ES257=ON | |
+1467 | $C9AE79 |    18B | [obj_action]
+1468 | $C9AE8B |    24B | [battle(295), call(1469), obj_action, event_switch] | ES261=ON ES126=ON | |
+1469 | $C9AEA3 |    30B | [obj_action, party_action, sound, event_switch] | ES261=ON | |
+1470 | $C9AEC1 |     6B | [battle(296), obj_action] | | | npc:593
+1471 | $C9AEC7 |     6B | [battle(296), obj_action] | | | npc:594
+1472 | $C9AECD |     6B | [battle(296), obj_action] | | | npc:595
+1473 | $C9AED3 |     6B | [battle(296), obj_action] | | | npc:596
+1474 | $C9AED9 |    39B | "One is in a place deeper than th" | ES161=ON | NS33=OFF |
+1475 | $C9AF00 |   148B | [Pirate Ship Below Deck #1]
+1476 | $C9AF94 |    25B | [obj_action]
+1477 | $C9AFAD |    25B | [obj_action]
+1478 | $C9AFC6 |    61B | [call(1484), party_action, sound, event_switch] | ES256=ON | |
+1479 | $C9B003 |    12B | [call(1496), party_action, event_switch] | ES257=ON | |
+1480 | $C9B00F |    12B | [call(1496), party_action, event_switch] | ES258=ON | |
+1481 | $C9B01B |    12B | [call(1496), party_action, event_switch] | ES259=ON | |
+1482 | $C9B027 |    25B | [obj_action]
+1483 | $C9B040 |    13B | "I'm now in Lix. Until I leave on"
+1484 | $C9B04D |    19B | [obj_action, event_switch] | ES497=ON | |
+1485 | $C9B060 |    23B | [call(1484), party_action, sound, event_switch] | ES257=ON | |
+1486 | $C9B077 |    32B | [call(1496), obj_action, party_action, sound] | ES256=ON | |
+1487 | $C9B097 |    26B | [obj_action, party_action, sound]
+1488 | $C9B0B1 |    13B | [party_action, fade]
+1489 | $C9B0BE |    12B | [party_action, fade]
+1490 | $C9B0CA |   479B | "Obtained First Tablet!" | ES510=ON ES499=ON ES510=OFF ES131=ON ES461=ON | NS8=OFF |
+1491 | $C9B2A9 |    19B | [obj_action]
+1492 | $C9B2BC |    43B | "Lenna: Ooh... sniffle... Mother."
+1493 | $C9B2E7 |     6B | [call(963), event_switch] | ES257=ON | |
+1494 | $C9B2ED |    57B | NPC: "Obtained !" | ES76=ON | | npc:261
+1495 | $C9B326 |   188B | "Sarisa: Umm... let's see... Cu"
+1496 | $C9B3E2 |     8B | [party_action, sound]
+1497 | $C9B3EA |     8B | [party_action, sound]
+1498 | $C9B3F2 |     6B | [party_action]
+1499 | $C9B3F8 |     3B | [party_action]
+1500 | $C9B3FB |    25B | [call(1484), party_action, sound]
+1501 | $C9B414 |     6B | [party_action]
+1502 | $C9B41A |    25B | [call(1484), party_action, sound]
+1503 | $C9B433 |    27B | [obj_action]
+1504 | $C9B44E |     8B | [party_action]
+1505 | $C9B456 |    18B | "Bartz: The tablet!?" | ES151=ON | | npc:18
+1506 | $C9B468 |    38B | [call(307), call(308), sound, event_switch] | ES256=ON ES257=ON ES258=ON ES271=ON | | npc:18
+1507 | $C9B48E |     6B | [call(1585), event_switch] | ES256=OFF | |
+1508 | $C9B494 |     6B | [call(1585), event_switch] | ES257=OFF | |
+1509 | $C9B49A |     6B | [call(1585), event_switch] | ES258=OFF | |
+1510 | $C9B4A0 |     6B | [call(1586), event_switch] | ES256=OFF | |
+1511 | $C9B4A6 |     6B | [call(1586), event_switch] | ES257=OFF | |
+1512 | $C9B4AC |     6B | [call(1586), event_switch] | ES258=OFF | |
+1513 | $C9B4B2 |     6B | [call(1587), event_switch] | ES256=OFF | |
+1514 | $C9B4B8 |     6B | [call(1587), event_switch] | ES257=OFF | |
+1515 | $C9B4BE |     6B | [call(1587), event_switch] | ES258=OFF | |
+1516 | $C9B4C4 |     6B | [call(1588), event_switch] | ES256=OFF | |
+1517 | $C9B4CA |     6B | [call(1588), event_switch] | ES257=OFF | |
+1518 | $C9B4D0 |     6B | [call(1588), event_switch] | ES258=OFF | |
+1519 | $C9B4D6 |     6B | [call(1589), event_switch] | ES256=OFF | |
+1520 | $C9B4DC |     6B | [call(1589), event_switch] | ES257=OFF | |
+1521 | $C9B4E2 |     6B | [call(1589), event_switch] | ES258=OFF | |
+1522 | $C9B4E8 |     6B | [call(1590), event_switch] | ES256=OFF | |
+1523 | $C9B4EE |     6B | [call(1590), event_switch] | ES257=OFF | |
+1524 | $C9B4F4 |     6B | [call(1590), event_switch] | ES258=OFF | |
+1525 | $C9B4FA |     6B | [call(1591), event_switch] | ES256=OFF | |
+1526 | $C9B500 |     6B | [call(1591), event_switch] | ES257=OFF | |
+1527 | $C9B506 |     6B | [call(1591), event_switch] | ES258=OFF | |
+1528 | $C9B50C |     6B | [call(1592), event_switch] | ES256=OFF | |
+1529 | $C9B512 |     6B | [call(1592), event_switch] | ES257=OFF | |
+1530 | $C9B518 |     6B | [call(1592), event_switch] | ES258=OFF | |
+1531 | $C9B51E |     6B | [call(1593), event_switch] | ES256=OFF | |
+1532 | $C9B524 |     6B | [call(1593), event_switch] | ES257=OFF | |
+1533 | $C9B52A |     6B | [call(1593), event_switch] | ES258=OFF | |
+1534 | $C9B530 |    19B | [battle(279), call(1013), call(1014), obj_action]
+1535 | $C9B543 |    43B | [battle(281), call(1013), call(1014), obj_action]
+1536 | $C9B56E |     6B | [call(1594), event_switch] | ES256=OFF | |
+1537 | $C9B574 |     6B | [call(1594), event_switch] | ES257=OFF | |
+1538 | $C9B57A |     6B | [call(1594), event_switch] | ES258=OFF | |
+1539 | $C9B580 |     6B | [call(1595), event_switch] | ES256=OFF | |
+1540 | $C9B586 |     6B | [call(1595), event_switch] | ES257=OFF | |
+1541 | $C9B58C |     6B | [call(1595), event_switch] | ES258=OFF | |
+1542 | $C9B592 |     6B | [call(1596), event_switch] | ES256=OFF | |
+1543 | $C9B598 |     6B | [call(1596), event_switch] | ES257=OFF | |
+1544 | $C9B59E |     6B | [call(1596), event_switch] | ES258=OFF | |
+1545 | $C9B5A4 |     8B | [call(684), event_switch] | ES131=OFF ES461=OFF | |
+1546 | $C9B5AC |     8B | [call(684), event_switch] | ES142=OFF ES460=OFF | |
+1547 | $C9B5B4 |     8B | [call(684), event_switch] | ES145=OFF ES459=OFF | |
+1548 | $C9B5BC |     8B | [call(684), event_switch] | ES147=OFF ES458=OFF | |
+1549 | $C9B5C4 |    11B | "Undo this seal?" (Y/N) | | | npc:292
+1550 | $C9B5CF |    11B | "Undo this seal?" (Y/N) | | | npc:292
+1551 | $C9B5DA |    11B | "Undo this seal?" (Y/N) | | | npc:292
+1552 | $C9B5E5 |    11B | "Undo this seal?" (Y/N) | | | npc:293
+1553 | $C9B5F0 |    11B | "Undo this seal?" (Y/N) | | | npc:293
+1554 | $C9B5FB |    11B | "Undo this seal?" (Y/N) | | | npc:293
+1555 | $C9B606 |    11B | "Undo this seal?" (Y/N) | | | npc:294
+1556 | $C9B611 |    11B | "Undo this seal?" (Y/N) | | | npc:294
+1557 | $C9B61C |    11B | "Undo this seal?" (Y/N) | | | npc:294
+1558 | $C9B627 |    11B | "Undo this seal?" (Y/N) | | | npc:295
+1559 | $C9B632 |    11B | "Undo this seal?" (Y/N) | | | npc:295
+1560 | $C9B63D |    11B | "Undo this seal?" (Y/N) | | | npc:295
+1561 | $C9B648 |    11B | "Undo this seal?" (Y/N) | | | npc:296
+1562 | $C9B653 |    11B | "Undo this seal?" (Y/N) | | | npc:296
+1563 | $C9B65E |    11B | "Undo this seal?" (Y/N) | | | npc:296
+1564 | $C9B669 |    11B | "Undo this seal?" (Y/N) | | | npc:297
+1565 | $C9B674 |    11B | "Undo this seal?" (Y/N) | | | npc:297
+1566 | $C9B67F |    11B | "Undo this seal?" (Y/N) | | | npc:297
+1567 | $C9B68A |    11B | "Undo this seal?" (Y/N) | | | npc:298
+1568 | $C9B695 |    11B | "Undo this seal?" (Y/N) | | | npc:298
+1569 | $C9B6A0 |    11B | "Undo this seal?" (Y/N) | | | npc:298
+1570 | $C9B6AB |    11B | "Undo this seal?" (Y/N) | | | npc:299
+1571 | $C9B6B6 |    11B | "Undo this seal?" (Y/N) | | | npc:299
+1572 | $C9B6C1 |    11B | "Undo this seal?" (Y/N) | | | npc:299
+1573 | $C9B6CC |    11B | "Undo this seal?" (Y/N) | | | npc:300
+1574 | $C9B6D7 |    11B | "Undo this seal?" (Y/N) | | | npc:300
+1575 | $C9B6E2 |    11B | "Undo this seal?" (Y/N) | | | npc:300
+1576 | $C9B6ED |    11B | "Undo this seal?" (Y/N) | | | npc:301
+1577 | $C9B6F8 |    11B | "Undo this seal?" (Y/N) | | | npc:301
+1578 | $C9B703 |    11B | "Undo this seal?" (Y/N) | | | npc:301
+1579 | $C9B70E |    11B | "Undo this seal?" (Y/N) | | | npc:302
+1580 | $C9B719 |    11B | "Undo this seal?" (Y/N) | | | npc:302
+1581 | $C9B724 |    11B | "Undo this seal?" (Y/N) | | | npc:302
+1582 | $C9B72F |    11B | "Undo this seal?" (Y/N) | | | npc:303
+1583 | $C9B73A |    11B | "Undo this seal?" (Y/N) | | | npc:303
+1584 | $C9B745 |    11B | "Undo this seal?" (Y/N) | | | npc:303
+1585 | $C9B750 |    37B | call(1714): NPC: "Obtained !" | | NS292=OFF |
+1586 | $C9B775 |    40B | call(1714): NPC: "Obtained !" | | NS293=OFF |
+1587 | $C9B79D |    40B | call(1714): NPC: "Obtained !" | | NS294=OFF |
+1588 | $C9B7C5 |    40B | call(1714): NPC: "Obtained !" | | NS295=OFF |
+1589 | $C9B7ED |    40B | call(1714): NPC: "Obtained !" | | NS296=OFF |
+1590 | $C9B815 |    40B | call(1714): NPC: "Obtained !" | | NS297=OFF |
+1591 | $C9B83D |    40B | call(1714): NPC: "Obtained !" | | NS298=OFF |
+1592 | $C9B865 |    40B | call(1714): NPC: "Obtained !" | | NS299=OFF |
+1593 | $C9B88D |    40B | call(1714): NPC: "Obtained !" | | NS300=OFF |
+1594 | $C9B8B5 |    40B | call(1714): NPC: "Obtained !" | | NS301=OFF |
+1595 | $C9B8DD |    40B | call(1714): NPC: "Obtained !" | | NS302=OFF |
+1596 | $C9B905 |    40B | call(1714): NPC: "Obtained !" | | NS303=OFF |
+1597 | $C9B92D |     7B | [event_switch] | ES257=ON | |
+1598 | $C9B934 |    25B | [call(1484), party_action, sound]
+1599 | $C9B94D |     9B | [party_action, event_switch] | ES258=ON | |
+1600 | $C9B956 |    16B | [party_action, sound, event_switch] | ES356=ON | | npc:577
+1601 | $C9B966 |    16B | [party_action, sound, event_switch] | ES356=OFF | | npc:577
+1602 | $C9B976 |    16B | [party_action, sound, event_switch] | ES357=ON | | npc:578
+1603 | $C9B986 |    16B | [party_action, sound, event_switch] | ES357=OFF | | npc:578
+1604 | $C9B996 |     6B | "There's a present from me inside" | ES256=ON | | npc:875
+1605 | $C9B99C |     7B | call(1047): "Final Fantasy V"
+1606 | $C9B9A3 |    13B | call(1608): "Faris: Don't forget me!" | | | npc:643
+1607 | $C9B9B0 |    13B | call(1608): "Faris: Don't forget me!" | | | npc:644
+1608 | $C9B9BD |    15B | "Faris: Don't forget me!"
+1609 | $C9B9CC |    28B | "Faris: Well, see ya later!"
+1610 | $C9B9E8 |     6B | "Put characters with weak defense" | | | npc:865
+1611 | $C9B9EE |     6B | "The character who is normally di" | | | npc:867
+1612 | $C9B9F4 |    15B | [obj_action, party_action, sound]
+1613 | $C9BA03 |    32B | [party_action, sound, fade, event_switch] | ES434=ON | |
+1614 | $C9BA23 |    22B | [party_action, sound, event_switch] | ES263=ON | | npc:877
+1615 | $C9BA39 |    22B | [party_action, sound, event_switch] | ES263=OFF | | npc:877
+1616 | $C9BA4F |    41B | [party_action, sound, event_switch] | ES263=ON | |
+1617 | $C9BA78 |    45B | [party_action, sound, event_switch] | ES264=ON | | npc:878
+1618 | $C9BAA5 |    65B | [party_action, sound, event_switch] | ES264=ON | |
+1619 | $C9BAE6 |    65B | [party_action, sound, event_switch] | ES264=ON | |
+1620 | $C9BB27 |    45B | [party_action, sound, event_switch] | ES264=OFF | | npc:878
+1621 | $C9BB54 |    45B | [party_action, sound, event_switch] | ES265=ON | | npc:879
+1622 | $C9BB81 |    45B | [party_action, sound, event_switch] | ES265=OFF | | npc:879
+1623 | $C9BBAE |    23B | "And the last behind a waterfall," | ES362=ON ES256=ON | |
+1624 | $C9BBC5 |    22B | [obj_action, party_action, sound, event_switch] | ES256=ON | NS881=OFF |
+1625 | $C9BBDB |    29B | "Obtained Fourth Tablet!" | ES147=ON ES340=ON ES458=ON | NS639=OFF | npc:639
+1626 | $C9BBF8 |    72B | "Leviathan: My power of water..." | ES146=ON | |
+1627 | $C9BC40 |   146B | [obj_action, party_action, sound, event_switch] | ES256=ON | |
+1628 | $C9BCD2 |    19B | [call(1328)]
+1629 | $C9BCE5 |    12B | "Would you like to hear about a f" (Y/N) | | | npc:889
+1630 | $C9BCF1 |     4B | "Double Grip' With this, you hold"
+1631 | $C9BCF5 |    10B | [World Map (Galuf's World) #9] | ES410=OFF | |
+1632 | $C9BCFF |    34B | "Wark!" | | | npc:888
+1633 | $C9BD21 |     4B | "That's the weapon dealer."
+1634 | $C9BD25 |     4B | "That's the armor dealer."
+1635 | $C9BD29 |    16B | "So you're the ones fighting agai" | ES363=ON | | npc:890
+1636 | $C9BD39 |    19B | "I brought some recovery water fr" | ES268=ON | | npc:895
+1637 | $C9BD4C |   730B | [call(432), call(433), party_action, sound] | ES264=ON | |
+1638 | $C9C026 |    26B | [The Void Ruins #1]
+1639 | $C9C040 |    26B | [The Void Ruins #2]
+1640 | $C9C05A |    11B | [party_action]
+1641 | $C9C065 |    11B | [party_action]
+1642 | $C9C070 |    12B | [party_action]
+1643 | $C9C07C |    12B | [party_action]
+1644 | $C9C088 |    15B | [party_action]
+1645 | $C9C097 |    15B | [party_action]
+1646 | $C9C0A6 |    15B | [party_action]
+1647 | $C9C0B5 |    15B | [party_action]
+1648 | $C9C0C4 |    26B | [The Void Ruins #1]
+1649 | $C9C0DE |    26B | [The Void Ruins #2]
+1650 | $C9C0F8 |    15B | [The Void Dimension Castle #1]
+1651 | $C9C107 |     7B | [The Void Cave #1]
+1652 | $C9C10E |    16B | [The Void Forest #1]
+1653 | $C9C11E |    12B | [obj_action, sound, event_switch] | ES369=ON | | npc:901
+1654 | $C9C12A |    12B | [obj_action, sound, event_switch] | ES369=OFF | | npc:901
+1655 | $C9C136 |     7B | [The Void Cave #1]
+1656 | $C9C13D |     7B | [The Void Tower #1]
+1657 | $C9C144 |    21B | [party_action, sound, event_switch] | ES256=ON | |
+1658 | $C9C159 |    12B | [party_action, sound, event_switch] | ES497=ON | |
+1659 | $C9C165 |    12B | [party_action, sound, event_switch] | ES497=ON | |
+1660 | $C9C171 |     9B | [battle(311), obj_action, npc_switch] | | NS904=OFF | npc:904
+1661 | $C9C17A |     9B | [battle(311), obj_action, npc_switch] | | NS905=OFF | npc:905
+1662 | $C9C183 |    12B | "Get it quickly, before the tower" | ES368=ON | |
+1663 | $C9C18F |     6B | [party_action, fade]
+1664 | $C9C195 |     9B | [battle(311), obj_action, npc_switch] | | NS906=OFF | npc:906
+1665 | $C9C19E |    25B | [obj_action]
+1666 | $C9C1B7 |     9B | [battle(311), obj_action, npc_switch] | | NS908=OFF | npc:908
+1667 | $C9C1C0 |     9B | [battle(311), obj_action, npc_switch] | | NS909=OFF | npc:909
+1668 | $C9C1C9 |     9B | [battle(311), obj_action, npc_switch] | | NS910=OFF | npc:910
+1669 | $C9C1D2 |    12B | [obj_action]
+1670 | $C9C1DE |    57B | [battle(329), call(1922), obj_action, party_action] | ES370=ON | NS902=OFF | npc:902
+1671 | $C9C217 |    12B | "You are the warriors that hold t" (Y/N) | | | npc:903
+1672 | $C9C223 |    13B | [party_action]
+1673 | $C9C230 |     8B | [party_action]
+1674 | $C9C238 |     8B | [call(1672), event_switch] | ES259=ON ES497=OFF | |
+1675 | $C9C240 |    10B | [party_action, sound]
+1676 | $C9C24A |     3B | [event_switch] | ES497=OFF | |
+1677 | $C9C24D |    41B | "You've made it this far... But y" | ES369=ON ES372=ON | | npc:901
+1678 | $C9C276 |    11B | [call(1673), call(1672), sound, event_switch] | ES509=ON | |
+1679 | $C9C281 |   298B | [obj_action, fade]
+1680 | $C9C3AB |    13B | call(1682): "You can't run away..."
+1681 | $C9C3B8 |    12B | call(1682): "You can't run away..."
+1682 | $C9C3C4 |    82B | "You can't run away..." | ES373=ON | NS912=OFF |
+1683 | $C9C416 |     9B | [call(1403), event_switch, npc_switch] | ES358=ON | NS638=OFF |
+1684 | $C9C41F |     9B | [call(1403), event_switch, npc_switch] | ES374=ON | NS913=OFF |
+1685 | $C9C428 |    12B | [party_action, sound]
+1686 | $C9C434 |    16B | [The Void Last Floor #1] | ES508=ON | |
+1687 | $C9C444 |    16B | [The Void Dimension Castle #1] | ES508=ON | |
+1688 | $C9C454 |    16B | [The Void Last Floor #1] | ES508=ON | |
+1689 | $C9C464 |    16B | [The Void Last Floor #2] | ES508=ON | |
+1690 | $C9C474 |    16B | [The Void Last Floor #1] | ES508=ON | |
+1691 | $C9C484 |    16B | [The Void Last Floor #2] | ES508=ON | |
+1692 | $C9C494 |    16B | [The Void Last Floor #1] | ES508=ON | |
+1693 | $C9C4A4 |    16B | [The Void Last Floor #2] | ES508=ON | |
+1694 | $C9C4B4 |    16B | [The Void Last Floor #1] | ES508=ON | |
+1695 | $C9C4C4 |    16B | [The Void Last Floor #2] | ES508=ON | |
+1696 | $C9C4D4 |    49B | "This is it... Ahead of here lies" | ES375=ON | NS914=OFF |
+1697 | $C9C505 |   123B | [party_action, sound, event_switch] | ES257=ON | |
+1698 | $C9C580 |    21B | [party_action, sound, event_switch] | ES259=ON | |
+1699 | $C9C595 |    23B | [party_action, sound] | | | npc:915
+1700 | $C9C5AC |    43B | "This light... I won't let you ha" | ES376=ON | NS916=OFF | npc:916
+1701 | $C9C5D7 |     7B | [party_action]
+1702 | $C9C5DE |    24B | [sound]
+1703 | $C9C5F6 |     8B | [call(1701), sound, event_switch] | ES509=ON | |
+1704 | $C9C5FE |    19B | [The Void Last Floor #3] | ES508=ON | |
+1705 | $C9C611 |    27B | "Take a peaceful rest in the fore" | ES377=ON | |
+1706 | $C9C62C |    13B | [party_action, event_switch] | ES409=ON | |
+1707 | $C9C639 |    12B | [party_action, event_switch] | ES409=ON | |
+1708 | $C9C645 |    30B | [party_action]
+1709 | $C9C663 |    11B | [fade]
+1710 | $C9C66E |    10B | [fade]
+1711 | $C9C678 |   163B | [World Map (Combined World) #17] | ES510=ON | |
+1712 | $C9C71B |     7B | [call(968), call(1785)]
+1713 | $C9C722 |   321B | [obj_action, party_action, sound]
+1714 | $C9C863 |    27B | NPC: "Obtained !"
+1715 | $C9C87E |    57B | "King: FOOL!!"
+1716 | $C9C8B7 |    97B | "Oink, oink!" | ES145=ON ES14=ON ES459=ON | NS32=OFF NS604=OFF | npc:32
+1717 | $C9C918 |   154B | "Lenna: You mean there isn't any"
+1718 | $C9C9B2 |   574B | "Cid: I... I'm getting dizzy!" | ES510=OFF ES143=ON ES505=ON | NS222=ON NS221=ON NS31=OFF NS506=OFF |
+1719 | $C9CBF0 |     8B | "Hmph... I won't spare you any me" (Y/N)
+1720 | $C9CBF8 |     7B | [call(968), call(1786)]
+1721 | $C9CBFF |     6B | [call(963), event_switch] | ES258=ON | |
+1722 | $C9CC05 |     6B | [call(961), event_switch] | ES258=ON | |
+1723 | $C9CC0B |     6B | [call(1730), event_switch] | ES258=ON | |
+1724 | $C9CC11 |     7B | [call(968), call(1721)]
+1725 | $C9CC18 |    31B | [obj_action]
+1726 | $C9CC37 |     6B | NPC: "Can't carry any more items!" | | | npc:815
+1727 | $C9CC3D |     7B | [call(968), call(1722)]
+1728 | $C9CC44 |    11B | "Don't you think I'm beautiful?" (Y/N) | | | npc:135
+1729 | $C9CC4F |    31B | NPC: "Obtained Gil!" | | NS135=OFF |
+1730 | $C9CC6E |     6B | call(1755): "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N)
+1731 | $C9CC74 |     7B | [call(968), call(1723)]
+1732 | $C9CC7B |    26B | [Above Deck #1] | ES0=ON | |
+1733 | $C9CC95 |    12B | [Above Deck #2]
+1734 | $C9CCA1 |    10B | call(1844): "Cara: What's that!?"
+1735 | $C9CCAB |    16B | [sound, event_switch] | ES510=ON | |
+1736 | $C9CCBB |     4B | "Locked from the inside."
+1737 | $C9CCBF |     6B | "Opened lock." | ES7=ON | |
+1738 | $C9CCC5 |   682B | "Grandpa!"
+1739 | $C9CF6F |   103B | [obj_action, fade]
+1740 | $C9CFD6 |    20B | "Faris: My strength's run out..."
+1741 | $C9CFEA |   190B | "Bartz"
+1742 | $C9D0A8 |   199B | "Lenna"
+1743 | $C9D16F |   225B | "Faris"
+1744 | $C9D250 |   194B | "Cara"
+1745 | $C9D312 |    34B | [obj_action, party_action]
+1746 | $C9D334 |    26B | [obj_action, party_action]
+1747 | $C9D34E |    68B | [obj_action, party_action]
+1748 | $C9D392 |    61B | [obj_action]
+1749 | $C9D3CF |   627B | "The Crystals have regained their"
+1750 | $C9D642 |    24B | [obj_action]
+1751 | $C9D65A |    36B | [obj_action, party_action]
+1752 | $C9D67E |    11B | [obj_action]
+1753 | $C9D689 |    39B | [obj_action, party_action]
+1754 | $C9D6B0 |    14B | [obj_action]
+1755 | $C9D6BE |    28B | "uf9J99ytl/c?f Krileuv3FarisBliuf" (Y/N)
+1756 | $C9D6DA |    13B | [unknown]
+1757 | $C9D6E7 |    75B | [obj_action, party_action]
+1758 | $C9D732 |    12B | [obj_action, party_action]
+1759 | $C9D73E |     1B | [empty/unused]
+1760 | $C9D73F |    20B | [Above Deck #3] | ES510=ON | |
+1761 | $C9D753 |     8B | [call(1019), sound]
+1762 | $C9D75B |     7B | [call(1735), call(1732)]
+1763 | $C9D762 |    10B | [call(1778)]
+1764 | $C9D76C |    78B | [call(486), obj_action, party_action]
+1765 | $C9D7BA |    11B | "Obtained 10 Gil!" | ES256=ON | |
+1766 | $C9D7C5 |    11B | "Obtained 20 Gil!" | ES257=ON | |
+1767 | $C9D7D0 |    11B | "Obtained 40 Gil!" | ES258=ON | |
+1768 | $C9D7DB |    11B | "Obtained 80 Gil!" | ES259=ON | |
+1769 | $C9D7E6 |    11B | "Obtained 160 Gil!" | ES260=ON | |
+1770 | $C9D7F1 |    11B | "Obtained 320 Gil!" | ES261=ON | |
+1771 | $C9D7FC |    11B | "Obtained 640 Gil!" | ES262=ON | |
+1772 | $C9D807 |    13B | "Obtained 1280 Gil!" | ES263=ON | |
+1773 | $C9D814 |    14B | "Obtained 2560 Gil!" | ES264=ON | |
+1774 | $C9D822 |    14B | "Obtained 5120 Gil!" | ES265=ON | |
+1775 | $C9D830 |    20B | "Obtained 10240 Gil!" | ES266=ON | |
+1776 | $C9D844 |    20B | "Obtained 20480 Gil!" | ES267=ON | |
+1777 | $C9D858 |    20B | "Obtained 40960 Gil!" | ES268=ON | |
+1778 | $C9D86C |    18B | [call(9)]
+1779 | $C9D87E |    61B | "Here you go!"
+1780 | $C9D8BB |     9B | call(1779): "Here you go!" | ES8=ON | NS691=OFF |
+1781 | $C9D8C4 |     9B | call(1779): "Here you go!" | ES9=ON | NS692=OFF |
+1782 | $C9D8CD |     9B | call(1779): "Here you go!" | ES10=ON | NS696=OFF |
+1783 | $C9D8D6 |    14B | [obj_action, party_action]
+1784 | $C9D8E4 |    38B | [call(1180), call(1181), obj_action, party_action]
+1785 | $C9D90A |     6B | [call(961), event_switch] | ES257=ON | |
+1786 | $C9D910 |     6B | [call(1730), event_switch] | ES257=ON | |
+1787 | $C9D916 |    19B | NPC: "Can't carry any more items!" | | | npc:30
+1788 | $C9D929 |   218B | "Somehow, now it feels like that"
+1789 | $C9DA03 |   161B | "Since then I've traveled around"
+1790 | $C9DAA4 |    22B | "Cara: I'm... so... tired out...."
+1791 | $C9DABA |    24B | "What? Galuf? ...did you say some"
+1792 | $C9DAD2 |    14B | "Got better at the piano!" | ES384=ON ES400=ON | | npc:917
+1793 | $C9DAE0 |    14B | "Got better at the piano!" | ES385=ON ES400=ON | | npc:917
+1794 | $C9DAEE |    14B | "Got better at the piano!" | ES386=ON ES400=ON | | npc:917
+1795 | $C9DAFC |    14B | "Got better at the piano!" | ES387=ON ES400=ON | | npc:917
+1796 | $C9DB0A |    14B | "Got better at the piano!" | ES388=ON ES400=ON | | npc:917
+1797 | $C9DB18 |    14B | "Got better at the piano!" | ES389=ON ES400=ON | | npc:917
+1798 | $C9DB26 |    14B | "Mastered the Piano! ... We" | ES390=ON ES400=ON | | npc:917
+1799 | $C9DB34 |    14B | "Mastered the Piano!!" | ES391=ON ES400=ON | | npc:917
+1800 | $C9DB42 |    11B | [call(1808), call(1824), event_switch] | ES392=ON ES400=OFF | |
+1801 | $C9DB4D |    11B | [call(1809), call(1824), event_switch] | ES393=ON ES400=OFF | |
+1802 | $C9DB58 |    11B | [call(1810), call(1824), event_switch] | ES394=ON ES400=OFF | |
+1803 | $C9DB63 |    11B | [call(1811), call(1824), event_switch] | ES395=ON ES400=OFF | |
+1804 | $C9DB6E |    11B | [call(1812), call(1824), event_switch] | ES396=ON ES400=OFF | |
+1805 | $C9DB79 |    11B | [call(1813), call(1824), event_switch] | ES397=ON ES400=OFF | |
+1806 | $C9DB84 |    11B | [call(1814), call(1824), event_switch] | ES398=ON ES400=OFF | |
+1807 | $C9DB8F |    11B | [call(1815), call(1824), event_switch] | ES399=ON ES400=OFF | |
+1808 | $C9DB9A |    11B | [event_switch] | ES508=ON | |
+1809 | $C9DBA5 |    11B | [event_switch] | ES508=ON | |
+1810 | $C9DBB0 |    11B | [event_switch] | ES508=ON | |
+1811 | $C9DBBB |    11B | [event_switch] | ES508=ON | |
+1812 | $C9DBC6 |    11B | [event_switch] | ES508=ON | |
+1813 | $C9DBD1 |    11B | [event_switch] | ES508=ON | |
+1814 | $C9DBDC |    11B | [event_switch] | ES508=ON | |
+1815 | $C9DBE7 |    11B | [event_switch] | ES508=ON | |
+1816 | $C9DBF2 |    22B | [call(1825), party_action, sound] | | | npc:918
+1817 | $C9DC08 |    22B | [call(1825), party_action, sound] | | | npc:918
+1818 | $C9DC1E |    22B | [call(1825), party_action, sound] | | | npc:918
+1819 | $C9DC34 |    30B | [call(1825), call(1825), party_action, sound] | | | npc:918
+1820 | $C9DC52 |    20B | [call(1825), party_action, sound] | | | npc:918
+1821 | $C9DC66 |    20B | [call(1825), party_action, sound] | | | npc:918
+1822 | $C9DC7A |    22B | [call(1825), party_action, sound, event_switch] | ES266=ON | | npc:918
+1823 | $C9DC90 |    24B | [call(1825), party_action, sound, event_switch] | ES267=ON | | npc:918
+1824 | $C9DCA8 |     9B | [call(1909), party_action]
+1825 | $C9DCB1 |    10B | [party_action]
+1826 | $C9DCBB |    19B | [The Void Last Floor #4] | ES508=ON | |
+1827 | $C9DCCE |  2650B | "You're late!" | ES510=OFF ES510=ON | |
+1828 | $C9E728 |    46B | "We monsters who have been sealed" | ES378=ON | |
+1829 | $C9E756 |    12B | [obj_action]
+1830 | $C9E762 |  1912B | "Zokk: Is anything wrong?" | ES1=ON ES243=OFF ES178=ON ES162=OFF ES1=OFF ES163=ON ES209=ON ES164=ON ES454=OFF ES177=OFF ES421=ON | NS769=ON NS257=ON |
+1831 | $C9EEDA |   101B | [unknown]
+1832 | $C9EF3F |   103B | [unknown]
+1833 | $C9EFA6 |   929B | "Guido: Ouch... Bartz: Guido! Are" | ES510=ON ES510=OFF ES383=ON ES511=OFF ES462=ON ES456=OFF ES336=ON | NS920=ON |
+1834 | $C9F347 |    21B | "Guido: The Sealed Book read..." | | | npc:920
+1835 | $C9F35C |     8B | [event_switch] | ES269=ON | |
+1836 | $C9F364 |     7B | [Guardian Tree #2]
+1837 | $C9F36B |   123B | "Bartz: The Master tree... Faris:" | ES380=ON | |
+1838 | $C9F3E6 |    12B | "You must prevent Exdeath from ga" (Y/N) | | | npc:84
+1839 | $C9F3F2 |     5B | "The twelve weapons we used in th"
+1840 | $C9F3F7 |    27B | "Ride Hiryuu?" (Y/N) | | | npc:627
+1841 | $C9F412 |    12B | "You must prevent Exdeath from ga" (Y/N) | | | npc:921
+1842 | $C9F41E |   701B | "Lenna: The entrance to the Cleft" | ES510=ON ES503=ON ES510=OFF ES381=ON | |
+1843 | $C9F6DB |    12B | "Oh, Princess Lenna! You're alrig" (Y/N) | | | npc:893
+1844 | $C9F6E7 |    64B | "Cara: What's that!?" | ES382=ON | |
+1845 | $C9F727 |     3B | [event_switch] | ES401=ON | |
+1846 | $C9F72A |     3B | [event_switch] | ES402=ON | |
+1847 | $C9F72D |     3B | [event_switch] | ES403=ON | |
+1848 | $C9F730 |     3B | [event_switch] | ES404=ON | |
+1849 | $C9F733 |    15B | "I didn't really think you'd take" | ES405=ON | | npc:912
+1850 | $C9F742 |    12B | [Istory Falls B6 #1]
+1851 | $C9F74E |    18B | [World Map (Combined World) #18] | ES508=ON | |
+1852 | $C9F760 |    17B | "Obtained Magic Lamp!" | ES406=ON | | npc:600
+1853 | $C9F771 |    61B | "My servants, monsters of the Cle"
+1854 | $C9F7AE |    64B | "I was trapped in there. Thank yo" | ES407=ON | NS601=OFF |
+1855 | $C9F7EE |     1B | [empty/unused]
+1856 | $C9F7EF |    32B | [World Map (Combined World) #19] | | NS627=OFF |
+1857 | $C9F80F |     8B | [obj_action]
+1858 | $C9F817 |    21B | [unknown]
+1859 | $C9F82C |    53B | [obj_action]
+1860 | $C9F861 |    23B | [World Map (Combined World) #20]
+1861 | $C9F878 |    14B | [The Void Desert #1] | ES510=OFF | |
+1862 | $C9F886 |    25B | [party_action, sound]
+1863 | $C9F89F |    25B | [party_action, sound]
+1864 | $C9F8B8 |     9B | call(1388): "Obtained Black Magic" | | | npc:572
+1865 | $C9F8C1 |    12B | "I'm a psychic. I even know about" (Y/N) | | | npc:607
+1866 | $C9F8CD |    15B | [Sea Floor #1]
+1867 | $C9F8DC |    13B | [The Void Library #1]
+1868 | $C9F8E9 |     5B | [event_switch] | ES497=ON ES508=ON | |
+1869 | $C9F8EE |     5B | [event_switch] | ES497=OFF ES508=ON | |
+1870 | $C9F8F3 |    31B | [battle(333), obj_action, sound, npc_switch] | | NS109=OFF | npc:109
+1871 | $C9F912 |    16B | [party_action]
+1872 | $C9F922 |     9B | Shop #52
+1873 | $C9F92B |     9B | Shop #51
+1874 | $C9F934 |    10B | [Xezat's Fleet #5]
+1875 | $C9F93E |    19B | [obj_action, fade]
+1876 | $C9F951 |   230B | "Sarisa: No! Nooooooo--!! I'm sca" | ES134=ON | |
+1877 | $C9FA37 |    16B | [call(1176), call(1751), obj_action]
+1878 | $C9FA47 |    45B | [call(1176), call(1182), obj_action, party_action]
+1879 | $C9FA74 |    53B | [party_action]
+1880 | $C9FAA9 |     5B | NPC: "Obtained !" | ES229=ON | | npc:704
+1881 | $C9FAAE |    38B | NPC: "Can't carry any more items!" | | | npc:9
+1882 | $C9FAD4 |     9B | [Submarine #8] | ES199=ON | |
+1883 | $C9FADD |     9B | [Sea Floor (Combined World) #4] | ES199=OFF | | npc:46
+1884 | $C9FAE6 |     7B | [Sea Floor #2]
+1885 | $C9FAED |    16B | [party_action, event_switch] | ES256=ON | |
+1886 | $C9FAFD |    16B | call(1179): "You're alive!"
+1887 | $C9FB0D |    17B | [obj_action]
+1888 | $C9FB1E |    40B | "Cid: Ow! Hey, hey, hey, Mid, sto"
+1889 | $C9FB46 |    25B | "Mid: Grandpa!"
+1890 | $C9FB5F |    16B | [obj_action, sound]
+1891 | $C9FB6F |    45B | [Karnak Castle B4 #1] | ES511=ON | |
+1892 | $C9FB9C |     9B | "A book written by a wizard: The"
+1893 | $C9FBA5 |     9B | "A book from 1000 years ago: They"
+1894 | $C9FBAE |    27B | [battle(336), obj_action, party_action, npc_switch] | | NS609=OFF | npc:609
+1895 | $C9FBC9 |    10B | [party_action]
+1896 | $C9FBD3 |     0B | [empty/unused]
+1897 | $C9FBD3 |    90B | NPC: "Obtained !" | | | npc:457
+1898 | $C9FC2D |    10B | [call(204), call(326), event_switch] | ES190=OFF | |
+1899 | $C9FC37 |    17B | [battle(242), party_action]
+1900 | $C9FC48 |     5B | NPC: "Obtained !" | ES256=OFF | | npc:503
+1901 | $C9FC4D |     5B | NPC: "Obtained !" | ES256=ON | | npc:505
+1902 | $C9FC52 |    20B | [call(250), obj_action, party_action]
+1903 | $C9FC66 |     0B | [empty/unused]
+1904 | $C9FC66 |    12B | "Are you now an expert?" (Y/N) | | | npc:120
+1905 | $C9FC72 |    12B | "Are you beginners?" (Y/N)
+1906 | $C9FC7E |     4B | "Really? Then, I'll tell you some"
+1907 | $C9FC82 |     7B | [unknown]
+1908 | $C9FC89 |    11B | [party_action] | | | npc:343
+1909 | $C9FC94 |    10B | [party_action]
+1910 | $C9FC9E |    35B | [party_action]
+1911 | $C9FCC1 |    22B | [Mirage Town #2] | ES508=ON | |
+1912 | $C9FCD7 |   147B | [obj_action, party_action]
+1913 | $C9FD6A |    10B | [obj_action]
+1914 | $C9FD74 |     9B | call(1837): "Bartz: The Master tree... Faris:"
+1915 | $C9FD7D |    52B | [obj_action, party_action]
+1916 | $C9FDB1 |    26B | [obj_action, party_action]
+1917 | $C9FDCB |     9B | [obj_action]
+1918 | $C9FDD4 |    22B | [obj_action]
+1919 | $C9FDEA |    20B | [obj_action]
+1920 | $C9FDFE |    55B | [obj_action]
+1921 | $C9FE35 |     8B | [obj_action]
+1922 | $C9FE3D |     6B | [unknown]
+1923 | $C9FE43 |    35B | [obj_action]
+1924 | $C9FE66 |    27B | "Bartz: Exdeath! This is it!!!"
+1925 | $C9FE81 |    19B | call(1830): "Zokk: Is anything wrong?" | ES508=ON | |
+1926 | $C9FE94 |    27B | [party_action]
+1927 | $C9FEAF |    39B | [obj_action]
+1928 | $C9FED6 |    38B | [obj_action]
+1929 | $C9FEFC |     0B | [empty/unused]
+1930 | $C9FEFC |     0B | [empty/unused]
+1931 | $C9FEFC |     0B | [empty/unused]
+1932 | $C9FEFC |     0B | [empty/unused]
+1933 | $C9FEFC |     0B | [empty/unused]
+1934 | $C9FEFC |     0B | [empty/unused]
+1935 | $C9FEFC |     0B | [empty/unused]
+1936 | $C9FEFC |    76B | [party_action]
+1937 | $C9FF48 |    44B | [obj_action, party_action]
+1938 | $C9FF74 |    10B | [unknown]
+1939 | $C9FF7E |   512B | [obj_action, party_action, event_switch, battle_switch] | ES483=OFF | |

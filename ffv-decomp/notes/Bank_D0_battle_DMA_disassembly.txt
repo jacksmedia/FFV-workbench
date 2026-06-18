@@ -1,0 +1,441 @@
+------------------------------------------------------------------------------
+Final Fantasy V (SNES) - Bank D0 battle HDMA/DMA routine suite
+Disassembly + commentary by the FFV Clean crawler project, 2026-06-09
+(produced with an AI assistant; verified against both reference ROMs)
+
+Region: D0/DC2A-DEFF and D0/EF78-EF90
+Byte-identical in FFV-J (CRC32 C1BC267D) and RPGe 1.10 (CRC32 17444605).
+File offset = SNES address - $C00000 (HiROM), e.g. D0/DC2A = file $10DC2A.
+
+These routines live AFTER the monster data in bank D0 and are reached through
+a trampoline farm at the end of noisecross's bank C1 (C1/FC00-FDFF), which is
+why no previous disassembly followed them. They are the battle module's
+display-DMA toolbox: every frame's CGRAM (palette) upload, OAM upload, VRAM
+uploads, and the HDMA effects that split the battle screen into the fight
+area and the message window.
+
+Known callers (from the noisecross C1 disassembly):
+  C1/FCD7: JSL $D0DC2A        C1/FDBB: JSL $D0DED1
+  C1/FCDC: JSL $D0DCA5        C1/FDC0: JSL $D0DE8C
+  C1/FDB6: JSL $D0DE40        C1/FDC5: JSL $D0DE66
+                              C1/FDCA: JSL $D0DE1A
+  C2/4246, C2/511C: JSL $D0EF78 (battle engine, see Modoh c2battle.asm)
+
+WRAM cast of characters (battle module, DBR=$7E):
+  $7E:F9A1   screen-effect request flag (0=none, 1=color-math fx, 2+=window fx)
+  $7E:DBD3   screen-layout variant selector (0=normal 160+64 split,
+             nonzero=32+160+32 layout; exact trigger TBD - test in emulator)
+  $7E:BC82   BG mode value, fight area      (fed to $2105 by HDMA)
+  $7E:BC83   BG mode value, message window  (fed to $2105 by HDMA)
+  $7E:BC84   HDMA channel-enable shadow (copied to $420C during vblank)
+  $7E:BC86   CGADSUB color-math value, fight area     (fed to $2131)
+  $7E:BC87   CGADSUB color-math value, message window (fed to $2131)
+  $7E:DBC2   BG2 tilemap base, fight area      (fed to $2108 by HDMA)
+  $7E:DBC3   BG2 tilemap base, message window  (fed to $2108 by HDMA)
+  $7E:7E09   CGRAM shadow buffer, 512 bytes (the palette source of truth)
+  $7E:0200   OAM shadow, 512 bytes + $0400 hi-table 32 bytes
+  $7E:A897/$A8B0/$A930  per-scanline BG1/BG2/BG3 scroll tables (built by fx code)
+  $7E:B455/$B4C5        per-scanline brightness tables ($2100 gradients)
+  $7E:F9F0/$FAD0        per-scanline window L/R shape tables ($2126/27)
+
+==============================================================================
+D0/DC2A - Screen-effect HDMA request handler  (one-shot, clears its flag)
+==============================================================================
+Called every frame from C1/FCD7. Reads request in $7E:F9A1:
+  0 -> nothing; 1 -> color-math effect (ch6->$2131); else -> window effect
+  (ch3->$2126/27). Always clears the request flag on exit.
+
+D0/DC2A: 8B           PHB
+D0/DC2B: A9 00        LDA #$00
+D0/DC2D: 48           PHA
+D0/DC2E: AB           PLB               ; DBR=$00 so $43xx hits hardware
+D0/DC2F: AF A1 F9 7E  LDA $7EF9A1       ; effect request
+D0/DC33: F0 6B        BEQ $DCA0         ; 0: exit (clears flag anyway)
+D0/DC35: C9 01        CMP #$01
+D0/DC37: F0 26        BEQ $DC5F         ; 1: color-math path
+                                        ; 2+: window-shape path:
+D0/DC39: A9 41        LDA #$41          ; ch3 mode: indirect, 2 regs
+D0/DC3B: 8D 30 43     STA $4330
+D0/DC3E: A9 26        LDA #$26          ; B-bus $2126/$2127 = window 1 L/R
+D0/DC40: 8D 31 43     STA $4331
+D0/DC43: A2 81 DD     LDX #$DD81        ; HDMA table at D0/DD81 (below)
+D0/DC46: 8E 32 43     STX $4332
+D0/DC49: A9 D0        LDA #$D0
+D0/DC4B: 8D 34 43     STA $4334         ; table bank $D0
+D0/DC4E: A9 7E        LDA #$7E
+D0/DC50: 8D 37 43     STA $4337         ; indirect data bank $7E (WRAM)
+D0/DC53: AF 84 BC 7E  LDA $7EBC84
+D0/DC57: 09 08        ORA #$08          ; enable ch3 in the HDMA shadow
+D0/DC59: 8F 84 BC 7E  STA $7EBC84
+D0/DC5D: 80 41        BRA $DCA0
+                                        ; request==1: color-math gradient:
+D0/DC5F: A9 40        LDA #$40          ; ch6 mode: indirect, 1 reg
+D0/DC61: 8D 60 43     STA $4360
+D0/DC64: A9 31        LDA #$31          ; B-bus $2131 = CGADSUB
+D0/DC66: 8D 61 43     STA $4361
+D0/DC69: AF D3 DB 7E  LDA $7EDBD3       ; layout variant?
+D0/DC6D: F0 05        BEQ $DC74
+D0/DC6F: A2 9F DD     LDX #$DD9F        ; variant layout table
+D0/DC72: 80 03        BRA $DC77
+D0/DC74: A2 AC DD     LDX #$DDAC        ; normal layout table
+D0/DC77: 8E 62 43     STX $4362
+D0/DC7A: A9 D0        LDA #$D0
+D0/DC7C: 8D 64 43     STA $4364
+D0/DC7F: A9 7E        LDA #$7E
+D0/DC81: 8D 67 43     STA $4367
+D0/DC84: 80 1A        BRA $DCA0
+
+; --- second entry point D0/DC86: brightness-gradient HDMA --------------------
+; Not reached by fallthrough (DC84 branches over it); a JSL $D0DC86 caller
+; exists somewhere outside the documented banks (menu C2/A000+ or C3 code
+; are the suspects). Sets ch6 -> $2100 (INIDISP brightness) with table DD7A.
+
+D0/DC86: A9 40        LDA #$40          ; ch6 mode: indirect, 1 reg
+D0/DC88: 8D 60 43     STA $4360
+D0/DC8B: A9 00        LDA #$00          ; B-bus $2100 = screen brightness
+D0/DC8D: 8D 61 43     STA $4361
+D0/DC90: A2 7A DD     LDX #$DD7A        ; brightness table (below)
+D0/DC93: 8E 62 43     STX $4362
+D0/DC96: A9 D0        LDA #$D0
+D0/DC98: 8D 64 43     STA $4364
+D0/DC9B: A9 7E        LDA #$7E
+D0/DC9D: 8D 67 43     STA $4367
+                                        ; shared epilogue:
+D0/DCA0: AB           PLB               ; DBR back to caller's ($7E in battle)
+D0/DCA1: 9C A1 F9     STZ $F9A1         ; clear the request flag ($7E:F9A1)
+D0/DCA4: 6B           RTL
+
+==============================================================================
+D0/DCA5 - Battle-screen HDMA arsenal (the screen-split + scroll system)
+==============================================================================
+Called from C1/FCDC during battle display setup. Programs FIVE HDMA channels:
+  ch0 -> $210D/$210E  BG1 H+V scroll, per-scanline, table $7E:A897
+  ch1 -> $210F/$2110  BG2 H+V scroll, per-scanline, table $7E:A8B0
+  ch2 -> $2111/$2112  BG3 H+V scroll, per-scanline, table $7E:A930
+        (mode $43 = indirect + "2 registers write twice" = HOFS lo/hi,
+         VOFS lo/hi each line; the WRAM tables are built by effect code -
+         this is how battle backgrounds wave/scroll per scanline)
+  ch3 -> $2105        BG MODE switched mid-frame (fight area vs message
+                      window!) via $7E:BC82/$BC83, table DD88/DD92
+  ch6 -> $2100        brightness gradient, table DD7A
+  ch7 -> $2108        BG2 tilemap base switched mid-frame via $7E:DBC2/
+                      $DBC3, table DDB6/DDC0 - the message window literally
+                      uses a different BG2 tilemap than the fight area
+Then enables channels 1,2,3,6,7 in the shadow ($BC84 |= $CE).
+
+D0/DCA5: 8B           PHB
+D0/DCA6: A9 00        LDA #$00
+D0/DCA8: 48           PHA
+D0/DCA9: AB           PLB
+D0/DCAA: A9 43        LDA #$43          ; mode $43: indirect, 2 regs x2
+D0/DCAC: 8D 00 43     STA $4300         ; ch0
+D0/DCAF: 8D 10 43     STA $4310         ; ch1
+D0/DCB2: 8D 20 43     STA $4320         ; ch2
+D0/DCB5: A9 0D        LDA #$0D
+D0/DCB7: 8D 01 43     STA $4301         ; ch0 -> $210D/0E (BG1HOFS/VOFS)
+D0/DCBA: A9 0F        LDA #$0F
+D0/DCBC: 8D 11 43     STA $4311         ; ch1 -> $210F/10 (BG2HOFS/VOFS)
+D0/DCBF: A9 11        LDA #$11
+D0/DCC1: 8D 21 43     STA $4321         ; ch2 -> $2111/12 (BG3HOFS/VOFS)
+D0/DCC4: A2 97 A8     LDX #$A897
+D0/DCC7: 8E 02 43     STX $4302         ; ch0 table $7E:A897
+D0/DCCA: A2 B0 A8     LDX #$A8B0
+D0/DCCD: 8E 12 43     STX $4312         ; ch1 table $7E:A8B0
+D0/DCD0: A2 30 A9     LDX #$A930
+D0/DCD3: 8E 22 43     STX $4322         ; ch2 table $7E:A930
+D0/DCD6: A9 7E        LDA #$7E
+D0/DCD8: 8D 04 43     STA $4304         ; table banks = $7E
+D0/DCDB: 8D 14 43     STA $4314
+D0/DCDE: 8D 24 43     STA $4324
+D0/DCE1: 8D 07 43     STA $4307         ; indirect banks = $7E
+D0/DCE4: 8D 17 43     STA $4317
+D0/DCE7: 8D 27 43     STA $4327
+D0/DCEA: AF D3 DB 7E  LDA $7EDBD3       ; variant layout?
+D0/DCEE: F0 1A        BEQ $DD0A
+D0/DCF0: A9 40        LDA #$40          ; variant: repurpose ch2 as
+D0/DCF2: 8D 20 43     STA $4320         ;   indirect 1-reg ...
+D0/DCF5: A9 32        LDA #$32          ;   -> $2132 COLDATA (fixed color)
+D0/DCF7: 8D 21 43     STA $4321
+D0/DCFA: A2 7A DD     LDX #$DD7A        ;   table DD7A
+D0/DCFD: 8E 22 43     STX $4322
+D0/DD00: A9 D0        LDA #$D0
+D0/DD02: 8D 24 43     STA $4324
+D0/DD05: A9 7E        LDA #$7E
+D0/DD07: 8D 27 43     STA $4327
+D0/DD0A: A9 40        LDA #$40          ; ch3: indirect, 1 reg
+D0/DD0C: 8D 30 43     STA $4330
+D0/DD0F: A9 05        LDA #$05          ; -> $2105 BG MODE (mid-frame!)
+D0/DD11: 8D 31 43     STA $4331
+D0/DD14: AF D3 DB 7E  LDA $7EDBD3
+D0/DD18: F0 05        BEQ $DD1F
+D0/DD1A: A2 92 DD     LDX #$DD92        ; variant layout
+D0/DD1D: 80 03        BRA $DD22
+D0/DD1F: A2 88 DD     LDX #$DD88        ; normal layout
+D0/DD22: 8E 32 43     STX $4332
+D0/DD25: A9 D0        LDA #$D0
+D0/DD27: 8D 34 43     STA $4334
+D0/DD2A: A9 7E        LDA #$7E
+D0/DD2C: 8D 37 43     STA $4337
+D0/DD2F: A9 40        LDA #$40          ; ch6: indirect, 1 reg
+D0/DD31: 8D 60 43     STA $4360
+D0/DD34: A9 00        LDA #$00          ; -> $2100 brightness
+D0/DD36: 8D 61 43     STA $4361
+D0/DD39: A2 7A DD     LDX #$DD7A
+D0/DD3C: 8E 62 43     STX $4362
+D0/DD3F: A9 D0        LDA #$D0
+D0/DD41: 8D 64 43     STA $4364
+D0/DD44: A9 7E        LDA #$7E
+D0/DD46: 8D 67 43     STA $4367
+D0/DD49: A9 40        LDA #$40          ; ch7: indirect, 1 reg
+D0/DD4B: 8D 70 43     STA $4370
+D0/DD4E: A9 08        LDA #$08          ; -> $2108 BG2SC (tilemap base!)
+D0/DD50: 8D 71 43     STA $4371
+D0/DD53: AF D3 DB 7E  LDA $7EDBD3
+D0/DD57: F0 05        BEQ $DD5E
+D0/DD59: A2 C0 DD     LDX #$DDC0        ; variant layout
+D0/DD5C: 80 03        BRA $DD61
+D0/DD5E: A2 B6 DD     LDX #$DDB6        ; normal layout
+D0/DD61: 8E 72 43     STX $4372
+D0/DD64: A9 D0        LDA #$D0
+D0/DD66: 8D 74 43     STA $4374
+D0/DD69: A9 7E        LDA #$7E
+D0/DD6B: 8D 77 43     STA $4377
+D0/DD6E: AF 84 BC 7E  LDA $7EBC84
+D0/DD72: 09 CE        ORA #$CE          ; enable ch1,2,3,6,7
+D0/DD74: 8F 84 BC 7E  STA $7EBC84
+D0/DD78: AB           PLB
+D0/DD79: 6B           RTL
+
+==============================================================================
+HDMA tables (indirect mode: entries are [line count][indirect addr 16-bit])
+Count byte: $01-$80 = hold value N lines; $81-$FF = re-read every line for
+(N & $7F) lines. Tables may omit the $00 terminator when they exactly fill
+the 224-line frame.
+==============================================================================
+D0/DD7A: F0 55 B4     ; 112 lines, per-line stream from $7E:B455 (brightness)
+         F0 C5 B4     ; 112 lines, per-line stream from $7E:B4C5
+         80 ...       ; (runs into DD81; frame ends at line 224)
+
+D0/DD81: F0 F9 F0     ; 112 lines, per-line L/R pairs from $7E:F0F9 (window)
+         D0 FA 80     ; (parse caution: overlaps DD7A's tail; effect code
+                      ;  may rewrite these bytes - verify live in emulator)
+
+D0/DD88: 50 82 BC     ; 80 lines  <- BG mode from $7E:BC82  (fight area)
+         50 82 BC     ; 80 lines  <- $7E:BC82
+         40 83 BC     ; 64 lines  <- BG mode from $7E:BC83  (message window)
+         00           ; end          == the 160+64 screen split
+D0/DD92: 20 83 BC     ; 32 lines  <- $7E:BC83   (variant layout:
+         50 82 BC     ; 80 lines  <- $7E:BC82    32 + 160 + 32)
+         50 82 BC     ; 80 lines  <- $7E:BC82
+         20 83 BC     ; 32 lines  <- $7E:BC83
+         00
+D0/DD9F: 20 86 BC / 50 86 BC / 50 86 BC / 20 86 BC / 00
+                      ; CGADSUB <- $7E:BC86 for all 224 lines (variant)
+D0/DDAC: 50 86 BC / 50 86 BC / 40 87 BC / 00
+                      ; CGADSUB <- $7E:BC86 (160 lines) then $7E:BC87 (64)
+                      ; == different color math over the message window
+D0/DDB6: 50 C2 DB / 50 C2 DB / 40 C3 DB / 00
+                      ; BG2 tilemap base <- $7E:DBC2 (160) / $7E:DBC3 (64)
+D0/DDC0: 20 C3 DB / 50 C2 DB / 50 C2 DB / 20 C3 DB / 00
+                      ; variant layout of the same
+
+==============================================================================
+D0/DE1A - General DMA-to-VRAM upload (ch5)   ** reusable from hacks **
+==============================================================================
+In:  Y = VRAM word address, X = source address, A = source bank,
+     $70 (16-bit DP) = byte length.  Clobbers: nothing it doesn't save.
+
+D0/DE1A: 8B           PHB
+D0/DE1B: 48           PHA               ; save source bank
+D0/DE1C: A9 00        LDA #$00
+D0/DE1E: 48           PHA
+D0/DE1F: AB           PLB               ; DBR=$00
+D0/DE20: 68           PLA               ; A = source bank again
+D0/DE21: 8C 16 21     STY $2116         ; VRAM address
+D0/DE24: 8E 52 43     STX $4352         ; source address
+D0/DE27: 8D 54 43     STA $4354         ; source bank
+D0/DE2A: A9 01        LDA #$01          ; mode 1: 2 regs ($2118/$2119)
+D0/DE2C: 8D 50 43     STA $4350
+D0/DE2F: A9 18        LDA #$18          ; B-bus $2118 VMDATA
+D0/DE31: 8D 51 43     STA $4351
+D0/DE34: A6 70        LDX $70           ; length
+D0/DE36: 8E 55 43     STX $4355
+D0/DE39: A9 20        LDA #$20          ; fire ch5
+D0/DE3B: 8D 0B 42     STA $420B
+D0/DE3E: AB           PLB
+D0/DE3F: 6B           RTL
+
+==============================================================================
+D0/DE40 - Same as DE1A but on ch4 with length in $88
+==============================================================================
+D0/DE40: 8B           PHB
+D0/DE41: 48           PHA               ; source bank
+D0/DE42: A9 00        LDA #$00
+D0/DE44: 48           PHA
+D0/DE45: AB           PLB
+D0/DE46: 68           PLA
+D0/DE47: 8C 16 21     STY $2116
+D0/DE4A: 8E 42 43     STX $4342
+D0/DE4D: 8D 44 43     STA $4344
+D0/DE50: A9 01        LDA #$01
+D0/DE52: 8D 40 43     STA $4340
+D0/DE55: A9 18        LDA #$18
+D0/DE57: 8D 41 43     STA $4341
+D0/DE5A: A6 88        LDX $88           ; length from $88 this time
+D0/DE5C: 8E 45 43     STX $4345
+D0/DE5F: A9 10        LDA #$10          ; fire ch4
+D0/DE61: 8D 0B 42     STA $420B
+D0/DE64: AB           PLB
+D0/DE65: 6B           RTL
+
+==============================================================================
+D0/DE66 - *** THE CGRAM (PALETTE) UPLOAD ***  (ch4)
+==============================================================================
+DMAs 512 bytes from the CGRAM shadow $7E:7E09 to CGRAM via $2122.
+In: A = CGRAM start address (color index). Called from C1/FDC5 during vblank
+processing - this is the routine that makes $7E:7E09 "the palette source of
+truth" (cf. _WIP.txt 3/21/26 entry, which found the buffer but not the code).
+Any hack that wants to own battle palettes can hook HERE - one chokepoint
+instead of chasing every writer of the shadow buffer.
+
+D0/DE66: 8B           PHB
+D0/DE67: A9 00        LDA #$00
+D0/DE69: 48           PHA
+D0/DE6A: AB           PLB
+D0/DE6B: 8D 21 21     STA $2121         ; CGADD = A (caller chooses start)
+D0/DE6E: A2 02 22     LDX #$2202        ; $4340=$02 mode 2 (1 reg x2),
+D0/DE71: 8E 40 43     STX $4340         ; $4341=$22 -> B-bus $2122 CGDATA
+D0/DE74: A2 09 7E     LDX #$7E09
+D0/DE77: 8E 42 43     STX $4342         ; source $7E:7E09 (CGRAM shadow)
+D0/DE7A: A9 7E        LDA #$7E
+D0/DE7C: 8D 44 43     STA $4344
+D0/DE7F: A2 00 02     LDX #$0200
+D0/DE82: 8E 45 43     STX $4345         ; 512 bytes = 256 colors
+D0/DE85: A9 10        LDA #$10
+D0/DE87: 8D 0B 42     STA $420B         ; fire ch4
+D0/DE8A: AB           PLB
+D0/DE8B: 6B           RTL
+
+==============================================================================
+D0/DE8C - OAM (sprite table) upload  (ch4)
+==============================================================================
+Skipped entirely if $7E:BC75 != 0 (sprite-upload inhibit flag).
+Uploads OAM shadow $0200-$03FF + hi-table via $2104; then optionally
+restores a saved OAMADDR from $7E:CD45/46 if bit7 of $7E:CD46 is set.
+
+D0/DE8C: AD 75 BC     LDA $BC75         ; (DBR=$7E here: $7E:BC75)
+D0/DE8F: D0 3F        BNE $DED0         ; inhibit -> RTL
+D0/DE91: 8B           PHB
+D0/DE92: A9 00        LDA #$00
+D0/DE94: 48           PHA
+D0/DE95: AB           PLB
+D0/DE96: A2 00 00     LDX #$0000
+D0/DE99: 8E 02 21     STX $2102         ; OAMADDR = 0
+D0/DE9C: A2 00 04     LDX #$0400        ; mode 0 -> B-bus $2104 OAMDATA
+D0/DE9F: 8E 40 43     STX $4340
+D0/DEA2: A2 00 02     LDX #$0200
+D0/DEA5: 8E 42 43     STX $4342         ; source $00:0200 (WRAM mirror)
+D0/DEA8: A9 00        LDA #$00
+D0/DEAA: 8D 44 43     STA $4344
+D0/DEAD: 8D 47 43     STA $4347
+D0/DEB0: A2 20 02     LDX #$0220
+D0/DEB3: 8E 45 43     STX $4345         ; 544 bytes = full OAM + hi-table
+D0/DEB6: A9 10        LDA #$10
+D0/DEB8: 8D 0B 42     STA $420B         ; fire ch4
+D0/DEBB: AF 46 CD 7E  LDA $7ECD46
+D0/DEBF: 10 0E        BPL $DECF         ; bit7 clear -> done
+D0/DEC1: AF 45 CD 7E  LDA $7ECD45       ; restore saved OAMADDR
+D0/DEC5: 8D 02 21     STA $2102         ; (used for sprite-priority rotation)
+D0/DEC8: AF 46 CD 7E  LDA $7ECD46
+D0/DECC: 8D 03 21     STA $2103
+D0/DECF: AB           PLB
+D0/DED0: 6B           RTL
+
+==============================================================================
+D0/DED1 - VRAM zero-fill (ch5, fixed source)
+==============================================================================
+In: X = VRAM word address, Y = byte count. Fills VRAM with $0000 read from
+the constant at D0/DEF8. Mode $09 = fixed A-bus address + 2 regs.
+
+D0/DED1: 8B           PHB
+D0/DED2: A9 00        LDA #$00
+D0/DED4: 48           PHA
+D0/DED5: AB           PLB
+D0/DED6: 8E 16 21     STX $2116         ; VRAM address
+D0/DED9: A2 F8 DE     LDX #$DEF8
+D0/DEDC: 8E 52 43     STX $4352         ; source = D0/DEF8 (constant 00 00)
+D0/DEDF: A9 09        LDA #$09          ; mode 1 + fixed source
+D0/DEE1: 8D 50 43     STA $4350
+D0/DEE4: A9 18        LDA #$18          ; -> $2118/19
+D0/DEE6: 8D 51 43     STA $4351
+D0/DEE9: A9 D0        LDA #$D0
+D0/DEEB: 8D 54 43     STA $4354         ; source bank $D0
+D0/DEEE: 8C 55 43     STY $4355         ; length = Y
+D0/DEF1: A9 20        LDA #$20
+D0/DEF3: 8D 0B 42     STA $420B         ; fire ch5
+D0/DEF6: AB           PLB
+D0/DEF7: 6B           RTL
+
+D0/DEF8: 00 00        ; the zero word DED1 streams from
+
+==============================================================================
+D0/EF78 - Paired-array consistency sweep
+==============================================================================
+Called from the battle engine (C2/4246, C2/511C). Walks two 256-byte arrays
+at $0640 and $0740: if either entry of a pair is zero, zeroes the other.
+(Keeps two parallel per-object tables in sync; exact tables = battle sprite/
+effect bookkeeping - identify via Mesen2 watch on $7E:0640/$7E:0740.)
+
+D0/EF78: 7B           TDC               ; A=0
+D0/EF79: AA           TAX
+D0/EF7A: BD 40 06     LDA $0640,X
+D0/EF7D: D0 03        BNE $EF82
+D0/EF7F: 9E 40 07     STZ $0740,X       ; a==0 -> clear b
+D0/EF82: BD 40 07     LDA $0740,X
+D0/EF85: D0 03        BNE $EF8A
+D0/EF87: 9E 40 06     STZ $0640,X       ; b==0 -> clear a
+D0/EF8A: E8           INX
+D0/EF8B: E0 00 01     CPX #$0100
+D0/EF8E: D0 EA        BNE $EF7A
+D0/EF90: 6B           RTL
+
+==============================================================================
+Related (bank D9, same trampoline farm):
+  D9/7CAA (via C1/FD1D): frame-wait - spins on counter $A5 vs flag $DB9A
+  D9/7CB4 (via C1/FD22): OAM shadow clear - fills $0200-$03FF with #$F0
+                         (Y=240, offscreen), zeroes hi-table $0400-$041F
+==============================================================================
+
+Live-emulator results (2026-06-10, ff5c test ROM, vanilla battle):
+ - Poking the DD88 terminator byte ($10DD91) -> no effect, as predicted:
+   counts sum to 224 lines, so the engine never fetches the terminator.
+   The trailing $00s are format fossils (authoring-tool habit), and their
+   optionality is what makes the DD7A/DD81 overlap legal.
+ - Poking entry 3's count ($10DD8E: $40 -> $20/$10/$00) -> no effect. Also
+   consistent: (a) HDMA registers latch, so shortening the LAST entry can't
+   move the boundary; (b) in a vanilla battle $7E:BC82 == $7E:BC83, so even
+   deleting the entry ($00) writes/skips identical values. Note for
+   experimenters: boundary manipulations are only visible when the values
+   on each side differ.
+ - Poking $7E:BC83 directly -> immediate, dramatic change confined to the
+   bottom screen section. Confirms the indirect address is consumed live
+   and governs the message-window region (the core claim of the DD88/DD92
+   table parse).
+ - Boundary-move test PASSED (2026-06-10): with $7E:BC83 poked to a
+   contrasting value, changing entry 2's count ($10DD8B: $50 -> $20) moved
+   the visible seam up the screen as predicted (line 160 -> 112). The
+   DD88 table parse is confirmed end-to-end: entry boundaries, indirect
+   addresses, and screen geometry all validated by intervention.
+
+Open items for the community:
+ 1. Find the JSL $D0DC86 caller (brightness entry point) - not in C0/C1/C2
+    battle docs; suspects are menu (C2/A000+) or bank C3 code.
+ 2. Pin down $7E:DBD3 semantics (normal vs 32/160/32 layout selector).
+ 3. Identify the $0640/$0740 arrays swept by D0/EF78.
+ 4. Confirm DD7A/DD81 entry boundaries by dumping the per-line streams at
+    $7E:B455 (brightness) / $7E:F0F9 (window L/R pairs) during a spell
+    with a window effect.
+
+Credits: builds on noisecross's bank C1 disassembly (the trampoline call
+sites) and the FFV Clean project's WRAM mapping ($7E:7E09 shadow, $BC8x
+family). Verification ROMs: FFV-J and RPGe 1.10.

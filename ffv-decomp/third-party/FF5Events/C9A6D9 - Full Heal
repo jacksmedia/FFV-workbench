@@ -1,0 +1,19 @@
+A8 1F A8 5F A8 9F A8 DF A9 1F A9 5F A9 9F A9 DF
+BA 00 02 BA 01 02 BA 02 02 BA 03 02 FF 
+
+A8 1F 		; Restore HP to full
+A8 5F 
+A8 9F 
+A8 DF 
+
+A9 1F 		; Restore MP to full
+A9 5F 
+A9 9F 
+A9 DF
+
+BA 00 02 	; Clear Status 0 (except Zombie)
+BA 01 02 
+BA 02 02 
+BA 03 02 
+
+FF 

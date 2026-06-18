@@ -1,0 +1,76 @@
+A4 FE 28 C8 6D 08 01 01 01 E3 00 00 AA 64 B4 78
+C3 04 CE 0A 01 04 CE 04 01 03 C4 05 CE 07 01 03
+E1 15 00 B2 27 00 76 A5 FE C3 0C 73 14 80 09 81
+09 B1 02 C7 04 80 02 81 04 C7 04 80 03 81 03 80
+20 81 20 72 C8 4B 00 71 83 09 84 09 85 09 75 83
+0A 84 0A 85 0A 03 C7 04 80 04 81 02 80 0A 81 0A
+DB A2 14 FF
+
+A4 FE 					; Set Event Flag 1FE
+28 						; Player Frame 28
+C8 6D 08 				; Display Message 086D
+01 						; Player Move Up
+01 
+01 
+E3 00 00 AA 64 B4		; (Intermap Cutscene)
+   xx yy				;   Map Index (yyxx)
+		 zz ww			;	Coordinates (x/y)
+			   vv		;   Sprite (E0) + ??? (1F)
+
+78
+C3 04 					; Fade In Speed 04
+CE 0A 01 				; Repeat Next 1 Byte 0A Times
+04 						; Player Move Left
+CE 04 01 				; Repeat Next 1 Byte 04 Times
+03 						; Player Move Down
+C4 05 					; Fade Out Speed 05
+CE 07 01 				; Repeat Next 1 Byte 07 Times
+03						; Player Move Down
+E1 15 00 B2 27 00 		; Change Map?
+   xx yy				;   Map Index (yyxx)
+		 zz ww			;	Coordinates (x/y)
+			   vv		;   ??
+76 	
+
+A5 FE 					; Clear Event Flag 1FE
+C3 0C 					; Fade In Speed 0C
+73 
+
+14 						; Player Frame 14
+80 09 					; Sprite 0 Show
+81 09 					; Sprite 1 Show
+B1 02 					;
+
+C7 04 
+80 02 
+81 04 
+
+C7 04 
+80 03 
+81 03 
+
+80 20 
+81 20 
+72 
+C8 4B 00 
+71 
+
+83 09 
+84 09 
+85 09 
+75 
+
+83 0A 
+84 0A 
+85 0A 
+03 
+
+C7 04 
+80 04 
+81 02 
+
+80 0A 
+81 0A
+DB 
+A2 14 
+FF

@@ -1,0 +1,327 @@
+; FFV (RPGe English Translation) — Font/Tile Table File
+; ─────────────────────────────────────────────────────────────────────────────
+; Format:   HH=value   (hex byte → display string, no spaces around =)
+; Source:   Mesen tilemap viewer + Tile Molester analysis
+; Anchor:   B = tile $61  (col 1, row 6 of 16-wide tile grid)
+;           tile_index = row*16 + col  →  6*16+1 = 97 = $61  ✓
+;
+; Font graphics: 2bpp SNES, 8×8 pixels/tile
+; Tilemap base:  $11F000 (HiROM SNES address)
+; Palette:       4 colors sourced near $F827
+;
+; Confidence codes: [C] = confirmed via emulator tool
+;                   [I] = inferred from Tile Molester image
+;                   [P] = present in prior 1bpp.tbl
+;                   [?] = unknown / needs verification
+; ─────────────────────────────────────────────────────────────────────────────
+
+; ── $00–$1F  Control / event codes ──────────────────────────────────────── [P]
+00=[NUL]
+01=[EOL]
+02=[Bartz]
+03=[03]
+04=[04]
+05=[05]
+06=[06]
+07=[07]
+08=[08]
+09=[09]
+0A=[0A]
+0B=[0B]
+0C=[Delay]
+0D=[0D]
+0E=[0E]
+0F=[0F]
+10=[10]
+11=[11]
+12=[12]
+13=[13]
+14=[14]
+15=[15]
+16=[16]
+17=[Wait]
+18=[18]
+19=[19]
+1A=[1A]
+1B=[1B]
+1C=[1C]
+1D=[1D]
+1E=[1E]
+1F=[1F]
+
+; ── $20–$2F  Uppercase A–P, set 1 (dialogue font variant) ────────────────── [P]
+; Note: '_' suffix distinguishes these from the menu-font set at $60–$6F.
+; Likely the font used in dialogue windows / field text.
+20=A_
+21=B_
+22=C_
+23=D_
+24=E_
+25=F_
+26=G_
+27=H_
+28=I_
+29=J_
+2A=K_
+2B=L_
+2C=M_
+2D=N_
+2E=O_
+2F=P_
+
+; ── $30–$39  Uppercase Q–Z, set 1 ────────────────────────────────────────── [P]
+30=Q_
+31=R_
+32=S_
+33=T_
+34=U_
+35=V_
+36=W_
+37=X_
+38=Y_
+39=Z_
+
+; ── $3A–$3F  Icons (after Z in set 1) ────────────────────────────────────── [?]
+; Visible in Tile Molester as skull + misc icons in the row after Q–Z set 1.
+3A=[stone]
+3B=[toad]
+3C=[mini]
+3D=[float]
+3E=[poison]
+3F=[zombie]
+
+; ── $40–$4F  Icon row (row 4 of tile grid) ───────────────────────────────── [?]
+; Tile Molester shows a cursor arrow at the start of this region, then more icons.
+; Cursor ▼ is somewhere here; exact slots need tilemap inspection.
+40=[darkness]
+41=[icon-41]
+42=[icon-42]
+43=[icon-43]
+44=[icon-44]
+45=[icon-45]
+46=[icon-46]
+47=[icon-47]
+48=[icon-48]
+49=[icon-49]
+4A=[icon-4A]
+4B=[icon-4B]
+4C=[icon-4C]
+4D=[icon-4D]
+4E=[icon-4E]
+4F=[icon-4F]
+
+; ── $50–$52  Unknown (row 5, cols 0–2, before digits) ───────────────────── [?]
+50=[50]
+51=[51]
+52=[52]
+
+; ── $53–$5C  Digits 0–9 ──────────────────────────────────────────────────── [P]
+; NOTE: digits start at $53, NOT $40 as might be expected from visual inspection.
+53=0
+54=1
+55=2
+56=3
+57=4
+58=5
+59=6
+5A=7
+5B=8
+5C=9
+
+; ── $5D–$5F  Stat abbreviation icons ─────────────────────────────────────── [P]
+5D="m"
+5E="H"
+5F="P"
+
+; ── $60–$6F  Uppercase A–P, set 2 (menu font) ─────────────────────────── [C+P]
+; CONFIRMED via Mesen Tilemap Viewer: $61 = 'B'
+60=A
+61=B
+62=C
+63=D
+64=E
+65=F
+66=G
+67=H
+68=I
+69=J
+6A=K
+6B=L
+6C=M
+6D=N
+6E=O
+6F=P
+
+; ── $70–$79  Uppercase Q–Z, set 2 ────────────────────────────────────────── [P]
+70=Q
+71=R
+72=S
+73=T
+74=U
+75=V
+76=W
+77=X
+78=Y
+79=Z
+
+; ── $7A–$7F  Lowercase a–f ────────────────────────────────────────────────── [P]
+7A=a
+7B=b
+7C=c
+7D=d
+7E=e
+7F=f
+
+; ── $80–$8F  Lowercase g–v ────────────────────────────────────────────────── [P]
+80=g
+81=h
+82=i
+83=j
+84=k
+85=l
+86=m
+87=n
+88=o
+89=p
+8A=q
+8B=r
+8C=s
+8D=t
+8E=u
+8F=v
+
+; ── $90–$93  Lowercase w–z ────────────────────────────────────────────────── [P]
+90=w
+91=x
+92=y
+93=z
+
+; ── $94–$B0  Kerning ligature tiles ──────────────────────────────────────── [P]
+; RPGe packed common letter pairs as single 8×8 tiles for tighter text layout.
+; These appear as narrow/combined glyphs in Tile Molester after lowercase z.
+94=il
+95=it
+96=[96]
+97=li
+98=ll
+99='
+9A="
+9B=:
+9C=;
+9D=,
+9E=(
+9F=)
+A0=/
+A1=!
+A2=?
+A3=.
+A4=ti
+A5=fi
+A6=[A6]
+A7=[A7]
+A8=[A8]
+A9=[A9]
+AA=`
+AB=~
+AC=if
+AD=lt
+AE=tl
+AF=ir
+B0=tt
+
+; ── $B1–$BB  Japanese Scripts ─────────────────────────────────────────────────────── [?]
+B1=[B1]
+B2=[B2]
+B3=[B3]
+B4=[B4]
+B5=[B5]
+B6=[B6]
+B7=[B7]
+B8=[B8]
+B9=[B9]
+BA=[BA]
+BB=[BB]
+
+; ── $BC–$C4  Item-type icons ──────────────────────────────────────────────── [P]
+BC=[Key]
+BD=[Shoe]
+BE=[Misc]
+BF=[Hamr]
+C0=[Tent]
+C1=[Ribn]
+C2=[Drnk]
+C3=[Suit]
+C4=[Song]
+
+; ── $C5–$CF  Punctuation / symbol set 2 ──────────────────────────────────── [P]
+; Several of these duplicate $A0–$A3 — may be stylistically different glyphs.
+C5=-
+C6=[Shur]
+C7=...
+C8=[Scrl]
+C9=[!]
+CA=[Claw]
+CB=[?]
+CC=[Glov]
+CD=%
+CE=/
+CF=[:]
+
+; ── $D0–$D1  Bar / gauge edge tiles ──────────────────────────────────────── [P]
+D0=|-
+D1=_|
+
+; ── $D2–$DF  Controller button icons ─────────────────────────────────────── [P]
+D2=[Btn-.]
+D3=[Btn-A]
+D4=[Btn-B]
+D5=[Btn-X]
+D6=[Btn-Y]
+D7=[Btn-L]
+D8=[Btn-R]
+D9=[Btn-E]
+DA=[Btn-H]
+DB=[Btn-M]
+DC=[Btn-P]
+DD=[Btn-S]
+DE=[Btn-C]
+DF=[Btn-T]
+
+; ── $E0–$E2  Misc symbols ─────────────────────────────────────────────────── [P]
+E0=/\
+E1=-}
+E2=+
+
+; ── $E3–$F4  Weapon / armor type icons ───────────────────────────────────── [P]
+E3=[Swrd]
+E4=[Whit]
+E5=[Blak]
+E6=[Dimn]
+E7=[Knif]
+E8=[Sper]
+E9=[Axe]
+EA=[Katn]
+EB=[Rod]
+EC=[Staf]
+ED=[Bow]
+EE=[Harp]
+EF=[Whip]
+F0=[Bell]
+F1=[Shld]
+F2=[Helm]
+F3=[Armr]
+F4=[Ring]
+
+; ── $F5–$FF  Misc + gauge fill tiles + space ─────────────────────────────── [P]
+F5=[Btn-U]
+F6=[F6]
+F7==1
+F8==2
+F9==3
+FA==4
+FB==5
+FC==6
+FD==7
+FE==8
+FF=\x20
+; NOTE: Space is $FF, not $00. $00 is NUL/terminator.

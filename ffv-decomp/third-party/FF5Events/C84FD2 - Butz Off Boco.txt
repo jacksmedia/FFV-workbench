@@ -1,0 +1,23 @@
+76 70 87 09 87 20 0A B1 02 10 09 05 01 71 14 72 
+C8 21 00 71 87 52 70 87 20 71 A5 FF FF 
+
+76 			; Set Speed to Walk
+70 
+87 09 
+87 20 
+0A 
+B1 02 		; Set Character Sprite
+10 
+09 			; Display Character
+05 01		; Hop Anim, xx: Direction (06: Long Hop)
+71 
+14 			; Character Pose
+72 
+C8 21 00 	; Show Text
+71 
+87 52
+70 
+87 20 		; Boco Head Nod
+71 
+A5 FF		; Clear event flag 1ff
+FF 

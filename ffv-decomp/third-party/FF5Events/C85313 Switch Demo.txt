@@ -1,0 +1,109 @@
+82 09 82 03 71 3A 0C 05 00 0B 70 01 71 80 09 81
+09 B1 02 C7 04 80 02 81 04 80 20 81 20 71 3D 80
+4D 81 4D 0C 80 0B 81 0B 71 C7 05 01 80 01 81 01
+72 82 02 71 82 24 73 82 26 70 82 22 70 82 26 70
+82 22 73 82 07 82 02 82 02 71 82 20 73 B5 3A 71
+CD 62 07 82 04 82 04 82 04 82 01 82 01 82 0A 72
+BE 05 72 B5 43 F3 1B 09 20 7F 8F 9F 72 BE 00 73
+C8 4A 80 C7 05 03 80 03 81 03 71 0B 80 0B 81 0B
+14 C7 04 80 04 81 02 80 0A 81 0A DB A2 13      
+
+82 09 					; Sprite 2 Show	(Pirate)
+82 03 					; Sprite 2 Move Right
+71 
+3A 						; Player Frame 3A
+0C 						; Player
+05						; Player Bounce 
+00 
+0B 						; Player
+70 
+01 						; Player Move Up
+71 
+80 09 					; Sprite 0 Show (Galuf)
+81 09 					; Sprite 1 Show (Lenna)
+B1 02 					; Set Player Sprite 02 (Butz)
+
+C7 04					; Play next 4 Bytes Simul 
+80 02 					; Sprite 0 Move Right
+81 04 					; Sprite 1 Move Left
+
+80 20 					; Sprite 0 Frame 10
+81 20 					; Sprite 1 Frame 10
+
+71 
+3D 						; Player Frame 3D
+80 4D 					; Sprite 0 Frame 4D
+81 4D 					; Sprite 1 Frame 4D
+0C 
+80 0B 					; Sprite 0
+81 0B 					; Sprite 1
+71 
+
+C7 05 					; Play Next 5 Bytes Simul
+01						; Player Move Up
+80 01 					; Sprite 0 Move Up
+81 01					; Sprite 1 Move Up
+
+72 
+82 02 
+71 
+82 24 
+73 
+82 26 
+70 
+82 22 
+70 
+82 26 
+70
+82 22 
+73 
+82 07 
+82 02 
+82 02 
+71 
+82 20 
+73 
+
+B5 3A 			; Play Sound Effect 3A
+71 
+CD 62 07 		; Open the Door
+82 04 
+82 04 
+82 04 
+82 01 
+82 01 
+82 0A 
+72
+
+BE 05 			; Start Rumble Effect
+72 
+B5 43 
+F3 1B 09 20 7F 8F 9F 	; Set Map Tiles
+72 
+BE 00 			; End Rumble Effect
+73
+
+C8 4A 80		; Display Message
+
+C7 05
+03 
+80 03 
+81 03 
+
+71 
+0B 
+80 0B 
+81 0B
+
+14 
+
+C7 04 
+80 04 
+81 02 
+
+80 0A 
+81 0A 
+
+DB 
+A2 13     		; Set Event Flag 013 
+FF

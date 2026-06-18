@@ -1,0 +1,243 @@
+==============================================================================
+ Final Fantasy V — SPC-700 sound driver: APU memory map, command protocol,
+ and complete music sequence (vcmd) reference
+ Disassembly + commentary by the FFV Clean crawler project, 2026-06-12
+ (produced with an AI assistant; cross-validated against pgate1's
+  spcmake_byFF5 [MIT] and verified against ff5c.sfc / FF5 J)
+==============================================================================
+
+Toolchain: disasm_spc700.py (this project), full 256-opcode SPC700 table.
+Validation: linear sweep of the whole 6128-byte driver image decoded 2,949
+instructions; 508 of 518 intra-driver flow targets land on instruction
+boundaries (98.1%); all 10 misses cluster inside the $181B-$19EF data region
+(tables, not code).  Boot sequence, DSP register writes, and pitch table all
+decode to hardware-meaningful values.  Confidence: HIGH for everything
+labeled [verified]; MODERATE where labeled; open items listed in §8.
+
+------------------------------------------------------------------------------
+1. APU upload: what the 65816 sends at boot                        [verified]
+------------------------------------------------------------------------------
+Lenophis's Bank C4 doc covers the 65816 side (IPL handshake at C4/0041,
+block loop at C4/0083).  The block list lives at C4/0008 (source ptrs,
+bank C4) and C4/0014 (ARAM dest), 6 entries:
+
+  blk  ROM src    ARAM dest    size    contents
+  ---  --------   ----------   ------  -------------------------------------
+   0   C4/064D    $0200-$19EF  6128 B  SPC-700 driver program (this doc)
+   1   C4/1F95    $2C00-$47FF  7168 B  SFX data bank          [moderate]
+   2   C4/1E3F    $4800-$490D   270 B  resident BRR sample — 270 = 30×9-byte
+                                       BRR blocks exactly     [moderate]
+   3   C4/1F4F    $1B00-$1B1F    32 B  DSP sample directory (8 × 4 bytes)
+   4   C4/1F71    $1A80-$1A8F    16 B  default ADSR per instrument (8 × 2)
+   5   C4/1F83    $1A00-$1A0F    16 B  instrument pitch-rate words (8 × 2)
+
+Loader computes  $4800 + len(blk2) = $490E  → song sequence load base
+(C4/012E reads the length word at C4/1E3F).  Echo buffer starts at $D200
+(see §3), so songs may occupy $490E-$D1FF — that is the meaning of the
+CMP #$D200 bounds check at C4/0330.
+
+ARAM map after boot:
+  $0000-$00EF  driver direct page (zero-filled at boot)
+  $0100-$01FF  driver variables / per-voice arrays (also stack page top)
+  $0200-$19EF  driver code + tables
+  $1A00-$1B1F  instrument tables + sample directory (blocks 5,4,3)
+  $2C00-$47FF  SFX bank (block 1)
+  $4800-$490D  resident BRR sample (block 2)
+  $490E-$D1FF  song sequence + per-song BRR samples
+  $D200-$F9FF  echo buffer (EDL=5 → 0x2800 bytes)
+  $FA00-$FDFF  per-voice runtime state arrays (see §6)
+
+------------------------------------------------------------------------------
+2. Driver boot ($0200)                                             [verified]
+------------------------------------------------------------------------------
+  CLRP / DI / MOV X,#$FF / MOV SP,X        ; stack at $01FF
+  zero-fill $00-$EF                        ; (the long-known C4/064D loop)
+  DSP MVOL_L/R, EVOL_L/R, PMON, NON, EON = 0
+  DSP DIR  = $1B                           ; sample directory at $1B00
+  DSP GAIN = $A0 for all 8 voices
+  CONTROL  = $F0 (reset), T0 target = $24, T1 target = $80, CONTROL = $03
+  DSP ESA  = $D2 (echo buffer $D200), EDL = $05
+T0 (8000Hz/36 ≈ 222 Hz) is the sequencer tick clock; T1 is a slow/fade
+clock.  DSP writes go through the helper at $0655 (Y=reg, A=value).
+
+------------------------------------------------------------------------------
+3. 65816 → APU command interface                          [partially mapped]
+------------------------------------------------------------------------------
+Port handler at ARAM/12DB: reads PORT1 ($2141), masks to 3 bits, dispatches
+through the 8-entry jump table at $181B:
+
+  cmd 0,4,5,6 → $134D   (ack/idle)                              [moderate]
+  cmd 1       → $133B   open
+  cmd 2       → $1323   open
+  cmd 3       → $1305   DATA UPLOAD: streams PORT1/2/3 bytes into ARAM at
+                        pointer $2C with PORT0 handshake — the receiving end
+                        of the 65816 song-upload loop at C4/0250  [verified]
+  cmd 7       → $135A   open
+
+The vcmd FB conditional jump (§5) is armed by the 65816 setting a voice bit
+in dp $D1 — the mechanism behind mid-song variation triggers.
+
+------------------------------------------------------------------------------
+4. Song format                                                     [verified]
+------------------------------------------------------------------------------
+Song pointer table: C4/3B97, 3-byte ROM pointers (low/mid/high), one per
+song.  At each pointer:
+  +0  u16  data length
+  +2       pointer table: first word = address just past the table AND the
+           start of track 1 (the duplicate first entry seen in every song);
+           8 track pointer words follow; trailing word(s) TBD (§8).
+           Pointers are in SOURCE address space; the driver rebases them by
+           adding the word at dp $06/$07 (set at load time).  Verified on
+           songs 0-2: 8 ascending in-range track starts each.
+Track byte stream:
+  $00-$D1  note byte:  pitch_index = byte / 15,  duration = byte % 15
+           pitch 0-11 = chromatic semitones, 12 = tie, 13 = rest
+           (12=tie/13=rest assignment: [moderate], Akao convention)
+  $D2-$FF  vcmd, operand count from table at $1887 (§5)
+Durations in ticks (table at ARAM/192F, 15 entries):
+  192 144 96 64 72 48 32 36 24 16 12 8 6 4 3      (48 = quarter note)
+  — byte-identical to spcmake_byFF5's ticks[15].              [verified]
+
+------------------------------------------------------------------------------
+5. Music vcmd reference ($D2-$FF)                                  [verified]
+------------------------------------------------------------------------------
+Dispatcher at ARAM/0588: (vcmd-$D2)*2 indexes handler table $182B (46
+entries); operand-count table at $1887 (46 bytes); RET-dispatch (handler
+address pushed, RET "returns" into it).  First operand pre-fetched into
+dp $04 / A.  Operand counts match spcmake_byFF5's length[] for all 46
+opcodes (theirs include the opcode byte, +1 offset across the board).
+
+  op  ops handler  meaning                          cross-check
+  --- --- -------  -------------------------------  --------------------
+  D2   1  $06A2    voice volume                     spcmake sample 音量
+  D3   2  $06AE    volume fade (time, target)       spcmake 音量変化
+  D4   1  $0730    pan                              spcmake パン
+  D5   2  $073C    pan fade (time, target)          spcmake パン変化
+  D6   2  $0778    pitch slide to note (time, note) handler: $FAC1/$0120
+  D7   3  $07B7    vibrato on (delay, rate, depth)  spcmake ビブラート
+  D8   0  $07C9    vibrato off (= depth 0 store)    spcmake 解除
+  D9   3  $07CD    tremolo on (delay, rate, depth)  handler symmetry w/ D7
+  DA   0  $07DF    tremolo off
+  DB   2  $07E3    auto-pan / pan LFO (rate, depth) spcmake オートパン
+  DC   0  $0834    auto-pan off
+  DD   1  $08BE    noise clock freq (AND #$1F → DSP FLG bits)
+  DE   0  $0877    noise ON  (voice bit → $C6/NON)
+  DF   0  $08A6    noise OFF
+  E0   0  $08CC    pitch-mod ON  (voice bit → $C7/PMON)
+  E1   0  $08E5    pitch-mod OFF
+  E2   0  $084E    echo ON   (voice bit → $C5/EON)  spcmake エコーオン
+  E3   0  $0867    echo OFF                         spcmake エコーオフ
+  E4   1  $084A    octave set (dp $3D+X)            spcmake オクターブ
+  E5   0  $0840    octave +1                        usage.md: ">"
+  E6   0  $0846    octave -1                        usage.md: "<"
+  E7   1  $0787    transpose set (dp $FB61+X)       spcmake 解除 (E7 00)
+  E8   1  $0783    transpose ADD (falls into E7's store — shared tail)
+  E9   1  $0A42    detune (dp $FB40+X, summed in pitch calc)
+  EA   1  $08F5    program change: tone id → $5D+X; loads pitch-rate from
+                   $1A00+2n and default ADSR from $1A80+2n
+  EB   1  $091F    ADSR attack rate  (4 bits → ADSR1)
+  EC   1  $094F    ADSR decay rate   (3 bits → ADSR1)
+  ED   1  $0962    ADSR sustain level(3 bits → ADSR2)
+  EE   1  $0974    ADSR sustain rate (5 bits → ADSR2)
+  EF   0  $0984    ADSR reset to instrument default
+  F0   1  $09CD    loop start, operand = count (0 = infinite); 4-level
+                   stack: ptrs $FD00+, counters $FCC0+, depth $5C+X
+  F1   0  $09FD    loop end
+  F2   0  $0A46    END OF TRACK (clears voice active bit, fixes NON/PMON/
+                   EON; FC-FF alias here — unknown opcodes halt the track)
+  F3   1  $065A    tempo (dp $7D)                   spcmake 演奏速度
+  F4   2  $0667    tempo fade (time, target)
+  F5   1  $06EA    echo volume (dp $B4)             spcmake エコーボリューム
+  F6   2  $06F7    echo volume fade (time, target)
+  F7   2  $078B    echo feedback + FIR preset 0-3   spcmake エコーフィードバック
+                   (FIR coefficient presets: 4×8 bytes at ARAM/190F)
+  F8   1  $069F    master volume (dp $B8 — matches spcmake's 0xB8 comment)
+  F9   3  $09A8    loop break: (pass#, addr16) — jump on Nth pass ("|")
+  FA   2  $0996    jump absolute (addr16, rebased via $06/$07) ("L" loop)
+  FB   2  $0A27    CPU-conditional jump: taken iff 65816 set this voice's
+                   bit in dp $D1 (then cleared) — song variation hook
+  FC-FF 0 $0A46    treated as end of track
+
+Design idiom worth knowing: every "off" command is the corresponding "on"
+command's final store executed with A=0 (the dispatcher leaves A=0 when the
+operand count is 0) — vibrato-off is literally vibrato-depth=0.
+
+------------------------------------------------------------------------------
+6. Per-voice runtime state (work RAM $FA00+, X = voice*2)          [verified]
+------------------------------------------------------------------------------
+  $FA00/01+X  volume (fraction/value)     $FA80+X  volume fade counter
+  $FA20/21+X  volume fade delta           $FA81+X  pan fade counter
+  $FA40/41+X  pan (fraction/value)        $FAA0/A1+X vibrato/tremolo rate
+  $FA60/61+X  pan fade delta              $FAC0/C1+X autopan / slide time
+  $FB00+X  autopan state                  $FB20/21+X instrument pitch base
+  $FB40+X  detune (E9)                    $FB61+X  transpose (E7/E8)
+  $FB80/81+X  portamento delta            $FBA0/A1+X autopan delta
+  $FC80/81+X  current ADSR1/ADSR2         $FCA0+Y  loop-break pass counter
+  $FCC0+Y  loop counters (stack)          $FD00/01+Y loop return pointers
+  dp $0C/$0D+X  track data pointer        dp $3D+X octave
+  dp $5C+X loop stack depth               dp $5D+X tone id
+  dp $06/$07  song pointer rebase         dp $7D tempo, $B8 master volume
+Fade engine at $0A62 (per tick): applies volume/pan/portamento deltas.
+Music voices have X < $10; SFX track slots use X ≥ $10 — that is what every
+"CMP X,#$10" guard in the handlers distinguishes.  SFX engine has its own
+dispatcher at $0FFE over the table at $18B5.            [SFX side: open]
+
+------------------------------------------------------------------------------
+7. Data tables in the driver image                                 [verified]
+------------------------------------------------------------------------------
+  $181B  8 × u16   port-command jump table
+  $182B  46 × u16  music vcmd handlers ($D2-$FF)
+  $1887  46 × u8   vcmd operand counts          ($1887+46 = $18B5 exactly)
+  $18B5  32 × u16  SFX dispatch table
+  $18F5  13 × u16  chromatic pitch table, one octave:
+                   0879 08FA 0983 0A14 0AAD 0B50 0BFC 0CB2 0D74 0E41 0F1A
+                   1000 10F3   (entry12/entry0 = 2.0004 — octave doubling;
+                   note→pitch at $0529: DIV by 12 → octave shift + lookup)
+  $190F  4 × 8 u8  echo FIR filter presets (selected by F7's 2nd operand)
+  $192F  15 × u8   note duration table (ticks) — see §4
+  $193E+ small ptr tables + embedded byte scripts ($195E-$19EF)  [open]
+
+------------------------------------------------------------------------------
+8. Open items (bounded puzzles, in rough value order)
+------------------------------------------------------------------------------
+ 1. Port commands 1, 2, 7 ($133B/$1323/$135A): play-song / stop / SFX
+    trigger presumably — disassemble + live-poke $2141 to confirm.
+ 2. SFX engine: dispatcher $0FFE semantics, $18B5 table, block 1 layout
+    ($2C00-$47FF), and the @@n SFX numbering (0-353 per spcmake).
+ 3. Song header trailing word(s) after the 8 track pointers (echo/percussion
+    track? always-equal-to-track1 sentinel?)  — check more songs.
+ 4. Tie vs rest: confirm pitch index 12=tie / 13=rest by live ARAM poke.
+ 5. The embedded scripts at $195E-$19EF (jingle/SFX templates?).
+ 6. Tempo formula: T0=222Hz, accumulate-and-overflow on $7C/$7D suspected;
+    derive exact BPM = f(F3 operand) and verify against a known song.
+
+------------------------------------------------------------------------------
+9. Webapp track-editor pipeline sketch (ff6tools fork)
+------------------------------------------------------------------------------
+Decode path (all pieces now known):
+  ROM → song ptr (C4/3B97+3n, 24-bit) → length word → track ptr table
+  (rebase: ARAM_track = stored_word - stored_word[0] + $490E... in practice
+  decode in source space: track_off = stored_word - (song_rom_addr & $FFFF))
+  → per-track byte stream → decode with §4/§5 tables into an event list
+  (note/dur pairs + typed vcmd events).  This is ~150 lines of JS; the vcmd
+  table above is the entire spec.
+Edit model: FF5Track editor analogous to FF5Map — piano-roll per track,
+  vcmds as inline event markers; tempo/instrument/echo as track properties.
+Re-encode constraints:
+  * total song size must fit $490E-$D1FF budget AND the original pointer
+    gap unless repointing; lengths are explicit so repointing is trivial
+    (3-byte ptr table at C4/3B97, data anywhere in C5/C6 — or expanded ROM).
+  * F9/FA/FB jump operands are source-space addresses: recompute after edit.
+  * note bytes: pitch*15+duration — quantize durations to the 15-entry table
+    (or emit tied pairs for unrepresentable lengths).
+Preview path: generate an SPC file directly (driver block 0 + tables +
+  re-encoded song at $490E + sample dir), or shell to spcmake_byFF5 (MIT)
+  whose hex-MML is byte-level identical to this sequence format.
+
+------------------------------------------------------------------------------
+Credits: Lenophis (Bank C4 65816 loader doc), pgate1 (spcmake_byFF5, MIT —
+independent sequence-format implementation used for cross-validation),
+noisecross, 1337_5k37c3r, Instructor Trepe, Modoh (the doc corpus this
+builds on).  Produced with an AI assistant; please keep confidence labels
+intact when sharing.
+==============================================================================

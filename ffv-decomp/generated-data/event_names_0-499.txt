@@ -1,0 +1,505 @@
+# FFV Event Script Names (Events 0-499)
+# Generated from ROM dialog text analysis + map-name fallback
+# Naming priority: Dialog text > Subroutine dialog > Shop/Inn > Map name > Content
+# Format: Event# | SNES Address | Size | Name
+
+   0 | $C849DC |     0B | [empty/unused]
+   1 | $C849DC |     3B | NPC: "Can't carry any more items!"
+   2 | $C849DF |     3B | NPC: "Obtained !"
+   3 | $C849E2 |     3B | NPC: "Obtained Gil!"
+   4 | $C849E5 |     3B | NPC: "Obtained !"
+   5 | $C849E8 |     3B | NPC: "Monster-in-a-box!!"
+   6 | $C849EB |     3B | NPC: "It's empty..."
+   7 | $C849EE |     3B | NPC: "Please select a name."
+   8 | $C849F1 |     3B | NPC: "Opened lock."
+   9 | $C849F4 |     1B | [empty/unused]
+  10 | $C849F5 |     6B | [call(1407)]
+  11 | $C849FB |     6B | [party_action]
+  12 | $C84A01 |    19B | [call(204), event_switch]
+  13 | $C84A14 |     6B | NPC: "Can't carry any more items!"
+  14 | $C84A1A |    13B | call(185): "Faris: ... Lenna... There's one"
+  15 | $C84A27 |    18B | "Huh?" (Y/N)
+  16 | $C84A39 |     6B | call(38): "Lenna: Father!"
+  17 | $C84A3F |    10B | [call(972)]
+  18 | $C84A49 |    10B | [call(706)]
+  19 | $C84A53 |     5B | [call(972)]
+  20 | $C84A58 |     5B | [call(706)]
+  21 | $C84A5D |    18B | [World Map (Bartz' World) #1]
+  22 | $C84A6F |    14B | [call(204), call(1761), event_switch]
+  23 | $C84A7D |    14B | call(690): "Space bends... And time flows ba"
+  24 | $C84A8B |    21B | [call(910), obj_action]
+  25 | $C84AA0 |    60B | [obj_action]
+  26 | $C84ADC |   100B | [obj_action, party_action]
+  27 | $C84B40 |     9B | [obj_action]
+  28 | $C84B49 |    19B | [obj_action]
+  29 | $C84B5C |    12B | [party_action, sound, event_switch]
+  30 | $C84B68 |     9B | [Airship #1]
+  31 | $C84B71 |    15B | call(347): "rcrffnit"
+  32 | $C84B80 |    15B | "HP/MP restored! Status restored!"
+  33 | $C84B8F |     0B | [empty/unused]
+  34 | $C84B8F |    95B | "Galuf: <Bartz>! Where'd you get"
+  35 | $C84BEE |     7B | [sound, event_switch]
+  36 | $C84BF5 |   126B | "Galuf: I'm sure it was somewhere"
+  37 | $C84C73 |    13B | [Tycoon Meteorite #1]
+  38 | $C84C80 |   597B | "Lenna: Father!"
+  39 | $C84ED5 |   253B | [Chocobo Forest #1]
+  40 | $C84FD2 |    29B | "Boco, wait here."
+  41 | $C84FEF |     7B | [Tycoon Meteorite #2]
+  42 | $C84FF6 |     6B | call(44): "Are you okay? Lenna: Y..., yes.."
+  43 | $C84FFC |     6B | call(44): "Are you okay? Lenna: Y..., yes.."
+  44 | $C85002 |   294B | "Are you okay? Lenna: Y..., yes.."
+  45 | $C85128 |   221B | "<Bartz>: Ouch... Boco! Don't sto"
+  46 | $C85205 |     7B | [World Map (Bartz' World) #2]
+  47 | $C8520C |   123B | "Lenna: A cave in such a place..."
+  48 | $C85287 |    63B | "<Bartz>: Boco, it's dangerous ah"
+  49 | $C852C6 |    33B | "<Bartz>: Let's go, Boco!"
+  50 | $C852E7 |    20B | "<Bartz>: That spring...!"
+  51 | $C852FB |    24B | "HP/MP restored! Status restored!"
+  52 | $C85313 |   143B | "<Bartz>: That button...?"
+  53 | $C853A2 |   100B | "<Bartz>: What's that...?"
+  54 | $C85406 |   167B | "<Bartz>: This must be the pirate"
+  55 | $C854AD |    10B | "<Bartz>: He's sleeping..."
+  56 | $C854B7 |    62B | "Pirate: Mumble... mumble..."
+  57 | $C854F5 |    10B | [call(1890), sound, event_switch]
+  58 | $C854FF |    17B | call(440): "pg<Krile>pAll ttKP<Bartz>iOr!h Y"
+  59 | $C85510 |    27B | call(1318): "<Bartz>: Boco!"
+  60 | $C8552B |    16B | [Tycoon Meteorite #3]
+  61 | $C8553B |   101B | "Galuf: This is it!"
+  62 | $C855A0 |   155B | "Princess Lenna!"
+  63 | $C8563B |  1365B | "Lenna: The Crystal! <Bartz>: It'"
+  64 | $C85B90 |    73B | "How to use the Pieces of Crystal" (Y/N)
+  65 | $C85BD9 |    29B | [World Map (Bartz' World) #3]
+  66 | $C85BF6 |    54B | "<Bartz>: Stand guard!!"
+  67 | $C85C2C |    26B | "This is a Spring of Recovery. HP"
+  68 | $C85C46 |    61B | "Lenna: It doesn't look like he's"
+  69 | $C85C83 |   251B | "Pirates: Beer, beer!!"
+  70 | $C85D7E |    65B | "Faris: Hey! Were you trying to l"
+  71 | $C85DBF |   476B | "Pirates: Captain! Wait up!!"
+  72 | $C85F9B |    47B | "<Bartz>: Something's wrong! Look"
+  73 | $C85FCA |   390B | "<Bartz>: Hold on, I'll go take a"
+  74 | $C86150 |    66B | "Lenna: This is Zokk's house..."
+  75 | $C86192 |   608B | "Zokk: Princess Lenna! Lenna: Zok"
+  76 | $C863F2 |    15B | [Fire-Powered Ship Below Deck #1]
+  77 | $C86401 |    10B | "Cid: If only I hadn't created su"
+  78 | $C8640B |    18B | [World Map (Bartz' World) #4]
+  79 | $C8641D |    10B | [Torna Canal #1]
+  80 | $C86427 |    18B | [Torna Canal #2]
+  81 | $C86439 |    38B | call(34): "Galuf: <Bartz>! Where'd you get"
+  82 | $C8645F |    38B | call(34): "Galuf: <Bartz>! Where'd you get"
+  83 | $C86485 |     4B | "The canal's gates are locked."
+  84 | $C86489 |    58B | "Faris: Do you really want to go"
+  85 | $C864C3 |   539B | "<Bartz>: Man, I'm soaked... Lenn"
+  86 | $C866DE |   716B | "<Bartz>: I've got a bad feeling"
+  87 | $C869AA |    37B | [call(508), call(902), obj_action, party_action]
+  88 | $C869CF |    68B | NPC: "It's empty..."
+  89 | $C86A13 |    69B | "Lenna: We've got to stop them! B"
+  90 | $C86A58 |   732B | "Lenna: Father's helmet!"
+  91 | $C86D34 |   479B | "Lenna: Hiryuu! Faris: What an aw"
+  92 | $C86F13 |    12B | [Ghido's Cave B5 #1]
+  93 | $C86F1F |    55B | [give_take_item, party_action]
+  94 | $C86F56 |    23B | NPC: "Can't carry any more items!"
+  95 | $C86F6D |   348B | "King Worus: Why, if it isn't Pri"
+  96 | $C870C9 |   465B | "Warrior: Galura is being control"
+  97 | $C8729A |    57B | "<Bartz>: What's happening!? Fari"
+  98 | $C872D3 |     7B | [Walse Meteorite #1]
+  99 | $C872DA |    65B | NPC: "Can't carry any more items!"
+ 100 | $C8731B |   128B | "Lenna: <Bartz>! Galuf: Was he wa"
+ 101 | $C8739B |   323B | "Lenna: ... And... Father is stil"
+ 102 | $C874DE |    25B | "Chancellor: Princess Lenna, this"
+ 103 | $C874F7 |    29B | NPC: "Can't carry any more items!"
+ 104 | $C87514 |    67B | "It's them! <Bartz>: ??? You must"
+ 105 | $C87557 |    80B | "It's them! <Bartz>: ??? You must"
+ 106 | $C875A7 |    35B | [call(1907), obj_action, party_action, sound]
+ 107 | $C875CA |   743B | "Galuf: Now what do we do...? <Ba"
+ 108 | $C878B1 |    15B | call(441): "pg<Krile>pAll ttKP<Bartz>iOr!h Y"
+ 109 | $C878C0 |    12B | [World Map (Bartz' World) #5]
+ 110 | $C878CC |    14B | call(441): "pg<Krile>pAll ttKP<Bartz>iOr!h Y"
+ 111 | $C878DA |  1550B | "Lenna: The Crystal!"
+ 112 | $C87EE8 |     7B | [Karnak Castle Crystal Chamber #1]
+ 113 | $C87EEF |   132B | Shop #26
+ 114 | $C87F73 |     6B | [battle(264), event_switch]
+ 115 | $C87F79 |   317B | "<Bartz>: The pieces of the Cryst"
+ 116 | $C880B6 |    10B | "Cid: If only I hadn't created su"
+ 117 | $C880C0 |    78B | "<Bartz>: Cid! Cid: Go away! If o"
+ 118 | $C8810E |   355B | "<Bartz>: Cid! Cid: .... Lenna:"
+ 119 | $C88271 |   753B | "<Bartz>: What is THAT? Lenna: It"
+ 120 | $C88562 |   107B | "<Bartz>: Who's that? Lenna: Mid?"
+ 121 | $C885CD |   637B | "Mid: Hey! Don't bother me while"
+ 122 | $C8884A |   267B | "Cid: Aah... slept well!"
+ 123 | $C88955 |     4B | "Mid: Zzz... zzz..."
+ 124 | $C88959 |   111B | "Cid: Everything is my fault!! If"
+ 125 | $C889C8 |    10B | [call(98), party_action]
+ 126 | $C889D2 |     7B | [call(917), call(918)]
+ 127 | $C889D9 |   181B | "He.. here it comes...! Another e"
+ 128 | $C88A8E |    11B | NPC: "Can't carry any more items!"
+ 129 | $C88A99 |    95B | "<Bartz>: The ship's sinking!!"
+ 130 | $C88AF8 |    46B | [obj_action, party_action]
+ 131 | $C88B26 |   462B | "<Bartz>: Grrrrrrrrrr!!"
+ 132 | $C88CF4 |    12B | "Galuf: Giving up?" (Y/N)
+ 133 | $C88D00 |    12B | "Galuf: What is that? Lenna: A ch"
+ 134 | $C88D0C |   212B | "Cid: Hey, you're back! <Bartz>:"
+ 135 | $C88DE0 |   122B | "Special Service!!!"
+ 136 | $C88E5A |   167B | "Galuf: ...(sigh)... This doesn't"
+ 137 | $C88F01 |    11B | "Mid: Are you ready?" (Y/N)
+ 138 | $C88F0C |   123B | "<Bartz>: The quicksand's stopped"
+ 139 | $C88F87 |    38B | [obj_action]
+ 140 | $C88FAD |    16B | [obj_action, sound]
+ 141 | $C88FBD |     9B | [Desert of Shifting Sands #1]
+ 142 | $C88FC6 |    13B | [Desert of Shifting Sands #2]
+ 143 | $C88FD3 |    13B | [Desert of Shifting Sands #3]
+ 144 | $C88FE0 |   398B | "Lenna: Father! Faris: ... F... F"
+ 145 | $C8916E |  1094B | "<Bartz>: What's this!?"
+ 146 | $C895B4 |     8B | "There is a lever. Push it?" (Y/N)
+ 147 | $C895BC |    13B | [party_action, sound, event_switch]
+ 148 | $C895C9 |    15B | call(347): "rcrffnit"
+ 149 | $C895D8 |    16B | "<Bartz>: Where are we...? ...it'"
+ 150 | $C895E8 |     7B | [Catapult Living Quarters #1]
+ 151 | $C895EF |     7B | [Ronka Ruins Lv1 #1]
+ 152 | $C895F6 |    18B | [Catapult Storeroom #1]
+ 153 | $C89608 |     9B | [call(348)]
+ 154 | $C89611 |   103B | NPC: "Can't carry any more items!"
+ 155 | $C89678 |   158B | "<Bartz>: Propellers on a ship..."
+ 156 | $C89716 |    19B | [obj_action]
+ 157 | $C89729 |    22B | [Catapult Storeroom #2]
+ 158 | $C8973F |    50B | call(350): "<Bartz>: What the...!? Galuf: Th"
+ 159 | $C89771 |    40B | call(347): "rcrffnit"
+ 160 | $C89799 |    10B | [call(21), event_switch]
+ 161 | $C897A3 |   243B | "<Bartz>: Cid, Mid... Cid: (pant)"
+ 162 | $C89896 |   354B | "Cid: You got the Adamantium! Mid"
+ 163 | $C899F8 |    11B | [party_action, sound, event_switch]
+ 164 | $C89A03 |   131B | NPC: "Can't carry any more items!"
+ 165 | $C89A86 |    32B | [obj_action, party_action]
+ 166 | $C89AA6 |     8B | "Did you come to defeat me? ... w" (Y/N)
+ 167 | $C89AAE |     6B | "<Bartz>: The energy is getting w"
+ 168 | $C89AB4 |    40B | "<Bartz>: Is that hole the entran"
+ 169 | $C89ADC |    15B | [call(1436), call(1437)]
+ 170 | $C89AEB |    15B | [Ronka Ruins Flying Fortress #1]
+ 171 | $C89AFA |    21B | [Ronka Ruins Flying Fortress #2]
+ 172 | $C89B0F |    30B | [call(342), sound]
+ 173 | $C89B2D |     9B | [battle(268), call(1436), event_switch]
+ 174 | $C89B36 |     9B | [battle(269), call(1437), event_switch]
+ 175 | $C89B3F |     9B | [battle(269), call(1438), event_switch]
+ 176 | $C89B48 |     9B | [battle(268), call(1439), event_switch]
+ 177 | $C89B51 |     3B | NPC: "Welcome to the Traveler's Inn! R"
+ 178 | $C89B54 |    38B | call(350): "<Bartz>: What the...!? Galuf: Th"
+ 179 | $C89B7A |    18B | NPC: "Can't carry any more items!"
+ 180 | $C89B8C |  2777B | "Lenna: Father! Faris: Father!"
+ 181 | $C8A665 |    12B | "Catch a few Z's?" (Y/N)
+ 182 | $C8A671 |    98B | [call(1407), obj_action, party_action, sound]
+ 183 | $C8A6D3 |   634B | "Lenna: The light is weakening..."
+ 184 | $C8A94D |    43B | "Lenna: I'm getting tired... Let'"
+ 185 | $C8A978 |   243B | "Faris: ... Lenna... There's one"
+ 186 | $C8AA6B |    10B | [obj_action, sound]
+ 187 | $C8AA75 |     8B | [World Map (Galuf's World) #1]
+ 188 | $C8AA7D |     8B | [World Map (Combined World) #1]
+ 189 | $C8AA85 |     4B | "If the gates were opened, monste"
+ 190 | $C8AA89 |     5B | call(191): "Cara: Hiryuu!!"
+ 191 | $C8AA8E |   771B | "Cara: Hiryuu!!"
+ 192 | $C8AD91 |   353B | "<Bartz>: Boco! Wark!!"
+ 193 | $C8AEF2 |    13B | [Death Valley #1]
+ 194 | $C8AEFF |    16B | [call(1923), obj_action, sound, event_switch]
+ 195 | $C8AF0F |    24B | [obj_action, party_action, event_switch]
+ 196 | $C8AF27 |    32B | [obj_action, party_action, event_switch]
+ 197 | $C8AF47 |    92B | [obj_action, party_action, event_switch]
+ 198 | $C8AFA3 |   626B | "Will you promise never to do suc"
+ 199 | $C8B215 |    14B | [World Map (Combined World) #2]
+ 200 | $C8B223 |     9B | [Karnak Castle #1]
+ 201 | $C8B22C |     7B | [call(204), call(1229)]
+ 202 | $C8B233 |     7B | [call(204), call(1231)]
+ 203 | $C8B23A |    30B | "What? Galuf? ...did you say some"
+ 204 | $C8B258 |    18B | [party_action, sound]
+ 205 | $C8B26A |    13B | call(185): "Faris: ... Lenna... There's one"
+ 206 | $C8B277 |    57B | call(208): "<Bartz>: Where are we...!?"
+ 207 | $C8B2B0 |    37B | NPC: "Can't carry any more items!"
+ 208 | $C8B2D5 |   843B | "<Bartz>: Where are we...!?"
+ 209 | $C8B620 |    35B | [call(888), call(888), obj_action, party_action]
+ 210 | $C8B643 |    12B | [Ronka Ruins Lv4 #1]
+ 211 | $C8B64F |    61B | "Galuf: It's full of monsters ahe"
+ 212 | $C8B68C |    15B | [call(1014), event_switch]
+ 213 | $C8B69B |    20B | [call(1014), event_switch]
+ 214 | $C8B6AF |    12B | [call(1014), event_switch]
+ 215 | $C8B6BB |    15B | [call(1014), event_switch]
+ 216 | $C8B6CA |    12B | [call(1014), event_switch]
+ 217 | $C8B6D6 |    20B | [call(1014), event_switch]
+ 218 | $C8B6EA |    84B | [battle(280), call(1013), call(1014), obj_action]
+ 219 | $C8B73E |     7B | [Ghido's Cave Entrance #1]
+ 220 | $C8B745 |   759B | "Galuf: Cara! Cara: Grandpa! The"
+ 221 | $C8BA3C |   342B | NPC: "Can't carry any more items!"
+ 222 | $C8BB92 |   435B | "Oh my goodness, we have some gue"
+ 223 | $C8BD45 |   312B | "<Bartz>: Owee... Cara: Well, you"
+ 224 | $C8BE7D |     4B | [party_action, event_switch]
+ 225 | $C8BE81 |   538B | "<Bartz>: A dead end..."
+ 226 | $C8C09B |    15B | [Castle Exdeath #1]
+ 227 | $C8C0AA |    15B | [Castle Exdeath #1]
+ 228 | $C8C0B9 |    27B | [obj_action, party_action, event_switch]
+ 229 | $C8C0D4 |    11B | [Castle Exdeath 3F #1]
+ 230 | $C8C0DF |    11B | [Castle Exdeath 3F #2]
+ 231 | $C8C0EA |     6B | [call(1054), party_action]
+ 232 | $C8C0F0 |     6B | [call(1054), party_action]
+ 233 | $C8C0F6 |   102B | [obj_action, party_action, sound, event_switch]
+ 234 | $C8C15C |     7B | call(1141): "Moogle: Kupo!"
+ 235 | $C8C163 |     7B | call(1141): "Moogle: Kupo!"
+ 236 | $C8C16A |   623B | "Cara: Grandpa's calling...!!"
+ 237 | $C8C3D9 |    16B | [party_action, sound]
+ 238 | $C8C3E9 |     5B | "It's locked."
+ 239 | $C8C3EE |   815B | "Cara: I'm going to go let the Hi"
+ 240 | $C8C71D |   194B | "Cara: ... Lenna: Cara?"
+ 241 | $C8C7DF |    53B | "Galuf: Open the gates! Soldier:" (Y/N)
+ 242 | $C8C814 |    57B | "Galuf: We should be able to go t"
+ 243 | $C8C84D |    27B | [obj_action, party_action, sound]
+ 244 | $C8C868 |  1177B | "Don't move!"
+ 245 | $C8CD01 |     5B | NPC: "Obtained Gil!"
+ 246 | $C8CD06 |     5B | NPC: "Obtained !"
+ 247 | $C8CD0B |   373B | "Lenna: Look! Faris: Hiryuu Plant"
+ 248 | $C8CE80 |     9B | [Submarine #1]
+ 249 | $C8CE89 |     7B | [Sea Floor #1]
+ 250 | $C8CE90 |    59B | [party_action]
+ 251 | $C8CECB |   287B | "<Bartz>: This...? Galuf: Sage Gu"
+ 252 | $C8CFEA |    34B | "This is King Galuf! What are you"
+ 253 | $C8D00C |    42B | "This is King Galuf! What are you"
+ 254 | $C8D036 |    18B | NPC: "Obtained !"
+ 255 | $C8D048 |   260B | "Zeza: What's that Hiryuu doing h"
+ 256 | $C8D14C |    11B | "Catch a few Z's?" (Y/N)
+ 257 | $C8D157 |   335B | NPC: "Obtained !"
+ 258 | $C8D2A6 |    10B | [Xezat's Fleet #1]
+ 259 | $C8D2B0 |    14B | [call(765), fade]
+ 260 | $C8D2BE |    25B | [call(765), call(1152), obj_action, fade]
+ 261 | $C8D2D7 |   119B | NPC: "Can't carry any more items!"
+ 262 | $C8D34E |   126B | "Galuf: Is this the Barrier Tower"
+ 263 | $C8D3CC |   253B | "Can you... hear me...?"
+ 264 | $C8D4C9 |  1250B | "Galuf: Zeza! We've reached the t"
+ 265 | $C8D9AB |   128B | [unknown]
+ 266 | $C8DA2B |   338B | "<Bartz>: What's this turtle!?"
+ 267 | $C8DB7D |    18B | "Lenna: ...? The branch!"
+ 268 | $C8DB8F |    10B | [call(889), call(890)]
+ 269 | $C8DB99 |   314B | "<Bartz>: Huh?"
+ 270 | $C8DCD3 |     9B | [obj_action]
+ 271 | $C8DCDC |    30B | [obj_action, party_action, fade]
+ 272 | $C8DCFA |    79B | "Moogle: Kupo!"
+ 273 | $C8DD49 |    28B | "<Bartz>: Let's wait a while unti"
+ 274 | $C8DD65 |    32B | "Mid: Please hurry here, the plac"
+ 275 | $C8DD85 |    61B | [Moogle Cave #1]
+ 276 | $C8DDC2 |    10B | NPC: "Obtained !"
+ 277 | $C8DDCC |    10B | NPC: "Obtained Gil!"
+ 278 | $C8DDD6 |    15B | [Submarine #2]
+ 279 | $C8DDE5 |    26B | [party_action, fade]
+ 280 | $C8DDFF |     7B | [Great Forest of Moore #1]
+ 281 | $C8DE06 |    28B | "<Bartz>: Blurp, blurrp! I can pr"
+ 282 | $C8DE22 |   774B | "Chancellor: Princess Lenna! Prin"
+ 283 | $C8E128 |    48B | "Cara: Grandpa... <Bartz>: What i"
+ 284 | $C8E158 |    68B | "Cara: What about Lenna and Faris"
+ 285 | $C8E19C |   168B | "I bring news that the bridge acr"
+ 286 | $C8E244 |    12B | [Kuza Sealed Castle #1]
+ 287 | $C8E250 |    12B | [Kuza Sealed Castle #1]
+ 288 | $C8E25C |    75B | [unknown]
+ 289 | $C8E2A7 |    75B | [unknown]
+ 290 | $C8E2F2 |    75B | [unknown]
+ 291 | $C8E33D |  1744B | "<Bartz>: Guido!?"
+ 292 | $C8EA0D |    28B | "Palace guard: You are... Lenna:"
+ 293 | $C8EA29 |    11B | [obj_action]
+ 294 | $C8EA34 |    20B | [obj_action, party_action]
+ 295 | $C8EA48 |   107B | "Galuf: These are... The 12 Legen"
+ 296 | $C8EAB3 |    14B | [call(1496), party_action, event_switch]
+ 297 | $C8EAC1 |    14B | [call(1497), party_action, event_switch]
+ 298 | $C8EACF |    14B | [call(1496), party_action, event_switch]
+ 299 | $C8EADD |    14B | [call(1497), party_action, event_switch]
+ 300 | $C8EAEB |    14B | [call(1496), party_action, event_switch]
+ 301 | $C8EAF9 |    14B | [call(1497), party_action, event_switch]
+ 302 | $C8EB07 |    43B | [party_action, sound, event_switch]
+ 303 | $C8EB32 |   133B | "Lenna: <Bartz>... Huh? Faris: Th"
+ 304 | $C8EBB7 |    15B | [party_action, sound, event_switch]
+ 305 | $C8EBC6 |    39B | [party_action, sound, event_switch]
+ 306 | $C8EBED |    22B | [obj_action, party_action, sound]
+ 307 | $C8EC03 |    19B | [give_take_item, obj_action, party_action, sound]
+ 308 | $C8EC16 |    19B | [obj_action, party_action, sound]
+ 309 | $C8EC29 |    36B | [call(1496), call(1484), party_action, event_switch]
+ 310 | $C8EC4D |     9B | [battle(298), obj_action]
+ 311 | $C8EC56 |     9B | [battle(298), obj_action]
+ 312 | $C8EC5F |     9B | [battle(298), obj_action]
+ 313 | $C8EC68 |     9B | [battle(298), obj_action]
+ 314 | $C8EC71 |     9B | [battle(298), obj_action]
+ 315 | $C8EC7A |     9B | [battle(298), obj_action]
+ 316 | $C8EC83 |     8B | [party_action, event_switch]
+ 317 | $C8EC8B |    40B | [obj_action, party_action, sound, event_switch]
+ 318 | $C8ECB3 |     7B | [call(1469), event_switch]
+ 319 | $C8ECBA |     6B | [call(1469), event_switch]
+ 320 | $C8ECC0 |     9B | [battle(294), obj_action]
+ 321 | $C8ECC9 |     9B | [battle(294), obj_action]
+ 322 | $C8ECD2 |    25B | [obj_action, party_action, sound, event_switch]
+ 323 | $C8ECEB |  3405B | [Space part 1 #1]
+ 324 | $C8FA38 |     9B | [Submarine #3]
+ 325 | $C8FA41 |    12B | [Tower of Walse Crystal Chamber #1]
+ 326 | $C8FA4D |     9B | [Sea Floor (Combined World) #1]
+ 327 | $C8FA56 |   224B | "Here, hang on tight! Don't fall"
+ 328 | $C8FB36 |   226B | "Here, hang on tight! Don't fall"
+ 329 | $C8FC18 |   232B | "Here, hang on tight! Don't fall"
+ 330 | $C8FD00 |   230B | "Here, hang on tight! Don't fall"
+ 331 | $C8FDE6 |   234B | "Here, hang on tight! Don't fall"
+ 332 | $C8FED0 |   222B | "Here, hang on tight! Don't fall"
+ 333 | $C8FFAE |   227B | "Here, hang on tight! Don't fall"
+ 334 | $C90091 |   207B | "Here, hang on tight! Don't fall"
+ 335 | $C90160 |   213B | "Here, hang on tight! Don't fall"
+ 336 | $C90235 |   213B | "Here, hang on tight! Don't fall"
+ 337 | $C9030A |   218B | "Here, hang on tight! Don't fall"
+ 338 | $C903E4 |   213B | "Here, hang on tight! Don't fall"
+ 339 | $C904B9 |   218B | "Here, hang on tight! Don't fall"
+ 340 | $C90593 |   204B | "Here, hang on tight! Don't fall"
+ 341 | $C9065F |   223B | "Cid... Mid... how are you? It's"
+ 342 | $C9073E |     8B | [unknown]
+ 343 | $C90746 |     8B | [unknown]
+ 344 | $C9074E |     8B | [unknown]
+ 345 | $C90756 |     8B | [unknown]
+ 346 | $C9075E |    35B | [The Void Mirage Town #1]
+ 347 | $C90781 |    39B | "rcrffnit"
+ 348 | $C907A8 |     6B | [call(1885), sound]
+ 349 | $C907AE |    25B | [obj_action]
+ 350 | $C907C7 |    40B | "<Bartz>: What the...!? Galuf: Th"
+ 351 | $C907EF |    17B | [obj_action, party_action]
+ 352 | $C90800 |     4B | [party_action, event_switch]
+ 353 | $C90804 |     6B | [call(442), event_switch]
+ 354 | $C9080A |     6B | [call(443), event_switch]
+ 355 | $C90810 |     7B | [Fire-Powered Ship Bulkhead #1]
+ 356 | $C90817 |     7B | [Fire-Powered Ship Bulkhead #1]
+ 357 | $C9081E |     6B | [call(443), event_switch]
+ 358 | $C90824 |     6B | [call(442), event_switch]
+ 359 | $C9082A |     7B | [Fire-Powered Ship Bulkhead #2]
+ 360 | $C90831 |     7B | [Fire-Powered Ship Bulkhead #1]
+ 361 | $C90838 |     6B | [call(443), event_switch]
+ 362 | $C9083E |     6B | [call(442), event_switch]
+ 363 | $C90844 |     7B | [Fire-Powered Ship Bulkhead #2]
+ 364 | $C9084B |     7B | [Fire-Powered Ship Bulkhead #3]
+ 365 | $C90852 |     6B | [call(442), event_switch]
+ 366 | $C90858 |     6B | [call(443), event_switch]
+ 367 | $C9085E |     7B | [Fire-Powered Ship Bulkhead #4]
+ 368 | $C90865 |     7B | [Fire-Powered Ship Bulkhead #5]
+ 369 | $C9086C |     6B | [call(443), event_switch]
+ 370 | $C90872 |     6B | [call(442), event_switch]
+ 371 | $C90878 |     7B | [Fire-Powered Ship Bulkhead #6]
+ 372 | $C9087F |     7B | [Fire-Powered Ship Bulkhead #7]
+ 373 | $C90886 |    62B | [call(451), call(452), obj_action, party_action]
+ 374 | $C908C4 |    44B | [call(451), call(452), obj_action, sound]
+ 375 | $C908F0 |    62B | [call(455), call(454), obj_action, party_action]
+ 376 | $C9092E |    44B | [call(455), call(454), obj_action, sound]
+ 377 | $C9095A |    43B | [call(456), call(457), obj_action, sound]
+ 378 | $C90985 |    43B | [call(460), call(459), obj_action, sound]
+ 379 | $C909B0 |    26B | [call(461), call(462), obj_action, sound]
+ 380 | $C909CA |    25B | [call(462), call(461), obj_action, sound]
+ 381 | $C909E3 |    43B | [call(463), call(464), obj_action, sound]
+ 382 | $C90A0E |    43B | [call(467), call(466), obj_action, sound]
+ 383 | $C90A39 |    86B | [call(468), call(469), obj_action, party_action]
+ 384 | $C90A8F |    60B | [call(468), call(469), obj_action, party_action]
+ 385 | $C90ACB |    60B | [call(474), call(473), obj_action, party_action]
+ 386 | $C90B07 |    25B | [call(475), call(476), obj_action, sound]
+ 387 | $C90B20 |    25B | [call(476), call(475), obj_action, sound]
+ 388 | $C90B39 |    30B | [call(475), call(476), obj_action, party_action]
+ 389 | $C90B57 |    60B | [call(468), call(469), obj_action, party_action]
+ 390 | $C90B93 |    60B | [call(474), call(473), obj_action, party_action]
+ 391 | $C90BCF |    86B | [call(474), call(473), obj_action, party_action]
+ 392 | $C90C25 |    20B | [call(1908), party_action]
+ 393 | $C90C39 |    18B | [call(1908), party_action]
+ 394 | $C90C4B |    18B | [call(1908), party_action]
+ 395 | $C90C5D |    20B | [call(1908), party_action]
+ 396 | $C90C71 |     6B | [unknown]
+ 397 | $C90C77 |    28B | [obj_action, party_action, sound, event_switch]
+ 398 | $C90C93 |    28B | [obj_action, party_action, sound, event_switch]
+ 399 | $C90CAF |    18B | [Fire-Powered Ship Elevator #1]
+ 400 | $C90CC1 |     9B | [Fire-Powered Ship Elevator #2]
+ 401 | $C90CCA |     9B | [Fire-Powered Ship Elevator #1]
+ 402 | $C90CD3 |    18B | [Fire-Powered Ship Elevator #2]
+ 403 | $C90CE5 |     9B | [Fire-Powered Ship Bulkhead #1]
+ 404 | $C90CEE |    18B | [Fire-Powered Ship Bulkhead #2]
+ 405 | $C90D00 |    18B | [Fire-Powered Ship Bulkhead #1]
+ 406 | $C90D12 |     9B | [Fire-Powered Ship Bulkhead #2]
+ 407 | $C90D1B |     9B | [Fire-Powered Ship Elevator #1]
+ 408 | $C90D24 |    18B | [Fire-Powered Ship Elevator #2]
+ 409 | $C90D36 |    26B | [party_action, sound, event_switch]
+ 410 | $C90D50 |     5B | [event_switch]
+ 411 | $C90D55 |     5B | [event_switch]
+ 412 | $C90D5A |     7B | [Karnak Castle Crystal Chamber #2]
+ 413 | $C90D61 |    11B | [Fire-Powered Ship Boiler Room #1]
+ 414 | $C90D6C |    45B | [Fire-Powered Ship Boiler Room #2]
+ 415 | $C90D99 |     7B | [Fire-Powered Ship Boiler Room #3]
+ 416 | $C90DA0 |    14B | [sound, event_switch]
+ 417 | $C90DAE |    13B | [sound, event_switch]
+ 418 | $C90DBB |     9B | [Cave Lv3 #1]
+ 419 | $C90DC4 |    17B | [Pirates' Hideout #1]
+ 420 | $C90DD5 |     7B | [Pirates' Hideout #2]
+ 421 | $C90DDC |    23B | [battle(318), party_action]
+ 422 | $C90DF3 |    27B | [battle(317), party_action]
+ 423 | $C90E0E |    25B | [battle(318), party_action]
+ 424 | $C90E27 |    35B | [battle(317), party_action]
+ 425 | $C90E4A |    50B | [battle(318), party_action]
+ 426 | $C90E7C |    26B | "Lenna: Moogle!!"
+ 427 | $C90E96 |   396B | "Lenna: You don't need to be afra"
+ 428 | $C91022 |     7B | [World Map (Galuf's World) #2]
+ 429 | $C91029 |    54B | "Would you like me to navigate un" (Y/N)
+ 430 | $C9105F |    63B | [obj_action, sound, event_switch]
+ 431 | $C9109E |     7B | [obj_action]
+ 432 | $C910A5 |   200B | [party_action]
+ 433 | $C9116D |   155B | [party_action]
+ 434 | $C91208 |   133B | [party_action]
+ 435 | $C9128D |     7B | [unknown]
+ 436 | $C91294 |    81B | [party_action]
+ 437 | $C912E5 |     6B | [party_action]
+ 438 | $C912EB |    23B | [obj_action, sound]
+ 439 | $C91302 |    12B | [obj_action]
+ 440 | $C9130E |    92B | "pg<Krile>pAll ttKP<Bartz>iOr!h Y"
+ 441 | $C9136A |    56B | "pg<Krile>pAll ttKP<Bartz>iOr!h Y"
+ 442 | $C913A2 |   107B | [call(448), call(449), obj_action, party_action]
+ 443 | $C9140D |   105B | [call(446), call(445), obj_action, party_action]
+ 444 | $C91476 |    23B | [party_action]
+ 445 | $C9148D |    23B | [party_action]
+ 446 | $C914A4 |    23B | [party_action]
+ 447 | $C914BB |    23B | [party_action]
+ 448 | $C914D2 |    23B | [party_action]
+ 449 | $C914E9 |    23B | [party_action]
+ 450 | $C91500 |    23B | [party_action]
+ 451 | $C91517 |    25B | [party_action]
+ 452 | $C91530 |    25B | [party_action]
+ 453 | $C91549 |    25B | [party_action]
+ 454 | $C91562 |    25B | [party_action]
+ 455 | $C9157B |    25B | [party_action]
+ 456 | $C91594 |    29B | [party_action]
+ 457 | $C915B1 |    29B | [party_action]
+ 458 | $C915CE |    29B | [party_action]
+ 459 | $C915EB |    29B | [party_action]
+ 460 | $C91608 |    29B | [party_action]
+ 461 | $C91625 |     8B | [party_action]
+ 462 | $C9162D |     8B | [party_action]
+ 463 | $C91635 |    15B | [party_action]
+ 464 | $C91644 |    15B | [party_action]
+ 465 | $C91653 |    15B | [party_action]
+ 466 | $C91662 |    15B | [party_action]
+ 467 | $C91671 |    15B | [party_action]
+ 468 | $C91680 |    23B | [party_action]
+ 469 | $C91697 |    23B | [party_action]
+ 470 | $C916AE |    23B | [party_action]
+ 471 | $C916C5 |    23B | [party_action]
+ 472 | $C916DC |    23B | [party_action]
+ 473 | $C916F3 |    23B | [party_action]
+ 474 | $C9170A |    23B | [party_action]
+ 475 | $C91721 |     9B | [party_action]
+ 476 | $C9172A |     9B | [party_action]
+ 477 | $C91733 |    18B | call(479): "Lenna: Are you all right? Old Ma"
+ 478 | $C91745 |    15B | call(479): "Lenna: Are you all right? Old Ma"
+ 479 | $C91754 |   234B | "Lenna: Are you all right? Old Ma"
+ 480 | $C9183E |    62B | [obj_action, party_action]
+ 481 | $C9187C |   103B | [obj_action]
+ 482 | $C918E3 |    23B | [call(483), call(484), obj_action]
+ 483 | $C918FA |    27B | [obj_action]
+ 484 | $C91915 |   502B | [unknown]
+ 485 | $C91B0B |    26B | [obj_action]
+ 486 | $C91B25 |     8B | [unknown]
+ 487 | $C91B2D |    63B | "Cid: Were you really swallowed i"
+ 488 | $C91B6C |    21B | [obj_action]
+ 489 | $C91B81 |     4B | call(1159): NPC: "Obtained !"
+ 490 | $C91B85 |     4B | call(1160): NPC: "Obtained !"
+ 491 | $C91B89 |     4B | call(1161): NPC: "Obtained !"
+ 492 | $C91B8D |     4B | call(1162): NPC: "Obtained !"
+ 493 | $C91B91 |     4B | call(1163): NPC: "Obtained !"
+ 494 | $C91B95 |    34B | "The power of this Piece of Cryst" (Y/N)
+ 495 | $C91BB7 |    15B | NPC: "Obtained !"
+ 496 | $C91BC6 |     8B | NPC: "Can't carry any more items!"
+ 497 | $C91BCE |    36B | [obj_action, party_action, event_switch]
+ 498 | $C91BF2 |   120B | [obj_action, fade]
+ 499 | $C91C6A |    10B | [obj_action, party_action]

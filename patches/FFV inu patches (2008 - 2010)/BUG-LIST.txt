@@ -1,0 +1,131 @@
+Filename                                 PSX GBA | Ref
+-------------------------------------------------+----
+ff5_atomos_wormhole.ips                   -   -  |
+ff5_auto_jump.ips                         -   -  |
+ff5_butz_blue_mage_gfx.ips                -   -  |
+ff5_berserk_jump.ips                      -   -  |
+ff5_check.ips                             -   -  |
+ff5_chemist_ending.ips                    X   X  |
+ff5_condemned.ips                         -   X  |
+ff5_counter.ips                           -   X  |
+ff5_damage_overflow.ips                   -   -  |
+ff5_damage_overflow_mp.ips                -   -  | 1
+ff5_darkbow.ips                           -   X  |
+ff5_dead_aegis_shield.ips                 -   -  |
+ff5_escape.ips                            -   X  |
+ff5_evade_animation.ips                   -   -  |
+ff5_evade_overflow.ips                    -   -  |
+ff5_gaiahammer.ips                        -   -  |
+ff5_giantdrink_enemy.ips                  -   -  |
+ff5_golem.ips                             -   -  |
+ff5_hide_escape.ips                       -   -  |
+ff5_hide_reveal.ips                       X   X  | 2
+ff5_hp_leak_counter.ips                   -   -  |
+ff5_hp_leak_down.ips                      -   -  |
+ff5_ineffective.ips                       X   X  | 3
+ff5_infinite_items.ips                    -   X  |
+ff5_item_delay.ips                        -   X  |
+ff5_item_evade.ips                        -   -  |
+ff5_item_stat_bonus.ips                   -   X  |
+ff5_item_transform.ips                    -   X  |
+ff5_item_weight.ips                       -   -  |
+ff5_learning.ips                          -   -  |
+ff5_magical_weapon.ips                    -   -  |
+ff5_magicshell.ips                        -   -  |
+ff5_magicshell_fast.ips                   -   -  |
+ff5_magicshell_group.ips                  -   -  |
+ff5_magicshell_reflect.ips                -   -  |
+ff5_mimic_blank.ips                       -   -  |
+ff5_mimic_meteor.ips                      -   -  |
+ff5_mimic_weapon.ips                      -   -  |
+ff5_mini_and_toad.ips                     -   X  |
+ff5_multi_se.ips                          -   -  |
+ff5_old.ips                               -   X  |
+ff5_old_timer.ips                         -   -  |
+ff5_possess.ips                           -   -  |
+ff5_powerdrink.ips                        -   -  |
+ff5_react_against_all_target.ips          -   -  |
+ff5_react_against_reflect.ips             -   -  |
+ff5_reapply_item_element.ips              -   -  |
+ff5_reapply_item_immunity.ips             -   -  |
+ff5_reapply_item_state.ips                -   -  |
+ff5_remedy_petrified.ips                  -   -  |
+ff5_remember.ips                          -   -  |
+ff5_return.ips                            -   -  |
+ff5_return_se.ips                         X   X  |
+ff5_roulette.ips                          -   X  | 4
+ff5_sandworm.ips                          -   -  |
+ff5_song.ips                              -   X  | 5
+ff5_specialty.ips                         -   -  |
+ff5_spellblade_osmose.ips                 -   X  |
+ff5_stuck_bug.ips                         X   X  |
+ff5_stuck_teleport.ips                    -   X  |
+ff5_swdslap.ips                           -   -  |
+ff5_target_meteor.ips                     -   -  |
+ff5_three_images.ips                      -   -  |
+ff5_twinlance.ips                         -   -  |
+ff5_two_handed.ips                        -   -  |
+ff5_unequip_freeze.ips                    -   -  | 6
+ff5_uptempo_freeze.ips                    ?   X  |
+ff5_weak_category.ips                     -   -  |
+ff5_weapon_change_counter.ips             -   -  |
+ff5_x-redirect.ips                        X   X  |
+ff5_zombie_breath.ips                     -   -  |
+ff5_zombie_catch.ips                      -   -  |
+ff5_zombie_freeze.ips                     -   X  |
+ff5_zombie_powder.ips                     -   X  | 7
+-------------------------------------------------+----
+ff5_ability_menu.ips                      -   X  |
+ff5_dash_gba.ips                          -   X  |
+ff5_dash_ps.ips                           X   X  |
+ff5_fast_nothing.ips                      -   -  |
+ff5_item_menu.ips                         -   X  |
+ff5_kiss_of_blessing.ips                  -   X  |
+ff5_lv5_death.ips                         -   -  |
+ff5_player_name.ips                       -   X  |
+ff5_sort.ips                              -   X  |
+-------------------------------------------------+----
+X: 修正/対応, ?: 不明
+X: Correction/Correspondence, ?: Unknown
+
+
+   * SFC: Final Fantasy V Super Famicom
+   * PSX: Final Fantasy V PS
+   * GBA: Final Fantasy V Advance
+------------------------------------------------------
+Ref
+   [1] GBA: ダメージ値の上限が 9999 に変更された。
+	[1] GBA: Damage value cap changed to 9999.
+
+   [2] PSX & GBA: 隠れるのコマンドの対象選択の動作が変わってしまうバグは修正
+                  されていない。
+    [2] PSX & GBA: Fixed a bug that changed the target selection behavior of the Hide command.
+                   It has not been.
+
+   [3] PSX: アイテム消失バグは修正されていない。
+    [3] PSX: Item loss bug not fixed.
+
+
+   [4] GBA: ルーレットの目押しができるように変更された。
+    [4] GBA: Changed so that you can press the roulette wheel.
+
+
+   [5] GBA: 行動不能になるバグ・ものまねだとタイマー対象者が違うバグは修正さ
+            れていない。
+    [5] GBA: Fixed a bug that would cause you to be unable to take action and a bug where the 	timer target was different for impersonators.
+             Not yet.
+
+
+   [6] GBA: 何でも装備バグが追加された。
+    [6] GBA: Added anything equipment bug.
+
+
+   [7] GBA: 対象がいない場合に、自分自身がゾンビーパウダー/死者の踊りを受け
+            てしまうバグがある。
+    [7] GBA: If there is no target, you will receive Zombie Powder/Dance of the Dead.
+             There is a bug that causes
+
+
+
+
+

@@ -1,0 +1,379 @@
+2010-07-08
+! base/ff5_core-1.7.ips
+  エフェクト処理を修正。
+! improve/ff5_fast_nothing.ips
+  ff5_core-1.7.ips の変更にあわせて修正。
+
+2010-06-14
+! base/ff5_core-1.6.ips
+  巨人の薬を使用した戦闘でレベルアップすると最大 HP が上昇しないバグを修正。
+  サブルーチン REMOVE_ZEROITEM を追加 ($D0EF78 の代わりに使用)。
+  ff5_monsters_magic_point.ips の内容をマージした。
+! bugfix/ff5_reapply_item_immunity.ips
+  ff5_core-1.6.ips の変更にあわせて修正。
++ bugfix/ff5_giantdrink_enemy.ips
+  Added a new patch.
+- bugfix/ff5_monsters_magic_point.ips
+  Removed obsolete patch.
+
+2010-06-10
+! base/ff5_core-1.5.ips
+  戦闘中に消費したギルをリターン時にリセットできるように修正。
+  以下のコードを ff5_sr.asm からマージした:
+  - 戦闘開始時に分身の位置を初期化するように修正
+  - 最適化コードを追加
+
+2010-06-08
++ bugfix/ff5_three_images.ips
+  Added a new patch.
+
+2009-11-08
+! bugfix/ff5_song.ips
+  歌をものまねすると、その歌の使用時に選択したキャラクタにタイマーが設定され
+  るバグを修正。
+
+2009-10-30
+! base/ff5_ext-1.2.ips
+  Handle ff5_mimic_weapon.ips.
++ bugfix/ff5_mimic_blank.ips
+  ff5_spellblade_fire.ips の代わりになるパッチを追加.
++ bugfix/ff5_counter.ips
++ bugfix/ff5_mimic_weapon.ips
++ bugfix/ff5_multi_se.ips
+  Added new patches.
+! bugfix/ff5_check.ips
+! bugfix/ff5_gaiahammer.ips
+! bugfix/ff5_golem.ips
+! bugfix/ff5_hide_reveal.ips
+! bugfix/ff5_magicshell.ips
+! bugfix/ff5_magicshell_fast.ips
+! bugfix/ff5_magicshell_group.ips
+! bugfix/ff5_magicshell_reflect.ips
+! bugfix/ff5_unequip_freeze.ips
+! improve/ff5_fast_nothing.ips
+! improve/ff5_lv5_death.ips
+  Filenames changed.
+- bugfix/ff5_spellblade_fire.ips.
+  Removed obsolete patch.
+- improve/ff5_fast_menu_scroll.ips
+  Removed from ff5_bugfixes.
+
+2009-09-08
++ bugfix/ff5_remember.ips
+  Added a new patch.
+
+2009-09-07
+! base/ff5_core-1.4.ips
+  魔法のメッセージ表示処理を拡張。リフレク反射時にメッセージを表示しない仕様
+  に戻した (ただし、ライブラ用メッセージは表示する)。
+  宝箱回収率の計算式の誤差を修正。
+
+  Note: 宝箱回収率は [回収した宝箱の数×3968÷10000] の式もしくは回収した宝
+        箱の数が 252 のとき 100% で算出されていたため、回収した宝箱の数が
+        63, 126, 189 のときに誤差があった。
++ bugfix/ff5_remedy_petrified.ips
+  Added a new patch.
+
+2009-08-29
+! base/ff5_core-1.3.ips
+  定数乗算を最適化。
+  文字コード 0x11・0x12 で表示できる文字数を増加。
++ base/
++ bugfix/
++ improve/
+  All the patches are split into base/, bugfix/ and improve/.
++ improve/ff5_fast_menu_scroll.ips
++ improve/ff5_sort.ips
+  Added new patches.
+
+2009-08-12
++ ff5_fix_butz_blue_mage_gfx.ips
+  Added a new patch.
+
+2009-06-23
+! ff5_fix_condemned.ips
+  死の宣告のカウントの上限を修正。
+- ff5_fix_zombie_condemned.ips
+  内容を ff5_fix_condemned.ips にマージ。
+
+2009-05-27
+! ff5_fix_mbarrier_fast.ips
+  互換性の向上: 沈黙・蛙の状態もしくはミュートがかかっていれば魔法バリアを発
+  動できないようにした。
+
+2009-05-08
++ ff5_fix_zombie_breath.ips
+  Added a new patch.
+
+2009-04-04
+! ff5_fix_mbarrier_fast.ips
+  互換性の向上: 魔法バリアをものまねできるようにした。また ff5_fix_mbarrier_
+  group.ips を適用していない場合に、1 回目の攻撃では最初のキャラクタ以外が魔
+  法バリアを発動できないようにした。
++ ff5_update_player_name.ips
+  Added a new patch.
+! ff5_fix_mbarrier_group.ips
+  ファイル名が長いので変更: Renamed ff5_fix_mbarrier_all_characters.ips to
+  ff5_fix_mbarrier_group.ips.
++ ff5_anti_mbarrier_group.ips
++ ff5_anti_mbarrier_reflect.ips
+  Added anti-patches.
+
+2009-04-02
++ ff5_fix_mbarrier_fast.ips
++ ff5_fix_weapon_change_counter.ips
+  Added new patches.
+
+2009-02-28
+! ff5_fix_core-1.1.ips
+  メッセージを表示する魔法をリフレクで反射するとメッセージが表示されなくなる
+  バグを修正。
+
+2009-02-28
+! ff5_fix_ext-1.1.ips
+  Handle ff5_fix_zombie_condemned.ips.
++ ff5_fix_roulette.ips
++ ff5_fix_zombie_condemned.ips
+  Added new patches.
+
+2009-02-25
+! ff5_fix_evade_animation.ips
+  敵が魔法攻撃と物理攻撃を連続して行うと、イージスの盾による演出効果が正しく
+  行われないバグを修正。
+  複合エフェクト (C5 xx yy) が指定された魔法攻撃を行うと、イージスの盾による
+  演出効果が正しく行われないバグを修正。
+
+2008-12-13
++ ff5_fix_react_against_all_target.ips
+  Added a new patch.
+
+2008-11-22
++ ff5_fix_stuck_teleport.ips
+  テレポによる「はまり」を修正。
+
+2008-11-19
++ ff5_fix_stuck_bug.ips
+  Added a new patch.
+
+2008-10-24
++ ff5_anti_item_evade.ips
++ ff5_anti_item_weight.ips
+  一部 anti-patch が不足していたので追加。
+
+2008-10-23
+! ff5_fix_evade_animation.ips
+  イージスの盾による演出が 2 人以上のキャラクタに適用されないバグを修正。
+
+2008-10-22
++ ff5_fix_ext.ips
+  特定のパッチファイルで必要な共通部分をまとめた。
++ ff5_fix_core.ips
++ ff5_fix_evade_overflow.ips
++ ff5_fix_hp_leak_down.ips
++ ff5_fix_item_evade.ips
++ ff5_fix_item_weight.ips
++ ff5_fix_magical_weapon.ips
++ ff5_fix_sandworm.ips
++ ff5_fix_twinlance.ips
++ ff5_fix_weapon_change_freeze.ips
++ ff5_update_item_menu.ips
+  Added new patches.
+! ff5_update_dash_gba.ips
+! ff5_update_dash_ps.ips
+  滝の移動時に 4 倍速ダッシュを行うと画面が乱れるため、滝・流砂の移動時には
+  4 倍速を無効にするようにした。
+! ff5_fix_reapply_item_element.ips
+  ループ回数が間違っていることで、不正な属性を設定する問題を修正。
+  ext パッチファイル用に調整。
+! ff5_fix_powerdrink.ips
+  装備を持ち替えても、力の薬の上昇値をリセットしないようにした。
+  ext パッチファイル用に調整。
+! ff5_fix_reapply_item_state.ips
+! ff5_fix_swdslap.ips
+  ext パッチファイル用に調整。
+! ff5_fix_item_transform.ips
+  処理を最適化した。
+! ff5_fix_song.ips
+  2008-08-24 版に戻した: 敵モンスターが歌う処理の修正を ff5_fix_core.ips に
+  移動した。
+! ff5_fix_weak_category.ips.
+  Renamed ff5_update_vscategory.ips to ff5_fix_weak_category.ips.
+- ff5_fix_old-compat.ips
+- ff5_update_load_itemparam.ips
+  Removed obsolete patch.
+- Technical_Information.txt
+- asm/
+  手が回らないので技術資料を削除 (将来的には書き直したいところです)。
+
+2008-08-30
++ ff5_fix_eighth_monster.ips
++ ff5_fix_x-first_strike.ips
+  Added new patches.
+  (2008-10-22: 上記は ff5_fix_core.ips にマージ)
+
+2008-08-29
++ ff5_fix_learning.ips
++ ff5_fix_mimic_meteor.ips
++ ff5_fix_reapply_item_element.ips
++ ff5_fix_return_se.ips
++ ff5_fix_zombie_powder.ips
+  Added new patches.
+- ff5_fix_monsters_song.ips
+  内容を ff5_fix_song.ips にマージ。
+
+2008-08-24
+! ff5_fix_damage_overflow.ips
+  演算結果が 32-bit になる可能性があったので対応 (LDA $30 -> LDX $30)。
++ ff5_fix_mini_and_toad.ips
++ ff5_fix_monsters_song.ips
++ ff5_fix_song.ips
+  Added new patches.
+
+2008-08-22
++ ff5_fix_spellblade_osmose.ips
+  Added a new patch.
+
+2008-08-21
+! ff5_fix_two_handed.ips
+  ff5_update_vscategory.ips への依存を削除した。
+! ff5_fix_powerdrink.ips
+  処理の最適化と ff5_fix_swdslap.ips のための容量を確保した。
+! ff5_fix_mbarrier.ips
+  上書きする領域を減らした。ff5_fix_mbarrier_all_characters.ips のための容量
+  を確保した。
++ ff5_fix_swdslap.ips
++ ff5_fix_damage_overflow.ips
++ ff5_fix_damage_overflow_mp.ips
++ ff5_fix_react_against_reflect-wip.ips
++ ff5_fix_mbarrier_all_characters.ips
+  Added new patches.
+
+2008-08-07
++ ff5_fix_evade_animation.ips
+  Added a new patch.
+
+2008-08-06
+- ff5_fix_nothing.ips
+  ff5_fix_nothing.ips は削除されました。代わりに ff5_update_speedup_nothing.
+  ips を使用してください。
++ ff5_update_speedup_nothing.ips
+  何もしない(AAh) に加えてノーダメージまほう (ACh), モンスター出現状態変更
+  (EEh) に対応しました。
+
+2008-07-29
++ ff5_update_ability_menu.ips
++ ff5_fix_item_stat_bonus.ips
++ ff5_fix_possess.ips
+  Added new patches.
+- ff5_fix_berserk_auto.ips
++ ff5_fix_auto_jump.ips
+  ff5_fix_berserk_auto.ips は削除されました。代わりに ff5_fix_auto_jump.ips
+  を使用してください。ff5_fix_berserk_auto.ips は自動行動待ち時間を進めない
+  が、ff5_fix_auto_jump.ips は進めます。この変更は互換性のためです。
+! ff5_fix_berserk_jump.ips
+  処理を改善しました。
+
+2008-07-25
+! ff5_update_dash_gba.ips
+  移動速度÷2 を実装しました。以前は、移動速度÷2 を使用する一部のイベントで
+  画面が乱れる場合がありました。
+
+2008-07-24
++ ff5_fix_old-compat.ips
++ ff5_fix_hide_escape.ips
+  Added new patches.
+
+2008-07-15
++ ff5_fix_old.ips
+  Added a new patch.
+
+2008-07-11
++ ff5_fix_berserk_auto.ips
++ ff5_fix_golem_protects_continuous_attacks.ips
+  Added new patches.
+
+2008-07-05
++ ff5_fix_two_handed.ips
+  Added a new patch.
+
+2008-07-04
++ ff5_update_vscategory.ips
++ ff5_fix_target_meteor.ips
+  Added new patches.
+
+2008-06-27
++ ff5_fix_uptempo_freeze.ips
+  これは FF5AC で修正されたバグと同じですが、修正方法は異なります。
+
+2008-06-21
++ ff5_fix_improve_berserk.ips
++ ff5_fix_spellblade_fire.ips
++ ff5_fix_dead_aegis_shield.ips
+  Added new patches.
+! ff5_fix_reapply_item_state.ips
+  使用すると壊れる武器を使うと、分身が復活してしまう不具合を修正しました。
+! ff5_fix_nothing.ips
+  モンスター出現状態変更 (EEh) への対応をやめました。
+
+2008-06-18
++ ff5_fix_montech.ips
++ ff5_fix_old_timer.ips
+  Added new patches.
+
+2008-06-05
++ ff5_fix_gaia_hammer.ips
+  Added a new patch.
+
+2008-05-20
+! ff5_fix_monsters_magic_point.ips
+  MP の回復でオーバーフローするバグを修正しました。
++ ff5_fix_zombie_catch.ips
+  Added a new patch.
+
+2008-05-19
++ ff5_fix_hp_leak_counters.ips
++ ff5_fix_monsters_magic_point.ips
+  Added new patches.
+
+2008-05-16
++ ff5_fix_atomos_wormhole.ips
+  Added a new patch.
+
+2008-05-14
+! ff5_fix_hide_reveal_catch_and_release.ips
+  隠れるの対象選択の動作が変わってしまうバグを修正しました。
+
+2008-05-08
++ ff5_fix_return.ips
++ ff5_fix_reapply_item_immunity.ips
+  Added new patches.
+
+2008-05-06
++ ff5_fix_chemist_ending.ips
+  Added a new patch.
+
+2008-05-04
+! ff5_fix_dash_gba.ips
+  処理を最適化しました。
+
+2008-05-03
++ ff5_fix_nothing.ips
+  Added a new patch.
+
+2008-04-30
++ ff5_update_kiss_of_blessing.ips
++ ff5_update_lv5_doom.ips
+  Added new patches.
+
+2008-04-28
+! ff5_fix_zombie_freeze.ips
+  あらたに別のバグを修正しました。
++ ff5_fix_x-redirect.ips
+  Added a new patch.
+
+2008-04-26
++ ff5_fix_zombie_freeze.ips
++ ff5_fix_observe.ips
++ ff5_fix_powerdrink.ips
++ ff5_update_load_itemparam.ips
+  Added new patches.

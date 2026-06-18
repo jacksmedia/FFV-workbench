@@ -1,0 +1,74 @@
+8B 09 8C 09 84 09 84 43 84 0B 71 D3 8D 1B 14 8D
+09 8D 05 8D 00 70 8D 0A 70 B4 26 70 02 02 CF 03
+07 02 8B 01 8C 01 84 01 CF 03 07 02 8B 02 8C 02
+84 02 84 0B 71 8B 26 8C 26 71 8C 06 C7 04 8B 03
+8C 04 8B 26 8C 01 8C 26 72 CF 01 04 8B 04 8C 04
+CF 01 05 8B 04 8C 04 02 8C 24 8B 20 B2 06 8B 0A
+8C 0A BD 00 FF D0 80 00 71 02 02 71 2D 73 84 40
+73 84 26 73 C8 22 80 B4 0D A4 FE 72 84 40 70 84
+26 72 12 73 C8 23 80 73 C4 04 74 E1 0D 00 80 00
+00 0A C3 0C 73 C8 07 00 71 7A E3 7A 00 66 15 00
+09 12 87 09 87 20 D3 84 27 15 84 09 84 26 C3 04
+75 C8 24 80 71 31 70 12 74 84 20 72 84 01 70 10
+74 C8 25 80 73 84 04 84 24 72 84 3E 72 84 24 71
+C8 26 80 84 3E 70 84 24 71 84 04 16 84 04 2B 84
+04 C8 27 80 01 04 04 71 84 22 74 C8 28 00 71 88
+09 89 09 72 C8 29 00 71 10 84 26 71 12 84 24 71
+10 84 22 71 12 84 26 71 88 0A 2D 71 C8 2A 00 70
+89 0A 84 22 71 84 02 84 0A 71 A4 32 86 09 CA 32
+00 B7 09 A4 C7 FF                              
+
+8B 09			; Sprite B Show (Left Goblin)
+8C 09 			; Sprite C Show (Right Goblin)
+84 09 			; Sprite 4 Show (Lenna)
+84 43 			; Sprite 4 Lie Right
+84 0B 			; Sprite 4 Hold
+71 
+D3 8D 1B 14		; Sprite D Set Position 1B,14
+8D 09 			; Sprite D Show (Exclamation)
+8D 05 			; Sprite D Bounce Anim
+8D 00 			; Sprite D Move Hold
+70 
+8D 0A			; Sprite D Hide
+70 
+B4 26 			; Play Background Music (26: Frantic Battle)
+70 
+02				; Player Move Right 
+02 				; Player Move Right
+CF 03 07 		; Play Next 7 Bytes Together 3 Times
+02 					; Player Move Right
+8B 01 				; Sprite B Move Up
+8C 01 				; Sprite C Move Up
+84 01 				; Sprite 4 Move Up
+CF 03 07 		; Play Next 7 Bytes Together 3 Times
+02 					; Player Move Right
+8B 02 				; Sprite B Move Right
+8C 02				; Sprite C Move Right
+84 02 				; Sprite 4 Move Right
+84 0B 			; Sprite 4 Hold
+71 
+8B 26			; Sprite B Face Left?
+8C 26			; Sprite C Face Left?
+71 
+8C 06 			; Sprite C
+C7 04 			;
+8B 03			; Sprite B Move Down
+8C 04 			; Sprite C Move/Hop Left
+8B 26 			; Sprite B Face Left?
+8C 01 			; Sprite B Move Up
+8C 26 			; Sprite C Face Left?
+72 
+CF 01 04 		; Play Next 4 Bytes Together 1 Time
+8B 04 				; Sprite B Move Left
+8C 04				; Sprite C Move Left
+CF 01 05 		; Play Next 5 Bytes Together 1 Time
+8B 04 				; Sprite B Move Left
+8C 04 				; Sprite C Move Left
+02 					; Player Move Right
+8C 24 
+8B 20 
+B2 06 			; Pause 6 Cycles
+8B 0A			; Sprite B Hide
+8C 0A 			; Sprite C Hide
+BD 00			; Start Event Battle
+FF 
