@@ -227,4 +227,59 @@ Estimated ROM space needed: ~600 bytes (code + width table)
 ---
 
 *Research date: 2026-06-17*
-*Status: Analysis complete - dialogue VWF is a quick patch, menu VWF requires new code*
+*Updated: 2026-06-30*
+
+---
+
+## 8. RPGe VWF Discovery (2026-06-30)
+
+**Finding:** The RPGe translation (and ff5c.sfc based on it) already has Myria's VWF implemented!
+
+### 8.1 Hook Location
+```
+C1/2DA0: AD 07 F5     LDA $F507
+C1/2DA3: 18           CLC
+C1/2DA4: 5C 5E 2E E0  JML $E02E5E  ; <-- Jump to expansion ROM!
+```
+
+### 8.2 Expansion Code at $E02E5E
+```asm
+E0/2E5E: C2 20       REP #$20      ; 16-bit A
+E0/2E60: DA          PHX
+E0/2E61: 48          PHA
+E0/2E62: AF 00 1B 7E LDA $7E1B00   ; Load char index from RAM
+E0/2E66: 29 FF 00    AND #$00FF
+E0/2E69: AA          TAX
+E0/2E6A: 68          PLA
+E0/2E6B: E2 20       SEP #$20      ; 8-bit A
+E0/2E6D: 20 CF 31    JSR $31CF     ; Width lookup subroutine
+E0/2E70: EA EA       NOP NOP
+E0/2E72: 8D 07 F5    STA $F507     ; Store new cursor
+E0/2E75: FA          PLX
+E0/2E76: 5C A9 2D C1 JML $C12DA9   ; Return
+```
+
+### 8.3 Width Lookup at $E031CF
+```asm
+E0/31CF: 48          PHA
+E0/31D0: AF 00 1C 7E LDA $7E1C00   ; Check mode flag?
+E0/31D4: C9 74       CMP #$74
+E0/31D6: F0 07       BEQ $31DF     ; Branch if special mode
+E0/31D8: 68          PLA
+E0/31D9: 18          CLC
+E0/31DA: 7F 25 32 E0 ADC $E03225,X ; *** WIDTH TABLE LOOKUP ***
+E0/31DE: 60          RTS
+```
+
+### 8.4 Width Table at $E03225
+- 288 bytes, indexed by (char_code - $20)
+- Most values are $0C (12px) — the default
+- Variable widths for letters: $03 (I), $06-$07 (standard), $0B (M/W)
+
+### 8.5 Implications
+- **Dialogue VWF already works** in RPGe-based ROMs
+- No patch needed for dialogue font
+- Menu VWF (2bpp) still requires new implementation
+- Width table can be tuned by editing $E03225 directly
+
+*Status: Dialogue VWF complete (Myria's work), menu VWF requires new code*

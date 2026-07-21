@@ -1,3 +1,157 @@
+7/19/26 — v0.09 black-screen-after-title: root-caused and REPAIRED
+  Symptom: only sprite art changed for v0.09, yet the game died to a black
+  screen right after the title sequence.
+
+  Root cause: the sprite injection wrote a $52DD-byte blob at $280000, but
+  the WW art region is only 110 blocks x $C0 = $5280 bytes ($280000-$28527F).
+  The 93-byte overrun (the blob was ripped from a v0.04-era sheet, tail
+  included stale v0.04 code) destroyed the freespace the hooks jump to:
+    $285288 v0.05 battle routine  -> replaced with obsolete v0.04 code
+    $2852D0 v0.06 menu routine    -> half-overwritten
+    $285300 v0.07 MVN dispatch    -> zeroed
+  All five C1/C2 hooks survived, so the first character-tile copy after the
+  title handoff (C2:D319 JSL $E85300) executed $00 bytes = BRK, vectored
+  into garbage -> black screen. Both v0.09 IPS files were diffed FROM the
+  already-broken ROM, so they encode the same crash (and omit the routines).
+
+  Fix: scripts/repair_WW_v0_09.py — restored $285280-$285331 from the v0.08
+  canonical bytes (art untouched), regenerated both v0.09 IPS files
+  (+ alpha-not-released copy), and verified each IPS re-applied to its base
+  (vanilla 2.5MB / zero-padded 4MB) reproduces the repaired ROM exactly.
+  Bonus: that roundtrip proves the WW lineage ROM = vanilla + 5 hook sites
+  + $280000-$285331 block only, no hidden diffs.
+
+  Lesson: the art bank has a hard ceiling at $28527F; code starts 8 bytes
+  later. Any sprite-injection step must clamp its write to $5280 bytes.
+  Broken v0.09 ROM preserved in session scratchpad as ff5c.sfc.broken-v09.
+
+  Playtest: title -> field handoff, battle sprites/palettes, menu KO poses,
+  in-menu job change refresh.
+
+
+
+7/3/26 (later) — v0.08: menu KO palette fix
+  v0.07 confirmed: WW sprites accurate in Menu (hero+job). Remaining: KO
+  chars rendered with vanilla palette force $15 (Freelancer colors).
+
+  Culprit is the April-traced FieldChar palette builder C2:D45F (menu CGRAM
+  shadow at $7E:7400+slot*$20): job palette index from $0501&$1F, then
+  BIT $051A / BPL alive / LDA #$15 at C2:D47C forces Freelancer on dead.
+  This is patch_WW_v2.py P1, dropped when the battle fix moved to C1:B1C7 —
+  battle was covered, menu never was. (v2's P2 site C2:D97F no longer
+  matches this ROM — already reworked by another applied patch; left alone.)
+
+  Fix: $02D47C A9 15 → EA EA. Alive + stone paths untouched; dead keeps the
+  job palette index into JSR $D492 (src C0:F246[charID]+pal*$20, MVN $D4,$7E).
+
+  Files: scripts/patch_WW_v0_08.py, patches/ff5c - WWv0.08.sfc,
+         patches/WW_v0.08_checkpoint.ips (256 bytes, full code-only)
+
+  Playtest: KO'd heroes in menu should show job colors (Krile's hood white,
+  Lenna's Monk in Monk colors). Regression: alive menu colors + battle.
+
+
+
+7/3/26 — v0.07: menu MVN bank dispatch fix
+  v0.06 menu test: KO tiles sourced from D2 bank but with CORRECT computed
+  offsets — Faris job0 → $120240 (block 3 = 0×5+3), Lenna job1 → $120480
+  (block 6 = 1×5+1), Bartz job10 → $122580 (block 50 = 10×5+0). 3/3 fit
+  proves charID + job are read right; only the BANK was wrong.
+
+  Root cause in tile copier C2:D304: the 65816 MVN opcode hardcodes both
+  banks in the instruction, so the game resolves the bank byte ($E2 + $8E
+  + carry, at C2:D319) then dispatches through a CMP chain:
+    #$D4 → MVN $D4,$7E   #$D3 → MVN $D3,$7E   else → MVN $D2,$7E (default)
+  Bank $E8 matches nothing → falls into the D2 default. Vanilla walk bank
+  + WW offset = exactly the observed tiles.
+
+  Fix: 7 bytes at $02D319 (LDA $E2 / ADC $8E / AND #$00FF) → JSL $E85300 /
+  BRA $D340 / NOP. Freespace dispatch at E8:5300 (50 bytes) replicates the
+  vanilla logic (ADC $8E keeps the live carry from the 24-bit src add;
+  MVN leaves DB=$7E; RTL → BRA rejoins the per-tile loop) and adds:
+    #$E8 → MVN $E8,$7E
+  Only WW code ever resolves bank $E8, so all other D304 callers (walk
+  sprites etc.) behave identically. Old CMP chain at $02D320-33F now dead.
+
+  Files: scripts/patch_WW_v0_07.py, patches/ff5c - WWv0.07.sfc,
+         patches/WW_v0.07_checkpoint.ips (249 bytes, full code-only)
+
+  Playtest: menu KO tiles should now come from $28xxxx; check alive walk
+  sprites (D2/D3/D4) + battle for regressions; change job in menu w/ KO'd
+  hero and confirm refresh.
+
+
+
+7/1/26 (later) — v0.06: Menu KO hook — CODE-COMPLETE MVP
+  v0.05 confirmed by playtest: 4/4 hero/job matches, stable across party
+  reorders. Menu context added on top:
+
+  Whole-ROM search finds exactly TWO consumers of the D4:9400 wounded art:
+    battle: table C1:24A3 / consumer C1:2517  (hooked in v0.05)
+    menu:   table C0:EC97 / consumer C2:D2C3  (hooked in v0.06)
+  Menu loader C2:D298 (per-slot loop from C2:D240):
+    C2/D2A9  LDA $000500,X -> $EA   ; 16-bit: charID/row byte + JOB byte
+    C2/D2AF  JSR $D2DB              ; walk ptr = base[charID] + job*$600
+    C2/D2BB  charID = $EA & 7, *4 -> LDA $C0EC97,X -> $E0/$E2 (KO ptr)
+    C2/D2CF  6-tile copy via JSR $D304 (param block C0:ECAB)
+  Hook: $02D2BB (20 bytes) = JSL $E852D0 + 16 NOP. Routine at E8:52D0
+  (46 bytes): $E0 = ((job&$1F)*5 + (charID&7))*$C0, $E2 = $00E8; 16-bit A
+  throughout (vanilla opcode widths prove M=0 at hook), only $E0/$E2
+  written, PHP/PLP preserved. In-menu job changes refresh correctly since
+  $EA/$EB reload every D298 pass.
+  NB: the menu code using $EA&7 proves FieldChar byte0 low bits ARE the
+  charID (byte packs row in bit 7) — refines the 7/1 morning note.
+
+  Files: scripts/patch_WW_v0_06.py, patches/ff5c - WWv0.06.sfc,
+         patches/WW_v0.06_checkpoint.ips (185 bytes — full code-only
+         patch, applies to a clean 4MB expanded ROM)
+
+  Playtest: KO a hero, open menu — wounded pose should show the correct
+  numeral; change jobs in menu and it should update; battle unchanged.
+  Remaining for MVP: final art (110 poses) -> 4bpp -> $280000.
+
+
+
+7/1/26  — v0.05: slot-mapping bug root-caused and fixed
+Claude Fable 5 reports...
+
+  The sprite loader at C1:24E2 runs once per party slot Y (0-3, PLY/INY loop at C1:259A):
+    C1/24EE  LDA $CFC6,Y     ; A = CHARACTER ID for slot Y (0-4, $FF = empty)
+    C1/2505  ASL x3 / TAX    ; X = charID*8 -> row into 8-byte pointer matrix C1:24A3
+    C1/2517  LDA $C124A7,X   ; <-- OUR HOOK: loads KO sprite source pointer
+    C1/2526  LDA $CFCA,Y     ; job (0-21); *$600 = offset into walk sprite bank
+  Matrix rows (per HERO): walk base D2:0000/D2:8400/D3:0800/D3:8C00/D4:1000
+  (spacing $8400 = 22 jobs x $600) + KO ptr D4:9400 + charID*$C0.
+
+  So at the hook X = charID*8 (HERO, not slot) and Y = slot. v0.04's
+  slot=((X-8)>>3)&3 was built on the wrong premise and underflows for Bartz
+  (charID 0 -> X=0 -> "slot 3"). Worse, FieldChar byte 0 ($0500) is CharRow
+  (row/position), not a hero ID (per Modoh disasm) — hence sprites tracked
+  party position, matching the Jun-26 screenshot (Faris=00/Lenna=01/Bartz=02/
+  Krile=03 in slot order).
+
+  v0.05 routine (60 bytes at $285288) needs no WRAM table and no FieldChar:
+    hero = X>>3            ; charID straight from the register
+    job  = $7E:CFCA,Y      ; the game's own per-slot job table
+    $76  = (job*5+hero)*$C0 ; $78 = #$E8
+  Exits with A=$E8 8-bit so the hook-tail bytes (24 C1 = BIT $C1, 85 78 =
+  STA $78) harmlessly re-store the bank byte — same convention as v0.04.
+  Hook $012517 and Phase-1 NOPs $01B1C7 unchanged. SlotWRAMTable zeroed.
+
+  Files: scripts/patch_WW_v0_05.py, patches/ff5c - WWv0.05.sfc,
+         patches/WW_v0.05_checkpoint.ips (129 bytes, code-only, clean-ROM safe)
+
+  Playtest checklist (numeral sprites should now equal job*5+hero, i.e. the
+  block index painted on the test sheet, regardless of party order):
+    1. Load patches/ff5c - WWv0.05.sfc, KO each hero — note numeral vs job.
+    2. Reorder the party, repeat. Numbers must follow the HERO, not the slot.
+    3. With Mesen MCP connected, in battle read $7E:CFC6-CFC9 (charIDs) and
+       $7E:CFCA-CFCD (jobs) to confirm the tables live where the disasm says.
+  NOTE: Mesen MCP server was not attached this session — reconnect before
+  the WRAM verification step.
+
+
+
 4/24/26
 Claude Opus 4.5 offers...
 

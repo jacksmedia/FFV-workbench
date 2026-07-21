@@ -1,0 +1,29 @@
+{
+  "name": "spc-transpiler",
+  "version": "0.1.0",
+  "description": "Cross-game SNES SPC-700 music transpiler for FF4, FF5, FF6, and FFMQ",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "verify": "tsx scripts/verify-tracks.ts",
+    "smoke": "tsx scripts/smoke-transpile.ts"
+  },
+  "keywords": [
+    "snes",
+    "spc-700",
+    "final-fantasy",
+    "romhacking",
+    "music",
+    "transpiler"
+  ],
+  "author": "xJ4cks",
+  "license": "MIT",
+  "devDependencies": {
+    "tsx": "^4.23.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0"
+  }
+}
