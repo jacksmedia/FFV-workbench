@@ -1,0 +1,35 @@
+Done! Here's what was built:
+
+Output files in WW-project/:
+- FF5r-WW-v0.09.sfc — patched ROM ready to test
+- ff5-wounded-wardrobe-v0.09-FF5R.ips — IPS patch (21KB) to apply to FF5R Clean
+
+Address changes for your study session:
+
+┌────────────────────────┬────────────────────┬────────────────────┐
+│       Component        │   Original (E8)    │ Relocated (EB/EC)  │
+├────────────────────────┼────────────────────┼────────────────────┤
+│ Sprite art (110 × $C0) │ E8:0000-527F       │ EB:E3E0 - EC:365F  │
+├────────────────────────┼────────────────────┼────────────────────┤
+│ Battle routine         │ E8:5288 (60 bytes) │ EC:3668 (67 bytes) │
+├────────────────────────┼────────────────────┼────────────────────┤
+│ Menu routine           │ E8:52D0 (46 bytes) │ EC:36AB (53 bytes) │
+├────────────────────────┼────────────────────┼────────────────────┤
+│ Dispatch routine       │ E8:5300 (50 bytes) │ EC:36E0 (62 bytes) │
+└────────────────────────┴────────────────────┴────────────────────┘
+
+Hook JSL targets updated:
+- C1:2517: JSL $E85288 → JSL $EC3668
+- C2:D2BB: JSL $E852D0 → JSL $EC36AB
+- C2:D319: JSL $E85300 → JSL $EC36E0
+
+Key technical change: Because sprite data now spans the EB/EC bank boundary, the battle and menu routines compute the bank dynamically:
+asm
+ADC #$E3E0    ; add base offset, sets carry if overflow
+STA $76       ; store 16-bit offset
+LDA #$EB      ; base bank
+BCC +2        ; skip if no carry
+INC A         ; A = $EC if carry
+STA $78       ; store computed bank
+
+The dispatch routine now handles both MVN $7E,$EB and MVN $7E,$EC cases.

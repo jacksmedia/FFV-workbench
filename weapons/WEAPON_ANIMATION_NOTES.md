@@ -278,3 +278,26 @@ same offset calculation as other melee weapons.
 the tilemap data to ensure shaft tiles use the dynamic palette index (CCC bits)
 instead of hardcoded palette references.
 
+---
+
+## 11. RESOLUTION (2026-07-30)
+
+**Result**: MVP ACHIEVED via manual sprite tile recoloring!
+
+The NOP patch at C1/66BC did NOT fix the issue — confirming that the problem
+was in the **tile data itself**, not the code path. The spear shaft tiles had
+hardcoded palette indices baked into them.
+
+**User's Fix**: Manually edited the spear sprite tiles to use the correct
+palette indices. Now Partisan, Holy Lance, and other spears are visually
+distinctive instead of generic brown.
+
+**Lesson Learned**: The C1/66BC skip was a red herring (or secondary issue).
+The actual root cause was tile-level palette assignment in the graphics data
+at $D197A0-$D19BA0, not the runtime offset calculation.
+
+**Future Work**: 
+- Per-weapon palette variation may still need the C1/66BC fix + $DBED table work
+- Animation variety (thrust vs slash) would need animation script changes
+- The documented tilemaps and effects table will be useful for future weapon mods
+
